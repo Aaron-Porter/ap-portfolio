@@ -1,18 +1,18 @@
-import { createCss } from '@stitches/react';
+import { createCss } from "@stitches/react";
 
-export const { styled, getCssString } = createCss({
+export const { styled, getCssString, global } = createCss({
   theme: {
     fonts: {
-      system: 'system-ui',
+      system: "system-ui",
     },
     colors: {
-      hiContrast: 'hsl(206,10%,5%)',
-      loContrast: 'white',
+      hiContrast: "hsl(206,10%,5%)",
+      loContrast: "white",
     },
     fontSizes: {
-      1: '13px',
-      2: '15px',
-      3: '17px',
+      1: "13px",
+      2: "15px",
+      3: "17px",
     },
   },
 });
