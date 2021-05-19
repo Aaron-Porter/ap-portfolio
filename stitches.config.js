@@ -6,14 +6,34 @@ export const { styled, getCssString, global } = createCss({
       system: "system-ui",
     },
     colors: {
-      hiContrast: "hsl(206,10%,5%)",
-      loContrast: "white",
+      gray000: "#FFFFFF",
+      gray100: "#e9e9e9",
+      gray200: "#d9d9d9",
+      gray300: "#c4c4c4",
+      gray400: "#9d9d9d",
+      gray500: "#7b7b7b",
+      gray600: "#555555",
+      gray700: "#434343",
+      gray800: "#262626",
+      gray900: "#101010",
+      gray1000: "#000000",
     },
-    fontSizes: {
-      1: "13px",
-      2: "15px",
-      3: "17px",
+    space: {
+      xSmall: "4px",
+      small: "8px",
+      medium: "16px",
+      large: "32px",
+      xLarge: "64px",
+      xXLarge: "128px",
     },
+  },
+  media: {
+    small: "(min-width: 640px)",
+    medium: "(min-width: 768px)",
+    lessThanLarge: "(max-width: 1024px)",
+    large: "(min-width: 1024px)",
+    xLarge: "(min-width: 1200px)",
+    xXLarge: "(min-width: 1536px)",
   },
 });
 
@@ -31,6 +51,7 @@ export const globalStyles = global({
   body: {
     margin: 0,
     padding: 0,
+    backgroundColor: "$gray1000",
     fontFamily: "Suisse",
     "-webkit-font-smoothing": "antialiased",
     "-moz-osx-font-smoothing": "grayscale",
