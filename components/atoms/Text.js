@@ -4,26 +4,54 @@ const Text = styled("span", {
   // Reset
   display: "inline-block",
   margin: 0,
+  color: "$gray000",
+  lineHeight: "calc(1em + 4px)",
+
+  // Font Sizes
+  $$0: "14px",
+  $$1: "16px",
+  $$2: "20px",
+  $$3: "20px",
+  $$4: "32px",
+  $$5: "40px",
+
+  "@large": {
+    $$0: "14px",
+    $$1: "16px",
+    $$2: "20px",
+    $$3: "28px",
+    $$4: "40px",
+    $$5: "60px",
+  },
 
   variants: {
     preset: {
-      XLTitle: {
+      xLargeHeading: {
         fontWeight: 400,
-        fontSize: "52px",
-        lineHeight: "60px",
-        color: "$gray000",
+        fontSize: "$$5",
       },
-      title: {
+      largeHeading: {
         fontWeight: 400,
-        fontSize: "32px",
-        lineHeight: "40px",
-        color: "$gray000",
+        fontSize: "$$4",
+        paddingBottom: "$space100",
+      },
+      heading: {
+        fontWeight: 400,
+        fontSize: "$$3",
+        paddingBottom: "$space100",
+      },
+      subHeading: {
+        fontWeight: 400,
+        fontSize: "$$2",
       },
       body: {
-        fontSize: 16,
-        lineHeight: "20px",
         fontWeight: 400,
-        color: "$gray000",
+        fontSize: "$$1",
+      },
+      overline: {
+        fontWeight: 400,
+        fontSize: "$$0",
+        textTransform: "uppercase",
       },
     },
   },

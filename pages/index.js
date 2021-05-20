@@ -5,35 +5,28 @@ import Content from "components/atoms/Content";
 import Section from "components/atoms/Section";
 import Text from "components/atoms/Text";
 import Image from "next/image";
-
-const Card = ({ children, css, padding = "40px" }) => {
-  return (
-    <Flex
-      css={{
-        backgroundColor: "$gray900",
-        borderRadius: "8px",
-        ...css,
-      }}
-    >
-      <Box css={{ padding: padding }}>{children}</Box>
-    </Flex>
-  );
-};
+import Card from "components/atoms/Card";
 
 export default function Home() {
   return (
     <>
-      <Section css={{ padding: "$xXLarge 0" }}>
+      <Section css={{ padding: "$space700 0 $space700" }}>
         <Content>
           <Box>
-            <Text preset="XLTitle" css={{ maxWidth: "28ch" }}>
+            <Text preset="xLargeHeading" css={{ maxWidth: "28ch" }}>
               Aaron Porter designs products & systems to empower human agency.
             </Text>
           </Box>
         </Content>
       </Section>
-      <Section css={{ padding: "$xXLarge 0" }}>
+      <Section>
         <Content>
+          <Text
+            preset="overline"
+            css={{ color: "$gray500", paddingBottom: "$space500" }}
+          >
+            Selected Projects
+          </Text>
           <Flex direction="row" gap>
             <Card direction="column">
               <Image
@@ -43,10 +36,19 @@ export default function Home() {
                 height={549}
                 layout="responsive"
               />
-              <Text preset="title">Carefull</Text>
-              <Text preset="body">
+              <Text preset="largeHeading">Carefull</Text>
+              <Text
+                preset="subHeading"
+                css={{ maxWidth: "28ch", color: "$gray300" }}
+              >
                 A service to enable the 45 million Americans that are financial
                 caregivers.
+              </Text>
+              <Text
+                preset="overline"
+                css={{ color: "$gray500", paddingTop: "$space500" }}
+              >
+                2020-2021 · Design Lead
               </Text>
             </Card>
             <Flex direction="column" align="stretch" gap>

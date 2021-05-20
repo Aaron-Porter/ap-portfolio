@@ -64,7 +64,7 @@ const Flex = styled(Box, {
     },
     gap: {
       true: {
-        gap: "$medium",
+        gap: "$space400",
       },
     },
   },
