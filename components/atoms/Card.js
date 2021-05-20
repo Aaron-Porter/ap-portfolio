@@ -1,7 +1,9 @@
 import Box from "components/atoms/Box";
 import Flex from "components/atoms/Flex";
+import { styled } from "stitches.config";
 
-const Card = ({ children, css, padding = "40px" }) => {
+const Card = (props) => {
+  const { children, css } = props;
   return (
     <Flex
       css={{
@@ -9,10 +11,18 @@ const Card = ({ children, css, padding = "40px" }) => {
         borderRadius: "8px",
         ...css,
       }}
+      {...props}
     >
-      <Box css={{ padding: padding }}>{children}</Box>
+      {children}
     </Flex>
   );
 };
+
+Card.Content = styled(Flex, {
+  padding: "40px",
+  defaultVariants: {
+    direction: "column",
+  },
+});
 
 export default Card;

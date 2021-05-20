@@ -36,20 +36,22 @@ export default function Home() {
                 height={549}
                 layout="responsive"
               />
-              <Text preset="largeHeading">Carefull</Text>
-              <Text
-                preset="subHeading"
-                css={{ maxWidth: "28ch", color: "$gray300" }}
-              >
-                A service to enable the 45 million Americans that are financial
-                caregivers.
-              </Text>
-              <Text
-                preset="overline"
-                css={{ color: "$gray500", paddingTop: "$space500" }}
-              >
-                2020-2021 · Design Lead
-              </Text>
+              <Card.Content>
+                <Text preset="largeHeading">Carefull</Text>
+                <Text
+                  preset="subHeading"
+                  css={{ maxWidth: "28ch", color: "$gray300" }}
+                >
+                  A service to enable the 45 million Americans that are
+                  financial caregivers.
+                </Text>
+                <Text
+                  preset="overline"
+                  css={{ color: "$gray500", paddingTop: "$space500" }}
+                >
+                  2020-2021 · Design Lead
+                </Text>
+              </Card.Content>
             </Card>
             <Flex direction="column" align="stretch" gap>
               <Card></Card>
