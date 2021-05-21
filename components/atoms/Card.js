@@ -2,19 +2,37 @@ import Box from "components/atoms/Box";
 import Flex from "components/atoms/Flex";
 import { styled } from "stitches.config";
 
+const _Card = styled(Flex, {
+  backgroundColor: "$gray900",
+  borderRadius: "8px",
+
+  variants: {
+    pressable: {
+      true: {
+        cursor: "pointer",
+      },
+    },
+  },
+});
+
 const Card = (props) => {
-  const { children, css } = props;
+  const { children, css, pressable = true } = props;
   return (
-    <Flex
-      css={{
-        backgroundColor: "$gray900",
-        borderRadius: "8px",
-        ...css,
+    <_Card
+      variants={{
+        default: { transform: "translateY(0px) scale(1)" },
+        hover: { transform: "translateY(0px) scale(1.03)" },
+        tap: { transform: "translateY(0px) scale(0.97)" },
       }}
+      initial="default"
+      whileHover={pressable && "hover"}
+      whileTap={pressable && "tap"}
+      pressable={pressable}
+      css={css}
       {...props}
     >
       {children}
-    </Flex>
+    </_Card>
   );
 };
 
