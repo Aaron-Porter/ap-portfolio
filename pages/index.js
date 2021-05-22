@@ -6,10 +6,13 @@ import Section from "components/atoms/Section";
 import Text from "components/atoms/Text";
 import Image from "next/image";
 import Card from "components/atoms/Card";
+import Icon from "components/atoms/Icon";
+import ProjectCard from "components/molecules/ProjectCard";
+import Page from "components/templates/Page";
 
 export default function Home() {
   return (
-    <>
+    <Page>
       <Section css={{ padding: "$space700 0 $space700" }}>
         <Content>
           <Box>
@@ -28,31 +31,23 @@ export default function Home() {
             Selected Projects
           </Text>
           <Flex direction="row" gap>
-            <Card direction="column">
-              <Image
-                src="/projects/carefull/carefull_image_1@2x.png"
-                alt="Picture of a mother and son embracing eachother. A purple ring surrounds them showing protection."
-                width={552}
-                height={549}
-                layout="responsive"
-              />
-              <Card.Content>
-                <Text preset="largeHeading">Carefull</Text>
-                <Text
-                  preset="subHeading"
-                  css={{ maxWidth: "28ch", color: "$gray300" }}
-                >
-                  A service to enable the 45 million Americans that are
-                  financial caregivers.
-                </Text>
-                <Text
-                  preset="overline"
-                  css={{ color: "$gray500", paddingTop: "$space500" }}
-                >
-                  2020-2021 · Design Lead
-                </Text>
-              </Card.Content>
-            </Card>
+            <ProjectCard
+              title="Carefull"
+              description="A service to enable the 45 million Americans that are financial caregivers."
+              dates="2020-Present"
+              role="Design Lead"
+              link="/projects/carefull"
+              layoutId="carefull"
+              image={
+                <Image
+                  src="/projects/carefull/carefull_image_1@2x.png"
+                  alt="Picture of a mother and son embracing eachother. A purple ring surrounds them showing protection."
+                  width={552}
+                  height={549}
+                  layout="responsive"
+                />
+              }
+            />
             <Flex direction="column" align="stretch" gap>
               <Card></Card>
               <Card></Card>
@@ -60,6 +55,6 @@ export default function Home() {
           </Flex>
         </Content>
       </Section>
-    </>
+    </Page>
   );
 }
