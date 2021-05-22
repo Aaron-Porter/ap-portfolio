@@ -50,6 +50,14 @@ export const globalStyles = global({
       fontStyle: "normal",
       fontWeight: 400,
     },
+    {
+      fontFamily: "Suisse Mono",
+      src: `url("fonts/SuisseMono/SuisseIntlMono-Regular-WebS.woff2") format("woff2"),
+            url("fonts/SuisseMono/SuisseIntlMono-Regular-WebS.woff") format("woff"),
+            url("fonts/SuisseMono/SuisseIntlMono-Regular-WebS.ttf")  format("truetype")`,
+      fontStyle: "normal",
+      fontWeight: 400,
+    },
   ],
   body: {
     margin: 0,

@@ -20,11 +20,19 @@ const Text = styled("span", {
     $$1: "16px",
     $$2: "20px",
     $$3: "28px",
-    $$4: "40px",
-    $$5: "60px",
+    $$4: "36px",
+    $$5: "52px",
   },
 
   variants: {
+    font: {
+      sans: {
+        fontFamily: "Suisse",
+      },
+      mono: {
+        fontFamily: "Suisse Mono",
+      },
+    },
     preset: {
       xLargeHeading: {
         fontWeight: 400,
@@ -43,6 +51,7 @@ const Text = styled("span", {
       subHeading: {
         fontWeight: 400,
         fontSize: "$$2",
+        letterSpacing: "0.01em",
       },
       body: {
         fontWeight: 400,
@@ -52,6 +61,8 @@ const Text = styled("span", {
         fontWeight: 400,
         fontSize: "$$0",
         textTransform: "uppercase",
+        fontFamily: "Suisse Mono",
+        letterSpacing: "0.05em",
       },
     },
   },
