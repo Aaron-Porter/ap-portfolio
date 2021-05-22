@@ -4,6 +4,8 @@ export const { styled, getCssString, global } = createCss({
   theme: {
     fonts: {
       system: "system-ui",
+      suisse: "Suisse",
+      suisseMono: "Suisse Mono",
     },
     colors: {
       gray000: "#FFFFFF",
@@ -45,17 +47,17 @@ export const globalStyles = global({
   "@font-face": [
     {
       fontFamily: "Suisse",
-      src: `url("fonts/Suisse/SuisseIntl-Regular-WebS.woff2") format("woff2"),
-            url("fonts/Suisse/SuisseIntl-Regular-WebS.woff") format("woff"),
-            url("fonts/Suisse/SuisseIntl-Regular-WebS.ttf")  format("truetype")`,
+      src: `url("/fonts/Suisse/SuisseIntl-Regular-WebS.woff2") format("woff2"),
+            url("/fonts/Suisse/SuisseIntl-Regular-WebS.woff") format("woff"),
+            url("/fonts/Suisse/SuisseIntl-Regular-WebS.ttf")  format("truetype")`,
       fontStyle: "normal",
       fontWeight: 400,
     },
     {
       fontFamily: "Suisse Mono",
-      src: `url("fonts/SuisseMono/SuisseIntlMono-Regular-WebS.woff2") format("woff2"),
-            url("fonts/SuisseMono/SuisseIntlMono-Regular-WebS.woff") format("woff"),
-            url("fonts/SuisseMono/SuisseIntlMono-Regular-WebS.ttf")  format("truetype")`,
+      src: `url("/fonts/SuisseMono/SuisseIntlMono-Regular-WebS.woff2") format("woff2"),
+            url("/fonts/SuisseMono/SuisseIntlMono-Regular-WebS.woff") format("woff"),
+            url("/fonts/SuisseMono/SuisseIntlMono-Regular-WebS.ttf")  format("truetype")`,
       fontStyle: "normal",
       fontWeight: 400,
     },

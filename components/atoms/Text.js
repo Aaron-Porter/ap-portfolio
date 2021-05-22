@@ -25,14 +25,6 @@ const Text = styled("span", {
   },
 
   variants: {
-    font: {
-      sans: {
-        fontFamily: "Suisse",
-      },
-      mono: {
-        fontFamily: "Suisse Mono",
-      },
-    },
     preset: {
       xLargeHeading: {
         fontWeight: 400,
@@ -61,7 +53,7 @@ const Text = styled("span", {
         fontWeight: 400,
         fontSize: "$$0",
         textTransform: "uppercase",
-        fontFamily: "Suisse Mono",
+        fontFamily: "$suisseMono",
         letterSpacing: "0.05em",
       },
     },
