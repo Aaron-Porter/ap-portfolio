@@ -17,6 +17,7 @@ export const { styled, getCssString, global } = createCss({
       gray800: "#262626",
       gray900: "#101010",
       gray1000: "#000000",
+      accent: "#F66141",
     },
     space: {
       space000: "4px",
