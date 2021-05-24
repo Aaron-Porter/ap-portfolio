@@ -4,7 +4,7 @@ const Section = styled("section", {
   padding: "$medium 0",
 
   "@medium": {
-    padding: "$large 0",
+    padding: "$space600 0",
   },
 });
 

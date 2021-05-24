@@ -5,6 +5,7 @@ import { styled } from "stitches.config";
 const _Card = styled(Flex, {
   backgroundColor: "$gray900",
   borderRadius: "8px",
+  position: "relative",
 
   variants: {
     pressable: {
