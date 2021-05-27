@@ -1,9 +1,13 @@
 import React from "react";
-import ArrowRightUp from "./icons/ArrowRightUp.svg";
 import Box from "components/atoms/Box";
+import ArrowRightUp from "./icons/ArrowRightUp.svg";
+import EyeSlash from "./icons/EyeSlash.svg";
+import ArrowDown from "./icons/ArrowDown.svg";
 
 const iconTypes = {
   ArrowRightUp: ArrowRightUp,
+  EyeSlash: EyeSlash,
+  ArrowDown: ArrowDown,
 };
 
 const Icon = ({ name, css, ...props }) => {
