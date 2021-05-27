@@ -23,6 +23,7 @@ const ProjectCard = ({
         top: "40px",
         right: "40px",
         borderRadius: "100%",
+        color: "$gray000",
       }}
     >
       <Icon name="ArrowRightUp" css={{ width: "24px", height: "24px" }}></Icon>
