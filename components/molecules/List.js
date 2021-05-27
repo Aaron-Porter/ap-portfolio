@@ -1,5 +1,7 @@
 import { styled } from "stitches.config";
 import Box from "components/atoms/Box";
+import { contentStyles } from "components/atoms/Content";
+import Flex from "components/atoms/Flex";
 
 const Container = styled(Box, {
   overflowX: "scroll",
@@ -26,18 +28,27 @@ const Track = styled(Box, {
   padding: "0 calc(((100vw - 1128px) / 2) - 20px)",
   margin: "0 20px",
   width: "max-content",
-  gap: "16px", // TODO: write polyfill
+  gap: "24px", // TODO: write polyfill
   justifyContent: "flex-start",
 
   "& > *": {
-    flex: 1,
+    maxWidth: "calc(100vw - 80px)",
+  },
+
+  "@large": {
+    padding: 0,
+    margin: 0,
+    width: "100%",
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    ...contentStyles,
   },
 });
 
-const Carousel = ({ children }) => (
+const List = ({ children }) => (
   <Container>
     <Track>{children}</Track>
   </Container>
 );
 
-export default Carousel;
+export default List;
