@@ -32,6 +32,9 @@ export const { styled, getCssString, global } = createCss({
       space700: "128px",
       space800: "256px",
     },
+    transitions: {
+      default: "all 0.2s ease",
+    },
   },
   media: {
     small: "(min-width: 640px)",
