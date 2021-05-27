@@ -19,7 +19,7 @@ const Item = styled(Box, {
         color: "$gray000",
       },
       false: {
-        color: "$gray300",
+        color: "$gray400",
       },
     },
   },
@@ -48,9 +48,9 @@ export const Header = () => {
   return (
     <Box css={{ padding: "$space500 0" }}>
       <Content>
-        <Flex justify="between" align="center">
+        <Flex justify="between" align="end">
           <Box>
-            <Text preset="heading" css={{ color: "$accent" }}>
+            <Text preset="heading" css={{ color: "$accent", paddingBottom: 0 }}>
               A.
             </Text>
           </Box>
