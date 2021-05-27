@@ -36,7 +36,7 @@ const Text = styled("span", {
         fontWeight: 400,
         fontSize: "$$4",
         paddingBottom: "$space100",
-        paddingTop: "$space300",
+        paddingTop: "$space100",
       },
       heading: {
         fontWeight: 400,
