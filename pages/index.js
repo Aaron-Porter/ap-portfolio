@@ -13,7 +13,7 @@ import Page from "components/templates/Page";
 export default function Home() {
   return (
     <Page>
-      <Section css={{ padding: "$space700 0 $space700" }}>
+      <Section css={{ padding: "$space700 0 0" }}>
         <Content>
           <Box>
             <Text preset="xLargeHeading" css={{ maxWidth: "28ch" }}>
