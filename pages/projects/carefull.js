@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Icon from "components/atoms/Icon";
 import ProjectCard from "components/molecules/ProjectCard";
 import Page from "components/templates/Page";
 import { styled } from "stitches.config";
@@ -9,6 +8,7 @@ import AssetCard from "components/molecules/AssetCard";
 import ProjectHighlight from "components/organisms/ProjectHighlight";
 import ProjectIntro from "components/organisms/ProjectIntro";
 import Card from "components/atoms/Card";
+import ConfidentialBanner from "components/molecules/ConfidentialBanner";
 
 export default function Carefull() {
   return (
@@ -41,6 +41,7 @@ export default function Carefull() {
             height={549}
           />
         </Card>
+        <ConfidentialBanner />
       </ProjectIntro>
       <ProjectHighlight
         heading={
