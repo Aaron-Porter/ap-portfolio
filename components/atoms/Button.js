@@ -1,7 +1,7 @@
 import { styled } from "stitches.config";
 import Text from "components/atoms/Text";
 import Icon from "components/atoms/Icon";
-
+import LinkTo from "components/utilities/LinkTo";
 const _Button = styled("button", {
   // Reset
   appearance: "none",
@@ -41,21 +41,33 @@ const _Button = styled("button", {
   },
 });
 
-const Button = ({ children, iconName }) => (
-  <_Button>
-    {iconName && (
-      <Icon
-        name={iconName}
-        css={{
-          width: "24px",
-          marginRight: "$space100",
-        }}
-      />
-    )}
-    <Text preset="body" css={{ paddingRight: iconName && "$space100" }}>
-      {children}
-    </Text>
-  </_Button>
-);
+const Button = (props) => {
+  const { children, iconName, href = false } = props;
+  const ButtonElement = () => (
+    <_Button {...props}>
+      {iconName && (
+        <Icon
+          name={iconName}
+          css={{
+            width: "24px",
+            marginRight: "$space100",
+          }}
+        />
+      )}
+      <Text preset="body" css={{ paddingRight: iconName && "$space100" }}>
+        {children}
+      </Text>
+    </_Button>
+  );
+  if (href) {
+    return (
+      <LinkTo href={href}>
+        <ButtonElement />
+      </LinkTo>
+    );
+  } else {
+    return <ButtonElement />;
+  }
+};
 
 export default Button;
