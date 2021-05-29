@@ -8,7 +8,7 @@ const Text = styled("span", {
   lineHeight: "calc(1em + 4px)",
 
   // Font Sizes
-  $$0: "16px",
+  $$0: "14px",
   $$1: "18px",
   $$2: "20px",
   $$3: "20px",
@@ -16,7 +16,7 @@ const Text = styled("span", {
   $$5: "40px",
 
   "@large": {
-    $$0: "16px",
+    $$0: "14px",
     $$1: "18px",
     $$2: "20px",
     $$3: "28px",
@@ -54,6 +54,11 @@ const Text = styled("span", {
         fontWeight: 400,
         fontSize: "$$1",
         lineHeight: "24px",
+      },
+      bodySmall: {
+        fontWeight: 400,
+        fontSize: "$$0",
+        lineHeight: "20px",
       },
       overline: {
         fontWeight: 400,
