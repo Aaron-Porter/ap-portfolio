@@ -37,7 +37,7 @@ export default function Home() {
               dates="2020-Present"
               role="Design Lead"
               link="/projects/carefull"
-              layoutId="carefull"
+              fullWidthImage
               image={
                 <Image
                   src="/projects/carefull/carefull_image_1@2x.png"
@@ -49,8 +49,36 @@ export default function Home() {
               }
             />
             <Flex direction="column" align="stretch" gap>
-              <Card></Card>
-              <Card></Card>
+              <ProjectCard
+                title="Wayfair"
+                dates="2018-2019"
+                role="UX Consultant"
+                link="/projects/wayfair"
+                image={
+                  <Image
+                    src="/projects/wayfair/wayfair_logo@2x.png"
+                    alt="Logo for Wayfair"
+                    width={48}
+                    height={48}
+                    layout="intrinsic"
+                  />
+                }
+              />
+              <ProjectCard
+                title="YouTube"
+                dates="2016-2018"
+                role="Interaction Designer"
+                link="/projects/youtube"
+                image={
+                  <Image
+                    src="/projects/youtube/youtube_logo@2x.png"
+                    alt="Logo for YouTube"
+                    width={69}
+                    height={48}
+                    layout="intrinsic"
+                  />
+                }
+              />
             </Flex>
           </Flex>
         </Content>
