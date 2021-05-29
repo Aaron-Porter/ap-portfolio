@@ -30,7 +30,9 @@ const ConfidentialBanner = () => (
         presentation.
       </Text>
     </Flex>
-    <Button iconName="ArrowDown">Schedule</Button>
+    <Button iconName="ArrowDown" href="#PortfolioPresentation">
+      Schedule
+    </Button>
   </Card>
 );
 

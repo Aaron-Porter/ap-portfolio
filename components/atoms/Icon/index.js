@@ -9,6 +9,7 @@ import Chat from "./icons/Chat.svg";
 import Notebook from "./icons/Notebook.svg";
 import PieChart from "./icons/PieChart.svg";
 import StickyNote from "./icons/StickyNote.svg";
+import Copy from "./icons/Copy.svg";
 
 const iconTypes = {
   ArrowRightUp: ArrowRightUp,
@@ -18,6 +19,7 @@ const iconTypes = {
   Notebook: Notebook,
   PieChart: PieChart,
   StickyNote: StickyNote,
+  Copy: Copy,
 };
 
 const Icon = ({ name, css, ...props }) => {
