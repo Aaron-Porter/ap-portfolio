@@ -3,52 +3,28 @@ import Box from "components/atoms/Box";
 import { contentStyles } from "components/atoms/Content";
 import Flex from "components/atoms/Flex";
 
-const Container = styled(Box, {
-  overflowX: "scroll",
-  overflowY: "visible",
-  scrollSnapType: "both mandatory",
-  margin: "0 auto",
-  padding: "8px 0",
+const List = styled(Box, {
+  padding: 0,
+  margin: 0,
+  width: "100%",
+  display: "grid",
+  gap: "24px",
+  ...contentStyles,
 
-  // Hide scrollbar
-  "::-webkit-scrollbar": {
-    display: "none" /* Chrome Safari */,
-    "-webkit-appearance": "none",
-    appearance: "none",
-    width: 0,
-    height: 0,
-  },
-  "scrollbar-width": "none" /* Firefox */,
-  "-ms-overflow-style": "none" /* IE 10+ */,
-});
-
-const Track = styled(Box, {
-  height: "100%",
-  display: "flex",
-  padding: "0 calc(((100vw - 1128px) / 2) - 20px)",
-  margin: "0 20px",
-  width: "max-content",
-  gap: "24px", // TODO: write polyfill
-  justifyContent: "flex-start",
-
-  "& > *": {
-    maxWidth: "calc(100vw - 80px)",
+  variants: {
+    columns: {
+      1: {
+        gridTemplateColumns: "1fr",
+      },
+      2: {
+        gridTemplateColumns: "1fr 1fr",
+      },
+    },
   },
 
-  "@large": {
-    padding: 0,
-    margin: 0,
-    width: "100%",
-    display: "grid",
-    gridTemplateColumns: "1fr 1fr",
-    ...contentStyles,
+  defaultVariants: {
+    columns: 1,
   },
 });
-
-const List = ({ children }) => (
-  <Container>
-    <Track>{children}</Track>
-  </Container>
-);
 
 export default List;
