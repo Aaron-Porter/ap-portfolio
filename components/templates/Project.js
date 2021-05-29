@@ -7,11 +7,10 @@ import Flex from "../atoms/Flex";
 import Text from "../atoms/Text";
 
 const Project = ({ children }) => (
-  <Box>
-    <Header />
+  <>
     {children}
     <Footer />
-  </Box>
+  </>
 );
 
 export default Project;
