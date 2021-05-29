@@ -2,10 +2,11 @@ import Box from "components/atoms/Box";
 import Flex from "components/atoms/Flex";
 import { styled } from "stitches.config";
 
-const _Card = styled(Flex, {
+const _Card = styled(Box, {
   backgroundColor: "$gray900",
   borderRadius: "8px",
   position: "relative",
+  overflow: "hidden",
 
   variants: {
     pressable: {
@@ -17,7 +18,7 @@ const _Card = styled(Flex, {
 });
 
 const Card = (props) => {
-  const { children, css, pressable = true } = props;
+  const { children, css, pressable = false } = props;
   return (
     <_Card
       variants={{
