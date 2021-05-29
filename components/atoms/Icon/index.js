@@ -1,13 +1,23 @@
 import React from "react";
 import Box from "components/atoms/Box";
+
+// Icons
 import ArrowRightUp from "./icons/ArrowRightUp.svg";
 import EyeSlash from "./icons/EyeSlash.svg";
 import ArrowDown from "./icons/ArrowDown.svg";
+import Chat from "./icons/Chat.svg";
+import Notebook from "./icons/Notebook.svg";
+import PieChart from "./icons/PieChart.svg";
+import StickyNote from "./icons/StickyNote.svg";
 
 const iconTypes = {
   ArrowRightUp: ArrowRightUp,
   EyeSlash: EyeSlash,
   ArrowDown: ArrowDown,
+  Chat: Chat,
+  Notebook: Notebook,
+  PieChart: PieChart,
+  StickyNote: StickyNote,
 };
 
 const Icon = ({ name, css, ...props }) => {
