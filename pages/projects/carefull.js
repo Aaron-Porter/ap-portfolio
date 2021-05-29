@@ -18,6 +18,7 @@ import Section from "components/atoms/Section";
 import Content from "components/atoms/Content";
 import Box from "components/atoms/Box";
 import Flex from "components/atoms/Flex";
+import PortfolioPresentationCard from "components/organisms/PortfolioPresentationCard";
 
 export default function Carefull() {
   return (
@@ -130,6 +131,7 @@ export default function Carefull() {
           </AssetCard>
         </Carousel>
       </ProjectHighlight>
+      <PortfolioPresentationCard />
     </Project>
   );
 }
