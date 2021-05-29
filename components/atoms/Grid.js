@@ -3,13 +3,12 @@ import Box from "components/atoms/Box";
 import { contentStyles } from "components/atoms/Content";
 import Flex from "components/atoms/Flex";
 
-const List = styled(Box, {
+const Grid = styled(Box, {
   padding: 0,
   margin: 0,
   width: "100%",
   display: "grid",
   gap: "24px",
-  ...contentStyles,
 
   variants: {
     columns: {
@@ -27,4 +26,4 @@ const List = styled(Box, {
   },
 });
 
-export default List;
+export default Grid;

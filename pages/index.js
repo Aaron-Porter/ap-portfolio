@@ -9,6 +9,7 @@ import Card from "components/atoms/Card";
 import Icon from "components/atoms/Icon";
 import ProjectCard from "components/molecules/ProjectCard";
 import Page from "components/templates/Page";
+import Grid from "components/atoms/Grid";
 
 export default function Home() {
   return (
@@ -30,7 +31,7 @@ export default function Home() {
           >
             Selected Projects
           </Text>
-          <Flex direction="row" gap>
+          <Grid columns={2}>
             <ProjectCard
               title="Carefull"
               description="A service to enable the 45 million Americans that are financial caregivers."
@@ -48,7 +49,7 @@ export default function Home() {
                 />
               }
             />
-            <Flex direction="column" align="stretch" gap>
+            <Flex direction="column" gap>
               <ProjectCard
                 title="Wayfair"
                 dates="2018-2019"
@@ -80,7 +81,7 @@ export default function Home() {
                 }
               />
             </Flex>
-          </Flex>
+          </Grid>
         </Content>
       </Section>
     </Page>

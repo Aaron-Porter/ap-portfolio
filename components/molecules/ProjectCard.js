@@ -31,8 +31,9 @@ const ProjectCard = ({
   link,
   layoutId,
   fullWidthImage = false,
+  css,
 }) => (
-  <Card direction="column" layoutId={layoutId}>
+  <Card direction="column" layoutId={layoutId} css={css} pressable>
     <Arrow />
     <LinkTo href={link} displayContents>
       {fullWidthImage && <Box>{image}</Box>}

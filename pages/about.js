@@ -25,15 +25,17 @@ export default function About() {
       <Section>
         <Content>
           <Flex gap align="start">
-            <Card>
-              <Image
-                src="/images/Headshot.jpeg"
-                alt="Picture of a mother and son embracing eachother. A purple ring surrounds them showing protection."
-                width={1200}
-                height={1932}
-                layout="intrinsic"
-              />
-            </Card>
+            <Box>
+              <Card>
+                <Image
+                  src="/images/Headshot.jpeg"
+                  alt="Picture of a mother and son embracing eachother. A purple ring surrounds them showing protection."
+                  width={1200}
+                  height={1932}
+                  layout="intrinsic"
+                />
+              </Card>
+            </Box>
             <Box css={{ marginLeft: "$space400" }}>
               <Text preset="heading" css={{ maxWidth: "105ch", width: "100%" }}>
                 Aaron Porter is a designer & technologist based in Grand Rapids,

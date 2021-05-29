@@ -3,7 +3,7 @@ import ProjectCard from "components/molecules/ProjectCard";
 import Page from "components/templates/Page";
 import { styled } from "stitches.config";
 import Carousel from "components/molecules/Carousel";
-import List from "components/molecules/List";
+import Grid from "components/atoms/Grid.js";
 import Project from "components/templates/Project";
 import AssetCard from "components/molecules/AssetCard";
 import ProjectHighlight from "components/organisms/ProjectHighlight";
@@ -61,25 +61,27 @@ export default function Carefull() {
           </>
         }
       >
-        <List columns={2}>
-          <ListCard
-            text="I conducted 1:1 qualitiative research sessions with financial
-          caregivers & eventually users."
-            iconName="Chat"
-          />
-          <ListCard
-            text="I aided our head of growth in the formulation of quantitative studies to better understand our market and larger customer trends."
-            iconName="PieChart"
-          />
-          <ListCard
-            text="I built foundational artifacts that document the experiences, responsibilities, and needs of our customers."
-            iconName="Notebook"
-          />
-          <ListCard
-            text="I ran a series of workshops with our founding team to shape our product thinking."
-            iconName="StickyNote"
-          />
-        </List>
+        <Content>
+          <Grid columns={2}>
+            <ListCard
+              text="I conducted 1:1 qualitiative research sessions with financial
+            caregivers & eventually users."
+              iconName="Chat"
+            />
+            <ListCard
+              text="I aided our head of growth in the formulation of quantitative studies to better understand our market and larger customer trends."
+              iconName="PieChart"
+            />
+            <ListCard
+              text="I built foundational artifacts that document the experiences, responsibilities, and needs of our customers."
+              iconName="Notebook"
+            />
+            <ListCard
+              text="I ran a series of workshops with our founding team to shape our product thinking."
+              iconName="StickyNote"
+            />
+          </Grid>
+        </Content>
       </ProjectHighlight>
       <ProjectHighlight
         heading={
