@@ -2,7 +2,7 @@ import { globalStyles } from "stitches.config";
 import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import { Header } from "components/molecules/Header";
 import Box from "components/atoms/Box";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Router from "next/router";
 
 const handleExitComplete = () => {
@@ -42,8 +42,6 @@ function MyApp({ Component, pageProps, router }) {
       css={{
         perspective: "1000px",
         "perspective-origin": "top center",
-        height: "100vh",
-        overflow: "scroll",
       }}
     >
       <Header />
