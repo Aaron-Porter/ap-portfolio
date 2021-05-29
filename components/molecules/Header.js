@@ -57,7 +57,7 @@ export const Header = () => {
           <Box>
             <Flex gap>
               <MenuItem href="/">Work</MenuItem>
-              <MenuItem href="/about-me">About Me</MenuItem>
+              <MenuItem href="/about">About Me</MenuItem>
             </Flex>
           </Box>
         </Flex>
