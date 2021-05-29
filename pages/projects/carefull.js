@@ -2,6 +2,7 @@ import Image from "next/image";
 import ProjectCard from "components/molecules/ProjectCard";
 import Page from "components/templates/Page";
 import { styled } from "stitches.config";
+import Carousel from "components/molecules/Carousel";
 import List from "components/molecules/List";
 import Project from "components/templates/Project";
 import AssetCard from "components/molecules/AssetCard";
@@ -9,6 +10,14 @@ import ProjectHighlight from "components/organisms/ProjectHighlight";
 import ProjectIntro from "components/organisms/ProjectIntro";
 import Card from "components/atoms/Card";
 import ConfidentialBanner from "components/molecules/ConfidentialBanner";
+import LinkTo from "components/utilities/LinkTo";
+import React from "react";
+import ListCard from "components/molecules/ListCard";
+import Text from "components/atoms/Text";
+import Section from "components/atoms/Section";
+import Content from "components/atoms/Content";
+import Box from "components/atoms/Box";
+import Flex from "components/atoms/Flex";
 
 export default function Carefull() {
   return (
@@ -46,12 +55,40 @@ export default function Carefull() {
       <ProjectHighlight
         heading={
           <>
+            I used research to build a deep understanding of our customers &
+            inform product decisions.
+          </>
+        }
+      >
+        <List columns={2}>
+          <ListCard
+            text="I conducted 1:1 qualitiative research sessions with financial
+          caregivers & eventually users."
+            iconName="Chat"
+          />
+          <ListCard
+            text="I aided our head of growth in the formulation of quantitative studies to better understand our market and larger customer trends."
+            iconName="PieChart"
+          />
+          <ListCard
+            text="I built foundational artifacts that document the experiences, responsibilities, and needs of our customers."
+            iconName="Notebook"
+          />
+          <ListCard
+            text="I ran a series of workshops with our founding team to shape our product thinking."
+            iconName="StickyNote"
+          />
+        </List>
+      </ProjectHighlight>
+      <ProjectHighlight
+        heading={
+          <>
             I crafted a brand that communicates trust, understanding, and a
             focus on generational bonds.
           </>
         }
       >
-        <List>
+        <Carousel>
           <AssetCard caption="Crafted a symbol that feels mature & institutional whileconnecting to larger motifs.">
             <Image
               src="/projects/carefull/carefull_image_1@2x.png"
@@ -91,7 +128,7 @@ export default function Carefull() {
               height={549}
             />
           </AssetCard>
-        </List>
+        </Carousel>
       </ProjectHighlight>
     </Project>
   );
