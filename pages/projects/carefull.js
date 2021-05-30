@@ -27,7 +27,7 @@ export default function Carefull() {
         client="Carefull"
         role="Lead Designer"
         year="2020-Present"
-        title="Evolved a product & brand from inception to product-market fit."
+        title="Empowering financial caregivers with simplicity, safety, and transparency."
         description={
           <>
             An estimated 45 million Americans are financial caregivers — adult
@@ -51,8 +51,33 @@ export default function Carefull() {
             height={549}
           />
         </Card>
-        <ConfidentialBanner />
       </ProjectIntro>
+      <ProjectHighlight label="About The Project">
+        <Content>
+          <Grid columns={2} css={{ marginBottom: "$space500" }}>
+            <Box>
+              <Text preset="subHeading">Context</Text>
+              <Text css={{ color: "$gray300" }}>
+                I joined Carefull at the very beginning of it’s life, employee
+                two. Velocity was the life-blood of the business, we needed
+                high-conviction design answers every single day. Our mantra was
+                to understand quickly, ship needed functionality, and iterate
+                relentlessly.
+              </Text>
+            </Box>
+            <Box>
+              <Text preset="subHeading">My Role</Text>
+              <Text css={{ color: "$gray300" }}>
+                As the lead designer (and only designer), my responsibilities
+                were broad and intertwined in every portion of our operations. I
+                served as researcher, brand designer, UX designer, & front-end
+                developer.
+              </Text>
+            </Box>
+          </Grid>
+          <ConfidentialBanner />
+        </Content>
+      </ProjectHighlight>
       <ProjectHighlight
         heading={
           <>
@@ -92,43 +117,104 @@ export default function Carefull() {
         }
       >
         <Carousel>
-          <AssetCard caption="Crafted a symbol that feels mature & institutional whileconnecting to larger motifs.">
+          <AssetCard columns={1} caption="">
             <Image
-              src="/projects/carefull/carefull_image_1@2x.png"
+              src="/projects/carefull/Carefull_Logo@2x.png"
               alt="Picture of a mother and son embracing eachother.A purple ring surrounds them showing protection."
-              width={552}
-              height={549}
+              width={1104}
+              height={1104}
             />
           </AssetCard>
 
-          <AssetCard
-            columns={1}
-            caption="Crafted a symbol that feels mature & institutional while connecting to larger motifs."
-          >
+          <AssetCard columns={1} caption="">
             <Image
-              src="/projects/carefull/carefull_image_1@2x.png"
+              src="/projects/carefull/Carefull_Icon@2x.png"
               alt="Picture of a mother and son embracing eachother. A purple ring surrounds them showing protection."
-              width={552}
-              height={549}
+              width={1104}
+              height={1104}
             />
           </AssetCard>
-
-          <AssetCard
-            columns={1}
-            caption={
-              <>
-                Created a visual motif that bring together ideas of family,
-                generations, and the things that connect them. Utilizing a
-                mixture of modern & archival photos, we built a look that evokes
-                ideas of the family photo album.
-              </>
-            }
-          >
+          <AssetCard columns={2} caption="">
             <Image
-              src="/projects/carefull/carefull_image_1@2x.png"
+              src="/projects/carefull/Carefull_Collage@2x.png"
               alt="Picture of a mother and son embracing eachother. A purple ring surrounds them showing protection."
-              width={552}
-              height={549}
+              width={2256}
+              height={1306}
+            />
+          </AssetCard>
+          <AssetCard columns={1} caption="">
+            <Image
+              src="/projects/carefull/Carefull_Print_1@2x.png"
+              alt="Picture of a mother and son embracing eachother. A purple ring surrounds them showing protection."
+              width={1104}
+              height={1104}
+            />
+          </AssetCard>
+          <AssetCard columns={1} caption="">
+            <Image
+              src="/projects/carefull/Carefull_Print_2@2x.png"
+              alt="Picture of a mother and son embracing eachother. A purple ring surrounds them showing protection."
+              width={1104}
+              height={1104}
+            />
+          </AssetCard>
+        </Carousel>
+      </ProjectHighlight>
+      <ProjectHighlight
+        heading={
+          <>
+            Designed every experience touchpoint across the service in lock-step
+            with engineering, business, & growth.
+          </>
+        }
+      >
+        <Carousel>
+          <ListCard
+            text="Uncovered user journeys, mapped flows, built wireframes, and constructed prototypes to shape our product."
+            iconName="TreeStructure"
+          />
+          <ListCard
+            text="Used quantitative & qualitative data from our customers to iterate and ship constant UX improvements."
+            iconName="ArrowsClockwise"
+          />
+          <AssetCard columns={2} caption="">
+            <Image
+              src="/projects/carefull/Carefull_UX_1@2x.png"
+              alt="Picture of a mother and son embracing eachother. A purple ring surrounds them showing protection."
+              width={2256}
+              height={1422}
+            />
+          </AssetCard>
+          <AssetCard columns={1} caption="">
+            <Image
+              src="/projects/carefull/Carefull_UX_2@2x.png"
+              alt="Picture of a mother and son embracing eachother. A purple ring surrounds them showing protection."
+              width={1104}
+              height={1374}
+            />
+          </AssetCard>
+          <AssetCard columns={1} caption="">
+            <Image
+              src="/projects/carefull/Carefull_UX_3@2x.png"
+              alt="Picture of a mother and son embracing eachother. A purple ring surrounds them showing protection."
+              width={1104}
+              height={1374}
+            />
+          </AssetCard>
+          <AssetCard columns={2} caption="">
+            <Image
+              src="/projects/carefull/Carefull_UX_4@2x.png"
+              alt="Picture of a mother and son embracing eachother. A purple ring surrounds them showing protection."
+              width={2256}
+              height={1422}
+            />
+          </AssetCard>
+          <AssetCard columns={2} caption="">
+            <Image
+              src="/projects/carefull/Carefull_UX_5@2x.png"
+              alt="Picture of a mother and son embracing eachother. A purple ring surrounds them showing protection."
+              width={2256}
+              height={1778}
             />
           </AssetCard>
         </Carousel>

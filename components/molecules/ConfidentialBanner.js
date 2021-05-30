@@ -10,7 +10,7 @@ const ConfidentialBanner = () => (
     pressable={false}
     align="center"
     justify="between"
-    css={{ marginTop: "$space400", padding: "$space400" }}
+    css={{ padding: "$space400" }}
   >
     <Flex css={{ marginRight: "$space400" }}>
       <Box

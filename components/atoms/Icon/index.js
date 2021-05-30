@@ -10,6 +10,8 @@ import Notebook from "./icons/Notebook.svg";
 import PieChart from "./icons/PieChart.svg";
 import StickyNote from "./icons/StickyNote.svg";
 import Copy from "./icons/Copy.svg";
+import ArrowsClockwise from "./icons/ArrowsClockwise.svg";
+import TreeStructure from "./icons/TreeStructure.svg";
 
 const iconTypes = {
   ArrowRightUp: ArrowRightUp,
@@ -20,6 +22,8 @@ const iconTypes = {
   PieChart: PieChart,
   StickyNote: StickyNote,
   Copy: Copy,
+  ArrowsClockwise: ArrowsClockwise,
+  TreeStructure: TreeStructure,
 };
 
 const Icon = ({ name, css, ...props }) => {

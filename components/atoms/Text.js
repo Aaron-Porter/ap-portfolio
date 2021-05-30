@@ -56,6 +56,7 @@ const Text = styled("span", {
         fontWeight: 400,
         fontSize: "$$2",
         letterSpacing: "0.01em",
+        paddingBottom: "$space100",
       },
       body: {
         fontWeight: 400,
