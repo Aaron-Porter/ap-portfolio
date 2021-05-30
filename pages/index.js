@@ -27,7 +27,7 @@ export default function Home() {
         <Content>
           <Text
             preset="overline"
-            css={{ color: "$gray500", paddingBottom: "$space500" }}
+            css={{ color: "$gray500", paddingBottom: "$space400" }}
           >
             Selected Projects
           </Text>

@@ -67,7 +67,10 @@ const Flex = styled(Box, {
     },
     gap: {
       true: {
-        gap: "$space400",
+        gap: "$space300",
+        "@large": {
+          gap: "$space400",
+        },
       },
     },
   },

@@ -8,7 +8,7 @@ const Grid = styled(Box, {
   margin: 0,
   width: "100%",
   display: "grid",
-  gap: "24px",
+  gap: "$space300",
 
   variants: {
     columns: {
@@ -16,13 +16,21 @@ const Grid = styled(Box, {
         gridTemplateColumns: "1fr",
       },
       2: {
-        gridTemplateColumns: "1fr 1fr",
+        gridTemplateColumns: "1fr",
+
+        "@medium": {
+          gridTemplateColumns: "1fr 1fr",
+        },
       },
     },
   },
 
   defaultVariants: {
     columns: 1,
+  },
+
+  "@large": {
+    gap: "$space400",
   },
 });
 

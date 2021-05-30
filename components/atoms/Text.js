@@ -13,7 +13,6 @@ const Text = styled("span", {
   $$2: "20px",
   $$3: "20px",
   $$4: "32px",
-  $$5: "40px",
 
   "@large": {
     $$0: "14px",
@@ -21,16 +20,25 @@ const Text = styled("span", {
     $$2: "20px",
     $$3: "28px",
     $$4: "36px",
-    $$5: "52px",
   },
 
   variants: {
     preset: {
       xLargeHeading: {
         fontWeight: 400,
-        fontSize: "$$5",
-        paddingBottom: "$space500",
-        paddingTop: "$space300",
+        fontSize: "32px",
+        paddingBottom: "$space300",
+        paddingTop: "$space200",
+
+        "@medium": {
+          fontSize: "40px",
+        },
+
+        "@large": {
+          fontSize: "52px",
+          paddingBottom: "$space500",
+          paddingTop: "$space300",
+        },
       },
       largeHeading: {
         fontWeight: 400,
@@ -48,7 +56,6 @@ const Text = styled("span", {
         fontWeight: 400,
         fontSize: "$$2",
         letterSpacing: "0.01em",
-        paddingTop: "$space000",
       },
       body: {
         fontWeight: 400,

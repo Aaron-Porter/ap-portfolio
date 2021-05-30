@@ -47,7 +47,7 @@ const ProjectCard = ({
               css={{
                 maxWidth: "28ch",
                 color: "$gray300",
-                paddingBottom: "$space300",
+                paddingBottom: "$space400",
               }}
             >
               {description}
