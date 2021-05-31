@@ -4,7 +4,7 @@ import { styled } from "stitches.config";
 
 const _Card = styled(Flex, {
   backgroundColor: "$gray900",
-  borderRadius: "8px",
+  borderRadius: "$space$space100",
   position: "relative",
   overflow: "hidden",
 
@@ -27,8 +27,8 @@ const Card = (props) => {
         tap: { transform: "translateY(0px) scale(0.97)" },
       }}
       initial="default"
-      whileHover={pressable && "hover"}
-      whileTap={pressable && "tap"}
+      whileHover={"hover"}
+      whileTap={"tap"}
       pressable={pressable}
       css={css}
       {...props}
@@ -45,7 +45,7 @@ Card.Content = styled(Flex, {
   },
 
   "@large": {
-    padding: "40px",
+    padding: "$space600",
   },
 });
 
