@@ -28,9 +28,10 @@ export const { styled, getCssString, global } = createCss({
       space300: "16px",
       space400: "24px",
       space500: "32px",
-      space600: "64px",
-      space700: "128px",
-      space800: "256px",
+      space600: "40px",
+      space700: "64px",
+      space800: "96px",
+      space800: "128px",
     },
     transitions: {
       default: "all 0.2s ease",

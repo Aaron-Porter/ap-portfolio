@@ -25,24 +25,11 @@ export default function Carefull() {
     <Project>
       <ProjectIntro
         client="Carefull"
-        role="Lead Designer"
+        role="Design Lead"
         year="2020-Present"
         title="Empowering financial caregivers with simplicity, safety, and transparency."
-        description={
-          <>
-            An estimated 45 million Americans are financial caregivers — adult
-            children responsible for the financial well-being of their aging
-            parents. They pay bills, haggle with utilities, plan for their
-            future, and pay for things they need — all while managing their own
-            financial and family life. <br /> <br />
-            An audience under-served by large banking institutions, Carefull was
-            established to seek to solve the unique problems that face these
-            individuals. I joined Carefull at the very beginning of it’s life,
-            with nothing but a problem space identified and a hunch that
-            intentional technology could enable new solutions.
-          </>
-        }
       >
+        <ConfidentialBanner css={{ marginBottom: "$space400" }} />
         <Card pressable={false} align="center" justify="center">
           <Image
             src="/projects/carefull/carefull_image_1@2x.png"
@@ -54,12 +41,31 @@ export default function Carefull() {
       </ProjectIntro>
       <ProjectHighlight label="About The Project">
         <Content>
-          <Grid columns={2} css={{ marginBottom: "$space500" }}>
+          <Grid columns={2}>
             <Box>
-              <Text preset="subHeading">Context</Text>
+              <Text preset="subHeading">Our Customers</Text>
               <Text css={{ color: "$gray300" }}>
-                I joined Carefull at the very beginning of it’s life, employee
-                two. Velocity was the life-blood of the business, we needed
+                An estimated 45 million Americans are financial caregivers —
+                adult children responsible for the financial well-being of their
+                aging parents. They pay bills, haggle with utilities, plan for
+                their future, and pay for things they need — all while managing
+                their own financial and family life.
+              </Text>
+            </Box>
+            <Box>
+              <Text preset="subHeading">Their Problems</Text>
+              <Text css={{ color: "$gray300" }}>
+                Confusing forms, unsustainable spending behavior, inscrutable
+                legal processes, fraud, abuse — caregivers face a broad set of
+                issues, only compounded by the emotional complexity of a
+                shifting power dynamic in a parental relationship.
+              </Text>
+            </Box>
+            <Box>
+              <Text preset="subHeading">Constraints</Text>
+              <Text css={{ color: "$gray300" }}>
+                I joined Carefull at the very beginning of it’s life (employee
+                2). Velocity was the life-blood of the business, we needed
                 high-conviction design answers every single day. Our mantra was
                 to understand quickly, ship needed functionality, and iterate
                 relentlessly.
@@ -70,12 +76,11 @@ export default function Carefull() {
               <Text css={{ color: "$gray300" }}>
                 As the lead designer (and only designer), my responsibilities
                 were broad and intertwined in every portion of our operations. I
-                served as researcher, brand designer, UX designer, & front-end
-                developer.
+                served as researcher, brand designer, UX designer, UI designer,
+                & front-end developer.
               </Text>
             </Box>
           </Grid>
-          <ConfidentialBanner />
         </Content>
       </ProjectHighlight>
       <ProjectHighlight
@@ -117,7 +122,10 @@ export default function Carefull() {
         }
       >
         <Carousel>
-          <AssetCard columns={1} caption="">
+          <AssetCard
+            columns={1}
+            caption="Our wordmark needed to feel mature & institutional, like a bank, while feeling approachable and warm."
+          >
             <Image
               src="/projects/carefull/Carefull_Logo@2x.png"
               alt="Picture of a mother and son embracing eachother.A purple ring surrounds them showing protection."
@@ -126,7 +134,10 @@ export default function Carefull() {
             />
           </AssetCard>
 
-          <AssetCard columns={1} caption="">
+          <AssetCard
+            columns={1}
+            caption="We constructed a symbol that represents units of a family coming together to a create larger whole."
+          >
             <Image
               src="/projects/carefull/Carefull_Icon@2x.png"
               alt="Picture of a mother and son embracing eachother. A purple ring surrounds them showing protection."

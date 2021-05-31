@@ -5,12 +5,12 @@ import Text from "components/atoms/Text";
 import Flex from "components/atoms/Flex";
 import Button from "components/atoms/Button";
 
-const ConfidentialBanner = () => (
+const ConfidentialBanner = ({ css }) => (
   <Card
     pressable={false}
     align="center"
     justify="between"
-    css={{ padding: "$space400" }}
+    css={{ padding: "$space400", ...css }}
   >
     <Flex css={{ marginRight: "$space400" }}>
       <Box
