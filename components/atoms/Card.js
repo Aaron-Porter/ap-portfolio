@@ -27,8 +27,8 @@ const Card = (props) => {
         tap: { transform: "translateY(0px) scale(0.97)" },
       }}
       initial="default"
-      whileHover={"hover"}
-      whileTap={"tap"}
+      whileHover={pressable && "hover"}
+      whileTap={pressable && "tap"}
       pressable={pressable}
       css={css}
       {...props}
