@@ -12,6 +12,7 @@ import StickyNote from "./icons/StickyNote.svg";
 import Copy from "./icons/Copy.svg";
 import ArrowsClockwise from "./icons/ArrowsClockwise.svg";
 import TreeStructure from "./icons/TreeStructure.svg";
+import Info from "./icons/Info.svg";
 
 const iconTypes = {
   ArrowRightUp: ArrowRightUp,
@@ -24,6 +25,7 @@ const iconTypes = {
   Copy: Copy,
   ArrowsClockwise: ArrowsClockwise,
   TreeStructure: TreeStructure,
+  Info: Info,
 };
 
 const Icon = ({ name, css, ...props }) => {
