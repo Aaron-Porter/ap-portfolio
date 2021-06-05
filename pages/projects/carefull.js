@@ -12,13 +12,12 @@ import Card from "components/atoms/Card";
 import ConfidentialBanner from "components/molecules/ConfidentialBanner";
 import LinkTo from "components/utilities/LinkTo";
 import React from "react";
-import ListCard from "components/molecules/ListCard";
-import Text from "components/atoms/Text";
+import TextCard from "components/molecules/ListCard";
 import Section from "components/atoms/Section";
 import Content from "components/atoms/Content";
-import Box from "components/atoms/Box";
 import Flex from "components/atoms/Flex";
 import PortfolioPresentationCard from "components/organisms/PortfolioPresentationCard";
+import List from "../../components/organisms/List";
 
 export default function Carefull() {
   return (
@@ -40,48 +39,54 @@ export default function Carefull() {
         </Card>
       </ProjectIntro>
       <ProjectHighlight label="About The Project">
-        <Content>
-          <Grid columns={2}>
-            <Box>
-              <Text preset="subHeading">Our Customers</Text>
-              <Text css={{ color: "$gray300" }}>
+        <List>
+          <List.Item
+            title="Our Customers"
+            text={
+              <>
                 An estimated 45 million Americans are financial caregivers —
                 adult children responsible for the financial well-being of their
                 aging parents. They pay bills, haggle with utilities, plan for
                 their future, and pay for things they need — all while managing
                 their own financial and family life.
-              </Text>
-            </Box>
-            <Box>
-              <Text preset="subHeading">Their Problems</Text>
-              <Text css={{ color: "$gray300" }}>
+              </>
+            }
+          />
+          <List.Item
+            title="Their Problems"
+            text={
+              <>
                 Confusing forms, unsustainable spending behavior, inscrutable
                 legal processes, fraud, abuse — caregivers face a broad set of
                 issues, only compounded by the emotional complexity of a
                 shifting power dynamic in a parental relationship.
-              </Text>
-            </Box>
-            <Box>
-              <Text preset="subHeading">Constraints</Text>
-              <Text css={{ color: "$gray300" }}>
+              </>
+            }
+          />
+          <List.Item
+            title="Constraints"
+            text={
+              <>
                 I joined Carefull at the very beginning of it’s life (employee
                 2). Velocity was the life-blood of the business, we needed
                 high-conviction design answers every single day. Our mantra was
                 to understand quickly, ship needed functionality, and iterate
                 relentlessly.
-              </Text>
-            </Box>
-            <Box>
-              <Text preset="subHeading">My Role</Text>
-              <Text css={{ color: "$gray300" }}>
+              </>
+            }
+          />
+          <List.Item
+            title="My Role"
+            text={
+              <>
                 As the lead designer (and only designer), my responsibilities
                 were broad and intertwined in every portion of our operations. I
                 served as researcher, brand designer, UX designer, UI designer,
                 & front-end developer.
-              </Text>
-            </Box>
-          </Grid>
-        </Content>
+              </>
+            }
+          />
+        </List>
       </ProjectHighlight>
       <ProjectHighlight
         heading={
@@ -93,20 +98,20 @@ export default function Carefull() {
       >
         <Content>
           <Grid columns={2}>
-            <ListCard
+            <TextCard
               text="I conducted 1:1 qualitiative research sessions with financial
             caregivers & eventually users."
               iconName="Chat"
             />
-            <ListCard
+            <TextCard
               text="I aided our head of growth in the formulation of quantitative studies to better understand our market and larger customer trends."
               iconName="PieChart"
             />
-            <ListCard
+            <TextCard
               text="I built foundational artifacts that document the experiences, responsibilities, and needs of our customers."
               iconName="Notebook"
             />
-            <ListCard
+            <TextCard
               text="I ran a series of workshops with our founding team to shape our product thinking."
               iconName="StickyNote"
             />
@@ -145,7 +150,10 @@ export default function Carefull() {
               height={1104}
             />
           </AssetCard>
-          <AssetCard columns={2} caption="">
+          <AssetCard
+            columns={2}
+            caption="Created a visual motif that bring together ideas of family, generations, and the things that connect them. Utilizing a mixture of modern & archival photos, we built a look that evokes the feeling of sorting through the family photo album."
+          >
             <Image
               src="/projects/carefull/Carefull_Collage@2x.png"
               alt="Picture of a mother and son embracing eachother. A purple ring surrounds them showing protection."
@@ -153,7 +161,10 @@ export default function Carefull() {
               height={1306}
             />
           </AssetCard>
-          <AssetCard columns={1} caption="">
+          <AssetCard
+            columns={1}
+            caption="Built supporting material to flesh out our off-screen presence."
+          >
             <Image
               src="/projects/carefull/Carefull_Print_1@2x.png"
               alt="Picture of a mother and son embracing eachother. A purple ring surrounds them showing protection."
@@ -180,11 +191,11 @@ export default function Carefull() {
         }
       >
         <Carousel>
-          <ListCard
+          <TextCard
             text="Uncovered user journeys, mapped flows, built wireframes, and constructed prototypes to shape our product."
             iconName="TreeStructure"
           />
-          <ListCard
+          <TextCard
             text="Used quantitative & qualitative data from our customers to iterate and ship constant UX improvements."
             iconName="ArrowsClockwise"
           />
