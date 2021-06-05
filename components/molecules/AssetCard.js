@@ -9,6 +9,9 @@ const Caption = ({ open, text }) => {
   const parentVariants = {
     closed: {
       borderRadius: 32,
+      transition: {
+        borderRadius: { delay: 0.2, type: "spring", stiffness: 100 },
+      },
     },
     open: {
       borderRadius: 8,
@@ -17,7 +20,7 @@ const Caption = ({ open, text }) => {
 
   const textVariants = {
     closed: {
-      x: 24,
+      x: -24,
       opacity: 0,
     },
     open: {
@@ -25,6 +28,9 @@ const Caption = ({ open, text }) => {
       x: 0,
       transition: {
         delay: 0.2,
+        type: "spring",
+        // stiffness: 300,
+        bounce: 0.25,
       },
     },
   };
@@ -51,7 +57,7 @@ const Caption = ({ open, text }) => {
         animate={open ? "open" : "closed"}
         css={{
           backgroundColor: "$gray500",
-          padding: "$space200",
+          padding: "$space100",
           backgroundColor: "$gray800",
           position: "absolute",
           bottom: "40px",
@@ -64,22 +70,25 @@ const Caption = ({ open, text }) => {
       >
         {!open && (
           <Box
-            key="poiuhyg"
+            key="icon"
             layout
             variants={iconVariants}
             initial="open"
-            exit="closed"
+            animate="closed"
+            exit="open"
           >
-            <Icon name="Chat" css={{ height: "24px", width: "24px" }} />
+            <Icon name="Info" css={{ height: "16px", width: "16px" }} />
           </Box>
         )}
         {open && (
           <Box
-            key="hgfd"
+            key="text"
             layout
             variants={textVariants}
             initial="closed"
+            animate="open"
             exit="closed"
+            css={{ padding: "$space100" }}
           >
             <Text>{text}</Text>
           </Box>

@@ -3,7 +3,6 @@ import Box from "./Box";
 
 const Flex = styled(Box, {
   display: "flex",
-  flex: 1,
   flexDirection: "column",
 
   variants: {

@@ -6,6 +6,7 @@ const Text = styled("span", {
   margin: 0,
   color: "$gray000",
   lineHeight: "calc(1em + 4px)",
+  position: "relative",
 
   // Font Sizes
   $$0: "14px",
