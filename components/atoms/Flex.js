@@ -4,6 +4,7 @@ import Box from "./Box";
 const Flex = styled(Box, {
   display: "flex",
   flexDirection: "column",
+  flex: 1,
 
   variants: {
     direction: {

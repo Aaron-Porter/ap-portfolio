@@ -23,7 +23,7 @@ const PortfolioPresentationCard = () => (
     <Content>
       <Card pressable={false}>
         <Card.Content>
-          <Flex direction="column" align="start">
+          <Flex direction="column" align="start" justify="between">
             <Flex direction="column">
               <Text preset="largeHeading" css={{ maxWidth: "25ch" }}>
                 Want a deeper dive on how I approached this project?

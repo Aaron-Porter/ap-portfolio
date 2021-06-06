@@ -10,7 +10,7 @@ import Image from "next/image";
 import React from "react";
 import Icon from "components/atoms/Icon";
 
-const _Menu = styled(Flex, {
+const Menu = styled(Flex, {
   backgroundColor: "white",
   padding: "$space100",
   borderRadius: "999px",
@@ -58,8 +58,6 @@ const Highlight = styled(Box, {
   zIndex: 0,
   display: "block",
 });
-
-const Menu = ({ children }) => <_Menu layout>{children}</_Menu>;
 
 const MenuItem = ({ href = "", path, label, children }) => {
   const active = path === href;
@@ -132,7 +130,7 @@ export const Header = () => {
                   <Image src="/images/avatar.png" layout="fill" />
                 </Box>
               )}
-              <Menu key="menu">
+              <Menu key="menu" css={{ flex: "initial" }} layout>
                 {isProject && (
                   <MenuItem
                     href="/"
