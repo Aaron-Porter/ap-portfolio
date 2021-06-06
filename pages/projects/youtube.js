@@ -33,7 +33,7 @@ export default function Carefull() {
         <ConfidentialBanner css={{ marginBottom: "$space400" }} />
         <Card pressable={false} align="center" justify="center">
           <Image
-            src="/projects/youtube/Youtube_UI_1@2x.png"
+            src="/projects/youtube/Youtube_Premium@2x.png"
             alt="Picture of a mother and son embracing eachother. A purple ring surrounds them showing protection."
             width={2256}
             height={1188}
@@ -42,18 +42,50 @@ export default function Carefull() {
       </ProjectIntro>
       <ProjectHighlight label="About The Project">
         <List>
-          <List.Item title="The problem" text={<>YouTube was created for</>} />
           <List.Item
-            title="My Role"
+            title="The Opportunity"
             text={
               <>
-                As a User Experience Designer at Google, I led Interaction
-                Design for all of the SVOD surfaces across YouTube. I was
-                responsible for taking product features from problem
-                identification to high fidelity specifications. I worked closely
-                with our researchers to identify user needs and validate
-                prototypes, while also aiding our development team to implement
-                our designs.
+                YouTube is the center of the universe for video on the internet.
+                But it’s optimized for one-off, medium length content. So when
+                we began investing heavily in original episodic & long-form
+                programming, the need to design for this experience became
+                apparent.
+              </>
+            }
+          />
+          <List.Item
+            title="Their Problems"
+            text={
+              <>
+                Our hypothesis was that premium content deserved a catered,
+                premium experience. So we dove into understanding exactly what
+                where the journeys around this type of content and we
+                researched, designed, and prototyped our way to some new
+                solutions.
+              </>
+            }
+          />
+          <List.Item
+            title="Constraints"
+            text={
+              <>
+                Working inside of a large institution with a rich legacy of UX
+                patterns is challenging enough, but when you purposelly seek to
+                break those patterns to solve for a new use-case, you must move
+                slowly & works in sync with every stakeholder.
+              </>
+            }
+          />
+          <List.Item
+            title="Constraints"
+            text={
+              <>
+                As a User Experience Designer at Google, I was an Interaction
+                Designer for all of the Premium Original Content surfaces across
+                YouTube. I was responsible for identifying opportunities,
+                designing solutions, and working with the broader team to bring
+                them to fruition.
               </>
             }
           />
@@ -73,9 +105,9 @@ export default function Carefull() {
               text={
                 <>
                   Worked with our research team to define critical user journeys
-                  for our product area. Product decisions were then measured by
-                  their impact against these journeys — giving design & research
-                  quantifiable measurements by which to inact change.
+                  for our product area. Product decisions were measured by their
+                  impact against these journeys — giving design & research
+                  metrics by which to inact change.
                 </>
               }
               iconName="Chat"
@@ -91,6 +123,36 @@ export default function Carefull() {
               }
               iconName="Chat"
             />
+            <AssetCard
+              columns={1}
+              caption="We spent 2 weeks in Tokyo, Japan. Visiting YouTube users in their home — learning about their lifestyle, desires, & video consumption behaviors."
+            >
+              <Image
+                src="/projects/youtube/YouTube_UI_1@2x.png"
+                alt=""
+                width={1104}
+                height={1520}
+              />
+            </AssetCard>
+            <AssetCard
+              columns={1}
+              caption="We spent 2 weeks in Tokyo, Japan. Visiting YouTube users in their home — learning about their lifestyle, desires, & video consumption behaviors."
+            >
+              <Image
+                src="/projects/youtube/YouTube_UI_2@2x.png"
+                alt=""
+                width={1104}
+                height={1520}
+              />
+            </AssetCard>
+            <AssetCard caption="We spent 2 weeks in Tokyo, Japan. Visiting YouTube users in their home — learning about their lifestyle, desires, & video consumption behaviors.">
+              <Image
+                src="/projects/youtube/YouTube_UI_3@2x.png"
+                alt=""
+                width={2256}
+                height={1256}
+              />
+            </AssetCard>
             <TextCard
               text={
                 <>
@@ -128,11 +190,32 @@ export default function Carefull() {
         <Content>
           <Grid columns={2}>
             <TextCard
-              text="I identified a gap in our asset creation workflow that created friction & excessive manual labor. So I built an
-            internal tool to automate portions of the process. Giving autonomy to our counterparts."
+              text={
+                <>
+                  I identified a gap in our asset creation workflow that created
+                  friction & excessive manual labor. So I built an internal tool
+                  to automate portions of the process. Giving autonomy to our
+                  counterparts.
+                </>
+              }
             />
-            <TextCard text="I worked with our growth team to reduce churn by implementing a post-cancelation recovery flow. The insights gathered went on to motivate retargeting and re-engagement initiatives" />
-            <TextCard text="Helped to organize an internal conference that was attended by individuals from across Google products, offices, & countries." />
+            <TextCard
+              text={
+                <>
+                  I worked with our growth team to reduce churn by implementing
+                  a post-cancelation recovery flow. The insights gathered went
+                  on to motivate retargeting and re-engagement initiatives{" "}
+                </>
+              }
+            />
+            <TextCard
+              text={
+                <>
+                  Helped to organize an internal conference that was attended by
+                  individuals from across Google products, offices, & countries.
+                </>
+              }
+            />
           </Grid>
         </Content>
       </ProjectHighlight>
