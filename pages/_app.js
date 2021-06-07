@@ -1,9 +1,10 @@
-import { globalStyles } from "stitches.config";
+import { globalStyles, lightTheme } from "stitches.config";
 import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
-import { Header } from "components/molecules/Header";
+import Menu from "components/organisms/Menu";
 import Box from "components/atoms/Box";
 import { useEffect, useRef } from "react";
 import Router from "next/router";
+import { ThemeProvider } from "next-themes";
 
 const handleExitComplete = () => {
   console.log("exited");
@@ -36,28 +37,38 @@ function MyApp({ Component, pageProps, router }) {
     damping: 20,
     stiffness: 100,
   };
+
   return (
-    <Box
-      layout
-      css={{
-        perspective: "1000px",
-        "perspective-origin": "top center",
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      value={{
+        dark: "dark",
+        light: lightTheme.className,
       }}
     >
-      <Header />
-      <AnimatePresence exitBeforeEnter onExitComplete={handleExitComplete}>
-        <motion.div
-          key={router.pathname}
-          transition={spring}
-          initial={{ z: 100, opacity: 0 }}
-          animate={{ z: 0, opacity: 1 }}
-          exit={{ z: -100, opacity: 0 }}
-          originZ={0}
-        >
-          <Component {...pageProps} />
-        </motion.div>
-      </AnimatePresence>
-    </Box>
+      <Menu key="menu" />
+      <Box
+        layout
+        css={{
+          perspective: "1000px",
+          "perspective-origin": "top center",
+        }}
+      >
+        <AnimatePresence exitBeforeEnter onExitComplete={handleExitComplete}>
+          <motion.div
+            key={router.pathname}
+            transition={spring}
+            initial={{ z: 100, opacity: 0 }}
+            animate={{ z: 0, opacity: 1 }}
+            exit={{ z: -100, opacity: 0 }}
+            originZ={0}
+          >
+            <Component {...pageProps} />
+          </motion.div>
+        </AnimatePresence>
+      </Box>
+    </ThemeProvider>
   );
 }
 

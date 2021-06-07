@@ -1,6 +1,6 @@
 import { createCss } from "@stitches/react";
 
-export const { styled, getCssString, global } = createCss({
+export const { styled, getCssString, global, theme } = createCss({
   theme: {
     fonts: {
       system: "system-ui",
@@ -34,7 +34,7 @@ export const { styled, getCssString, global } = createCss({
       space800: "128px",
     },
     transitions: {
-      default: "all 0.2s ease",
+      default: "all 0.3s ease-out",
     },
   },
   media: {
@@ -45,6 +45,25 @@ export const { styled, getCssString, global } = createCss({
     xLarge: "(min-width: 1200px)",
     xXLarge: "(min-width: 1536px)",
   },
+});
+
+export const lightTheme = theme("light-theme", {
+  colors: {
+    gray000: "#000000",
+    gray100: "#101010",
+    gray200: "#262626",
+    gray300: "#434343",
+    gray400: "#555555",
+    gray500: "#7b7b7b",
+    gray600: "#9d9d9d",
+    gray700: "#c4c4c4",
+    gray800: "#d9d9d9",
+    gray900: "#e9e9e9",
+    gray1000: "#FFFFFF",
+    accent: "#F66141",
+  },
+  space: {},
+  fonts: {},
 });
 
 export const globalStyles = global({
