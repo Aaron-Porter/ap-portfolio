@@ -7,22 +7,29 @@ import { useRouter } from "next/router";
 import { styled } from "stitches.config";
 import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Icon from "components/atoms/Icon";
+import { useTheme } from "next-themes";
 
 const _Menu = styled(Flex, {
-  backgroundColor: "$gray700",
+  backgroundColor: "$gray800",
   padding: "$space200",
   borderRadius: "999px",
   flexDirection: "row",
   overflow: "hidden",
   display: "inline-flex",
-  gap: "$space100",
+  gap: "$space200",
+  flex: "initial",
+  pointerEvents: "all",
+  align: "center",
+  color: "$gray200",
+  boxShadow:
+    "0px 4px 4px 0px rgba(0, 0, 0, 0.7), 0px 0px 24px 0px rgba(0, 0, 0, 0.5)",
 });
 
 const Item = styled(Box, {
   transition: "$default",
-  padding: "$space200 $space400",
+  padding: "$space100 $space300",
   position: "relative",
   borderRadius: "999px",
 
@@ -97,6 +104,40 @@ const MenuItem = ({ href = "", path, label, children }) => {
   );
 };
 
+const ThemeToggle = () => {
+  const [mounted, setMounted] = useState(false);
+  const { setTheme, resolvedTheme } = useTheme();
+
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted) return null;
+
+  const toggleTheme = () => {
+    const targetTheme = resolvedTheme === "light" ? "dark" : "light";
+
+    setTheme(targetTheme);
+  };
+  return (
+    <Flex
+      align="center"
+      onClick={toggleTheme}
+      css={{
+        padding: "12px",
+        borderRadius: "9999px",
+        outline: "1px $gray700 solid",
+        cursor: "pointer",
+      }}
+    >
+      {resolvedTheme === "dark" && (
+        <Icon name="Moon" css={{ width: "16px", height: "16px" }} />
+      )}
+      {resolvedTheme === "light" && (
+        <Icon name="Sun" css={{ width: "16px", height: "16px" }} />
+      )}
+    </Flex>
+  );
+};
+
 const Menu = () => {
   const router = useRouter();
   const path = router.pathname;
@@ -104,39 +145,29 @@ const Menu = () => {
   const isProject = path.includes("project");
 
   return (
-    <Box
-      css={{
-        position: "fixed",
-        bottom: "$space300",
-        left: "50%",
-        transform: "translateX(-50%)",
-        margin: "auto",
-        zIndex: 1000,
-      }}
-    >
-      <AnimateSharedLayout>
-        <AnimatePresence>
-          <_Menu key="menu" layout>
-            {isProject && (
-              <MenuItem href="/" path={path} label="All Work" key="all-work">
-                <Icon
-                  name="ArrowsClockwise"
-                  css={{
-                    width: "24px",
-                    height: "24px",
-                    marginRight: "$space200",
-                  }}
-                />
-              </MenuItem>
-            )}
-            {!isProject && (
-              <MenuItem href="/" path={path} label="Work" key="work" />
-            )}
-            <MenuItem href="/about" path={path} label="About Me" key="about" />
-          </_Menu>
-        </AnimatePresence>
-      </AnimateSharedLayout>
-    </Box>
+    <AnimateSharedLayout>
+      <AnimatePresence>
+        <_Menu key="menu" layout>
+          {isProject && (
+            <MenuItem href="/" path={path} label="All Work" key="all-work">
+              <Icon
+                name="ArrowsClockwise"
+                css={{
+                  width: "24px",
+                  height: "24px",
+                  marginRight: "$space200",
+                }}
+              />
+            </MenuItem>
+          )}
+          {!isProject && (
+            <MenuItem href="/" path={path} label="Work" key="work" />
+          )}
+          <MenuItem href="/about" path={path} label="About Me" key="about" />
+          <ThemeToggle />
+        </_Menu>
+      </AnimatePresence>
+    </AnimateSharedLayout>
   );
 };
 

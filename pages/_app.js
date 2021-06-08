@@ -5,6 +5,10 @@ import Box from "components/atoms/Box";
 import { useEffect, useRef } from "react";
 import Router from "next/router";
 import { ThemeProvider } from "next-themes";
+import Content from "components/atoms/Content";
+import Flex from "components/atoms/Flex";
+import Image from "next/image";
+import Header from "components/molecules/Header";
 
 const handleExitComplete = () => {
   console.log("exited");
@@ -47,7 +51,8 @@ function MyApp({ Component, pageProps, router }) {
         light: lightTheme.className,
       }}
     >
-      <Menu key="menu" />
+      <Header />
+
       <Box
         layout
         css={{

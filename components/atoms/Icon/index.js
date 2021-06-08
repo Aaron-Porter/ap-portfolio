@@ -13,6 +13,8 @@ import Copy from "./icons/Copy.svg";
 import ArrowsClockwise from "./icons/ArrowsClockwise.svg";
 import TreeStructure from "./icons/TreeStructure.svg";
 import Info from "./icons/Info.svg";
+import Moon from "./icons/Moon.svg";
+import Sun from "./icons/Sun.svg";
 
 const iconTypes = {
   ArrowRightUp: ArrowRightUp,
@@ -26,6 +28,8 @@ const iconTypes = {
   ArrowsClockwise: ArrowsClockwise,
   TreeStructure: TreeStructure,
   Info: Info,
+  Moon: Moon,
+  Sun: Sun,
 };
 
 const Icon = ({ name, css, ...props }) => {
