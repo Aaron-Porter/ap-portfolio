@@ -39,6 +39,7 @@ const Card = (props) => {
 };
 
 Card.Content = styled(Flex, {
+  position: "relative",
   padding: "$space400",
   defaultVariants: {
     direction: "column",

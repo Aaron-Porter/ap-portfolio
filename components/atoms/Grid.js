@@ -8,7 +8,6 @@ const Grid = styled(Box, {
   margin: 0,
   width: "100%",
   display: "grid",
-  gap: "$space300",
 
   variants: {
     columns: {
@@ -23,14 +22,25 @@ const Grid = styled(Box, {
         },
       },
     },
+    gapSize: {
+      default: {
+        gap: "$space300",
+        "@large": {
+          gap: "$space400",
+        },
+      },
+      large: {
+        gap: "$space500",
+        "@large": {
+          gap: "$space600",
+        },
+      },
+    },
   },
 
   defaultVariants: {
     columns: 1,
-  },
-
-  "@large": {
-    gap: "$space400",
+    gapSize: "default",
   },
 });
 

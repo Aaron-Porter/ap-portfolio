@@ -1,4 +1,3 @@
-import { styled } from "../stitches.config";
 import Box from "components/atoms/Box";
 import Flex from "components/atoms/Flex";
 import Content from "components/atoms/Content";
@@ -10,11 +9,12 @@ import Icon from "components/atoms/Icon";
 import ProjectCard from "components/molecules/ProjectCard";
 import Page from "components/templates/Page";
 import Grid from "components/atoms/Grid";
+import Landing from "components/molecules/Landing";
 
 export default function Home() {
   return (
     <Page>
-      <Section css={{ padding: "$space700 0 0" }}>
+      <Landing>
         <Content>
           <Box>
             <Text preset="xLargeHeading" css={{ maxWidth: "28ch" }}>
@@ -22,15 +22,9 @@ export default function Home() {
             </Text>
           </Box>
         </Content>
-      </Section>
-      <Section>
+      </Landing>
+      <Section css={{ paddingTop: "$space400" }}>
         <Content>
-          <Text
-            preset="overline"
-            css={{ color: "$gray500", paddingBottom: "$space400" }}
-          >
-            Selected Projects
-          </Text>
           <Grid columns={2}>
             <ProjectCard
               title="Carefull"
@@ -44,7 +38,7 @@ export default function Home() {
                   src="/projects/carefull/carefull_image_1@2x.png"
                   alt="Picture of a mother and son embracing eachother. A purple ring surrounds them showing protection."
                   width={552}
-                  height={549}
+                  height={552}
                   layout="responsive"
                 />
               }
@@ -68,7 +62,7 @@ export default function Home() {
               <ProjectCard
                 title="YouTube"
                 dates="2016-2018"
-                role="Interaction Designer"
+                role="UX Designer"
                 link="/projects/youtube"
                 image={
                   <Image

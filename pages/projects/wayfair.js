@@ -12,7 +12,7 @@ import Card from "components/atoms/Card";
 import ConfidentialBanner from "components/molecules/ConfidentialBanner";
 import LinkTo from "components/utilities/LinkTo";
 import React from "react";
-import TextCard from "components/molecules/ListCard";
+import TextCard from "components/molecules/TextCard.js";
 import Text from "components/atoms/Text";
 import Section from "components/atoms/Section";
 import Content from "components/atoms/Content";
@@ -104,61 +104,59 @@ export default function Carefull() {
           </>
         }
       >
-        <Content>
-          <Grid columns={2}>
-            <TextCard
-              text={
-                <>
-                  Visit dozens of partners across the US & the UK to conduct
-                  on-site contextual research sessions. Allowing for a deep
-                  understanding of their working environment & daily
-                  responsibilities.
-                </>
-              }
-              iconName="Chat"
+        <Carousel>
+          <TextCard
+            text={
+              <>
+                Visit dozens of partners across the US & the UK to conduct
+                on-site contextual research sessions. Allowing for a deep
+                understanding of their working environment & daily
+                responsibilities.
+              </>
+            }
+            iconName="Chat"
+          />
+          <TextCard
+            text={
+              <>
+                Documented, cataloged, & organzied our research into a robust
+                research library. This allowed any stakeholder to browse the
+                complete archive and find examples of user feedback relevant to
+                their product area.
+              </>
+            }
+            iconName="Chat"
+          />
+          <AssetCard
+            columns={2}
+            caption="We spent 2 weeks in Tokyo, Japan. Visiting wayfair users in their home — learning about their lifestyle, desires, & video consumption behaviors."
+          >
+            <Image
+              src="/projects/wayfair/Wayfair_Image_2@2x.png"
+              alt=""
+              width={2256}
+              height={1188}
             />
-            <TextCard
-              text={
-                <>
-                  Documented, cataloged, & organzied our research into a robust
-                  research library. This allowed any stakeholder to browse the
-                  complete archive and find examples of user feedback relevant
-                  to their product area.
-                </>
-              }
-              iconName="Chat"
-            />
-            <AssetCard
-              columns={2}
-              caption="We spent 2 weeks in Tokyo, Japan. Visiting wayfair users in their home — learning about their lifestyle, desires, & video consumption behaviors."
-            >
-              <Image
-                src="/projects/wayfair/Wayfair_Image_2@2x.png"
-                alt=""
-                width={2256}
-                height={1188}
-              />
-            </AssetCard>
-            <TextCard
-              text={
-                <>
-                  Synthesized research data into reports & presentations to make
-                  user insights actionable and digestable for all stakeholders.
-                </>
-              }
-              iconName="Chat"
-            />
-            <TextCard
-              text={
-                <>
-                  Helped to facilitate workshops with internal teams to
-                  encourage UX research practices.
-                </>
-              }
-              iconName="Chat"
-            />
-          </Grid>
-        </Content>
+          </AssetCard>
+          <TextCard
+            text={
+              <>
+                Synthesized research data into reports & presentations to make
+                user insights actionable and digestable for all stakeholders.
+              </>
+            }
+            iconName="Chat"
+          />
+          <TextCard
+            text={
+              <>
+                Helped to facilitate workshops with internal teams to encourage
+                UX research practices.
+              </>
+            }
+            iconName="Chat"
+          />
+        </Carousel>
       </ProjectHighlight>
       <ProjectHighlight
         heading={
@@ -168,46 +166,44 @@ export default function Carefull() {
           </>
         }
       >
-        <Content>
-          <Grid columns={2}>
-            <TextCard
-              text={
-                <>
-                  Audited the toolset & worked with stakeholders across the
-                  organization to create an accurate map of the various business
-                  processes and logistical dependencies.
-                </>
-              }
-            />
-            <TextCard
-              text={
-                <>
-                  Utilized our research finding to redesign functionality by
-                  functionality, addressing problems from users & reorganzing
-                  against how they truly approach tehir tasks.
-                </>
-              }
-            />
-            <TextCard
-              text={
-                <>
-                  Built prototypes up and down the fidelity chain, from card
-                  sorting, to click-throughs, to a fully functioning coded
-                  front-end to test the more complicated stateful flows.
-                </>
-              }
-            />
-            <TextCard
-              text={
-                <>
-                  Took our prototypes on the road and had users test them in
-                  their workplace. Getting feedback on how this new toolset
-                  would fit into their job.
-                </>
-              }
-            />
-          </Grid>
-        </Content>
+        <Carousel>
+          <TextCard
+            text={
+              <>
+                Audited the toolset & worked with stakeholders across the
+                organization to create an accurate map of the various business
+                processes and logistical dependencies.
+              </>
+            }
+          />
+          <TextCard
+            text={
+              <>
+                Utilized our research finding to redesign functionality by
+                functionality, addressing problems from users & reorganzing
+                against how they truly approach tehir tasks.
+              </>
+            }
+          />
+          <TextCard
+            text={
+              <>
+                Built prototypes up and down the fidelity chain, from card
+                sorting, to click-throughs, to a fully functioning coded
+                front-end to test the more complicated stateful flows.
+              </>
+            }
+          />
+          <TextCard
+            text={
+              <>
+                Took our prototypes on the road and had users test them in their
+                workplace. Getting feedback on how this new toolset would fit
+                into their job.
+              </>
+            }
+          />
+        </Carousel>
       </ProjectHighlight>
 
       <PortfolioPresentationCard />

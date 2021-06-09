@@ -4,7 +4,7 @@ import Text from "components/atoms/Text";
 import Content from "components/atoms/Content";
 
 export const Footer = () => (
-  <Box css={{ padding: "$space700 0 $space500" }}>
+  <Box css={{ padding: "$space700 0 $space800" }}>
     <Content>
       <Flex gap>
         <Box>

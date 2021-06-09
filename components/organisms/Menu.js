@@ -23,6 +23,7 @@ const _Menu = styled(Flex, {
   pointerEvents: "all",
   align: "center",
   color: "$gray200",
+  width: "max-content",
   boxShadow:
     "0px 4px 4px 0px rgba(0, 0, 0, 0.7), 0px 0px 24px 0px rgba(0, 0, 0, 0.5)",
 });
@@ -32,6 +33,8 @@ const Item = styled(Box, {
   padding: "$space100 $space300",
   position: "relative",
   borderRadius: "999px",
+  display: "inline-flex",
+  width: "max-content",
 
   variants: {
     active: {
@@ -75,7 +78,6 @@ const MenuItem = ({ href = "", path, label, children }) => {
     <LinkTo href={href} displayContents>
       <Item
         active={active}
-        css=""
         key={label}
         layout
         layoutId={label}
@@ -83,7 +85,7 @@ const MenuItem = ({ href = "", path, label, children }) => {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
       >
-        <Flex>
+        <Flex css={{ flexDirection: "row" }} align="center">
           {children}
           <Text preset="body" css={{ color: "inherit", zIndex: 10 }}>
             {label}
@@ -124,8 +126,10 @@ const ThemeToggle = () => {
       css={{
         padding: "12px",
         borderRadius: "9999px",
-        outline: "1px $gray700 solid",
+        border: "1px $gray700 solid",
         cursor: "pointer",
+        overflow: "hidden",
+        boxSizing: "border-box",
       }}
     >
       {resolvedTheme === "dark" && (

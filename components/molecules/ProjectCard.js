@@ -12,8 +12,8 @@ const Arrow = () => (
       padding: "$space200",
       backgroundColor: "$gray800",
       position: "absolute",
-      top: "40px",
-      right: "40px",
+      top: 0,
+      right: 0,
       borderRadius: "100%",
       color: "$gray000",
     }}
@@ -33,32 +33,35 @@ const ProjectCard = ({
   fullWidthImage = false,
   css,
 }) => (
-  <Card direction="column" layoutId={layoutId} css={css} pressable>
-    <Arrow />
+  <Card
+    direction="column"
+    layoutId={layoutId}
+    css={{ minHeight: "240px", ...css }}
+    pressable
+  >
     <LinkTo href={link} displayContents>
-      {fullWidthImage && <Box>{image}</Box>}
-      <Card.Content justify="between">
-        {!fullWidthImage && <Box>{image}</Box>}
-        <Flex direction="column" css={{ flexGrow: 0 }}>
-          <Text preset="largeHeading">{title}</Text>
-          {description && (
-            <Text
-              preset="subHeading"
-              css={{
-                maxWidth: "28ch",
-                color: "$gray300",
-                paddingBottom: "$space400",
-              }}
-            >
-              {description}
+      <Card.Content>
+        <Flex direction="column" justify="between">
+          <Arrow />
+          <Box>{image}</Box>
+          <Flex direction="column" css={{ flexGrow: 0 }}>
+            <Text preset="largeHeading">{title}</Text>
+            {description && (
+              <Text
+                preset="subHeading"
+                css={{
+                  maxWidth: "28ch",
+                  color: "$gray300",
+                  paddingBottom: "$space400",
+                }}
+              >
+                {description}
+              </Text>
+            )}
+            <Text preset="overline" css={{ color: "$gray400" }}>
+              {dates} · {role}
             </Text>
-          )}
-          <Text
-            preset="overline"
-            css={{ color: "$gray400", paddingTop: "$space100" }}
-          >
-            {dates} · {role}
-          </Text>
+          </Flex>
         </Flex>
       </Card.Content>
     </LinkTo>

@@ -24,7 +24,7 @@ const PortfolioPresentationCard = () => (
       <Card pressable={false}>
         <Card.Content>
           <Flex direction="column" align="start" justify="between">
-            <Flex direction="column">
+            <Flex direction="column" css={{ marginBottom: "$space400" }}>
               <Text preset="largeHeading" css={{ maxWidth: "25ch" }}>
                 Want a deeper dive on how I approached this project?
               </Text>
@@ -43,6 +43,7 @@ const PortfolioPresentationCard = () => (
             width: "50%",
             padding: "$space500 0",
             transform: "translateX(25%)",
+            "@lessThanMedium": { display: "none" },
           }}
         >
           <Browser></Browser>

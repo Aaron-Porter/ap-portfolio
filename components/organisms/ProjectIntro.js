@@ -4,21 +4,22 @@ import Section from "components/atoms/Section";
 import Text from "components/atoms/Text";
 import Image from "next/image";
 import Card from "components/atoms/Card";
+import Landing from "components/molecules/Landing";
 
 const ProjectIntro = ({ client, role, year, description, title, children }) => (
-  <Section css={{ paddingTop: "$space800" }}>
+  <Landing>
     <Content>
       <Flex direction="column" css={{ marginBottom: "$space300" }}>
-        <Text as="h1" preset="overline" css={{ color: "$gray500" }}>
+        <Text as="h2" preset="overline" css={{ color: "$gray500" }}>
           {`${client} · ${role} · ${year}`}
         </Text>
-        <Text as="h2" preset="xLargeHeading" css={{ maxWidth: "28ch" }}>
+        <Text as="h1" preset="xLargeHeading" css={{ maxWidth: "28ch" }}>
           {title}
         </Text>
       </Flex>
       {children}
     </Content>
-  </Section>
+  </Landing>
 );
 
 export default ProjectIntro;

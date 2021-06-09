@@ -12,7 +12,7 @@ import Card from "components/atoms/Card";
 import ConfidentialBanner from "components/molecules/ConfidentialBanner";
 import LinkTo from "components/utilities/LinkTo";
 import React from "react";
-import TextCard from "components/molecules/ListCard";
+import TextCard from "components/molecules/TextCard.js";
 import Text from "components/atoms/Text";
 import Section from "components/atoms/Section";
 import Content from "components/atoms/Content";
@@ -26,7 +26,7 @@ export default function Carefull() {
     <Project>
       <ProjectIntro
         client="YouTube"
-        role="Interaction Designer"
+        role="UX Designer"
         year="2016-2018"
         title="Elevating the experience of premium content across YouTube."
       >
@@ -78,7 +78,7 @@ export default function Carefull() {
             }
           />
           <List.Item
-            title="Constraints"
+            title="My Role"
             text={
               <>
                 As a User Experience Designer at Google, I was an Interaction
@@ -99,125 +99,120 @@ export default function Carefull() {
           </>
         }
       >
-        <Content>
-          <Grid columns={2}>
-            <TextCard
-              text={
-                <>
-                  Worked with our research team to define critical user journeys
-                  for our product area. Product decisions were measured by their
-                  impact against these journeys — giving design & research
-                  metrics by which to inact change.
-                </>
-              }
-              iconName="Chat"
+        <Carousel>
+          <TextCard
+            text={
+              <>
+                Worked with our research team to define critical user journeys
+                for our product area. Product decisions were measured by their
+                impact against these journeys — giving design & research metrics
+                by which to inact change.
+              </>
+            }
+            iconName="Chat"
+          />
+          <TextCard
+            text={
+              <>
+                Lead a cross-functional sprint with stakeholders from across the
+                product area. Utilizing the existing knowledge and
+                organizational learnings of my peers to inform our new projects.
+              </>
+            }
+            iconName="Chat"
+          />
+          <AssetCard
+            columns={1}
+            caption="We spent 2 weeks in Tokyo, Japan. Visiting YouTube users in their home — learning about their lifestyle, desires, & video consumption behaviors."
+          >
+            <Image
+              src="/projects/youtube/YouTube_UI_1@2x.png"
+              alt=""
+              width={1104}
+              height={1520}
             />
-            <TextCard
-              text={
-                <>
-                  Lead a cross-functional sprint with stakeholders from across
-                  the product area. Utilizing the existing knowledge and
-                  organizational learnings of my peers to inform our new
-                  projects.
-                </>
-              }
-              iconName="Chat"
+          </AssetCard>
+          <AssetCard
+            columns={1}
+            caption="We spent 2 weeks in Tokyo, Japan. Visiting YouTube users in their home — learning about their lifestyle, desires, & video consumption behaviors."
+          >
+            <Image
+              src="/projects/youtube/YouTube_UI_2@2x.png"
+              alt=""
+              width={1104}
+              height={1520}
             />
-            <AssetCard
-              columns={1}
-              caption="We spent 2 weeks in Tokyo, Japan. Visiting YouTube users in their home — learning about their lifestyle, desires, & video consumption behaviors."
-            >
-              <Image
-                src="/projects/youtube/YouTube_UI_1@2x.png"
-                alt=""
-                width={1104}
-                height={1520}
-              />
-            </AssetCard>
-            <AssetCard
-              columns={1}
-              caption="We spent 2 weeks in Tokyo, Japan. Visiting YouTube users in their home — learning about their lifestyle, desires, & video consumption behaviors."
-            >
-              <Image
-                src="/projects/youtube/YouTube_UI_2@2x.png"
-                alt=""
-                width={1104}
-                height={1520}
-              />
-            </AssetCard>
-            <AssetCard caption="We spent 2 weeks in Tokyo, Japan. Visiting YouTube users in their home — learning about their lifestyle, desires, & video consumption behaviors.">
-              <Image
-                src="/projects/youtube/YouTube_UI_3@2x.png"
-                alt=""
-                width={2256}
-                height={1256}
-              />
-            </AssetCard>
-            <TextCard
-              text={
-                <>
-                  Built prototypes of conceptual features & quality of life
-                  improvements to improve our offering and our customers
-                  experience as a YouTube fan.
-                </>
-              }
-              iconName="Chat"
+          </AssetCard>
+          <AssetCard caption="We spent 2 weeks in Tokyo, Japan. Visiting YouTube users in their home — learning about their lifestyle, desires, & video consumption behaviors.">
+            <Image
+              src="/projects/youtube/YouTube_UI_3@2x.png"
+              alt=""
+              width={2256}
+              height={1256}
             />
-            <TextCard
-              text={
-                <>
-                  Worked with our research team to conduct an ethnographic
-                  research trip in Japan to uncover patterns specific to the
-                  market and test our prototypes with users.
-                </>
-              }
-              iconName="Chat"
+          </AssetCard>
+          <TextCard
+            text={
+              <>
+                Built prototypes of conceptual features & quality of life
+                improvements to improve our offering and our customers
+                experience as a YouTube fan.
+              </>
+            }
+            iconName="Chat"
+          />
+          <TextCard
+            text={
+              <>
+                Worked with our research team to conduct an ethnographic
+                research trip in Japan to uncover patterns specific to the
+                market and test our prototypes with users.
+              </>
+            }
+            iconName="Chat"
+          />
+          <AssetCard caption="We spent 2 weeks in Tokyo, Japan. Visiting YouTube users in their home — learning about their lifestyle, desires, & video consumption behaviors.">
+            <Image
+              src="/projects/youtube/Youtube_Japan_1.jpg"
+              alt=""
+              width={2000}
+              height={1333}
             />
-            <AssetCard caption="We spent 2 weeks in Tokyo, Japan. Visiting YouTube users in their home — learning about their lifestyle, desires, & video consumption behaviors.">
-              <Image
-                src="/projects/youtube/Youtube_Japan_1.jpg"
-                alt=""
-                width={2000}
-                height={1333}
-              />
-            </AssetCard>
-          </Grid>
-        </Content>
+          </AssetCard>
+        </Carousel>
       </ProjectHighlight>
       <ProjectHighlight
         heading={<>Helped to encourage success across the company.</>}
       >
-        <Content>
-          <Grid columns={2}>
-            <TextCard
-              text={
-                <>
-                  I identified a gap in our asset creation workflow that created
-                  friction & excessive manual labor. So I built an internal tool
-                  to automate portions of the process. Giving autonomy to our
-                  counterparts.
-                </>
-              }
-            />
-            <TextCard
-              text={
-                <>
-                  I worked with our growth team to reduce churn by implementing
-                  a post-cancelation recovery flow. The insights gathered went
-                  on to motivate retargeting and re-engagement initiatives{" "}
-                </>
-              }
-            />
-            <TextCard
-              text={
-                <>
-                  Helped to organize an internal conference that was attended by
-                  individuals from across Google products, offices, & countries.
-                </>
-              }
-            />
-          </Grid>
-        </Content>
+        <Carousel>
+          <TextCard
+            text={
+              <>
+                I identified a gap in our asset creation workflow that created
+                friction & excessive manual labor. So I built an internal tool
+                to automate portions of the process. Giving autonomy to our
+                counterparts.
+              </>
+            }
+          />
+          <TextCard
+            text={
+              <>
+                I worked with our growth team to reduce churn by implementing a
+                post-cancelation recovery flow. The insights gathered went on to
+                motivate retargeting and re-engagement initiatives{" "}
+              </>
+            }
+          />
+          <TextCard
+            text={
+              <>
+                Helped to organize an internal conference that was attended by
+                individuals from across Google products, offices, & countries.
+              </>
+            }
+          />
+        </Carousel>
       </ProjectHighlight>
 
       <PortfolioPresentationCard />

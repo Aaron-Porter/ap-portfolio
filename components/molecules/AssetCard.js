@@ -1,3 +1,4 @@
+import Flex from "components/atoms/Flex";
 import Box from "components/atoms/Box";
 import Text from "components/atoms/Text";
 import Card from "components/atoms/Card";
@@ -101,14 +102,18 @@ const Caption = ({ open, text }) => {
 const AssetCard = ({ columns = 2, children, caption }) => {
   const [hover, setHover] = useState(false);
   return (
-    <Box
+    <Flex
       css={{ gridColumn: `span ${columns}`, position: "relative" }}
       onHoverStart={() => setHover(true)}
       onHoverEnd={() => setHover(false)}
     >
-      <Card pressable={false}>{children}</Card>
+      <Card pressable={false}>
+        <Flex align="center" justify="center">
+          {children}
+        </Flex>
+      </Card>
       {caption && <Caption text={caption} open={hover} />}
-    </Box>
+    </Flex>
   );
 };
 

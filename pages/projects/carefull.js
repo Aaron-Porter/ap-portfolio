@@ -12,7 +12,7 @@ import Card from "components/atoms/Card";
 import ConfidentialBanner from "components/molecules/ConfidentialBanner";
 import LinkTo from "components/utilities/LinkTo";
 import React from "react";
-import TextCard from "components/molecules/ListCard";
+import TextCard from "components/molecules/TextCard.js";
 import Section from "components/atoms/Section";
 import Content from "components/atoms/Content";
 import Flex from "components/atoms/Flex";
@@ -34,7 +34,7 @@ export default function Carefull() {
             src="/projects/carefull/carefull_image_1@2x.png"
             alt="Picture of a mother and son embracing eachother. A purple ring surrounds them showing protection."
             width={552}
-            height={549}
+            height={552}
           />
         </Card>
       </ProjectIntro>
@@ -96,27 +96,25 @@ export default function Carefull() {
           </>
         }
       >
-        <Content>
-          <Grid columns={2}>
-            <TextCard
-              text="I conducted 1:1 qualitiative research sessions with financial
+        <Carousel>
+          <TextCard
+            text="I conducted 1:1 qualitiative research sessions with financial
             caregivers & eventually users."
-              iconName="Chat"
-            />
-            <TextCard
-              text="I aided our head of growth in the formulation of quantitative studies to better understand our market and larger customer trends."
-              iconName="PieChart"
-            />
-            <TextCard
-              text="I built foundational artifacts that document the experiences, responsibilities, and needs of our customers."
-              iconName="Notebook"
-            />
-            <TextCard
-              text="I ran a series of workshops with our founding team to shape our product thinking."
-              iconName="StickyNote"
-            />
-          </Grid>
-        </Content>
+            iconName="Chat"
+          />
+          <TextCard
+            text="I aided our head of growth in the formulation of quantitative studies to better understand our market and larger customer trends."
+            iconName="PieChart"
+          />
+          <TextCard
+            text="I built foundational artifacts that document the experiences, responsibilities, and needs of our customers."
+            iconName="Notebook"
+          />
+          <TextCard
+            text="I ran a series of workshops with our founding team to shape our product thinking."
+            iconName="StickyNote"
+          />
+        </Carousel>
       </ProjectHighlight>
       <ProjectHighlight
         heading={

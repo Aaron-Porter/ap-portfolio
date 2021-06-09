@@ -1,7 +1,7 @@
 import { styled } from "stitches.config";
 
 const Section = styled("section", {
-  padding: "$space400 0",
+  padding: "$space500 0",
 
   "@medium": {
     padding: "$space800 0",

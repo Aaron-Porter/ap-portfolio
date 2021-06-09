@@ -32,6 +32,7 @@ export const { styled, getCssString, global, theme } = createCss({
       space700: "64px",
       space800: "96px",
       space800: "128px",
+      space900: "192px",
     },
     transitions: {
       default: "all 0.3s ease-out",
@@ -39,6 +40,7 @@ export const { styled, getCssString, global, theme } = createCss({
   },
   media: {
     small: "(min-width: 640px)",
+    lessThanMedium: "(max-width: 768px)",
     medium: "(min-width: 768px)",
     lessThanLarge: "(max-width: 1024px)", // all devices below 'desktop'
     large: "(min-width: 1024px)",
