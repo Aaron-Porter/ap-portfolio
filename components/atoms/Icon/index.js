@@ -10,7 +10,7 @@ import Notebook from "./icons/Notebook.svg";
 import PieChart from "./icons/PieChart.svg";
 import StickyNote from "./icons/StickyNote.svg";
 import Copy from "./icons/Copy.svg";
-import ArrowsClockwise from "./icons/ArrowsClockwise.svg";
+import ArrowsClockwise from "./icons/ArrowsClockWise.svg";
 import TreeStructure from "./icons/TreeStructure.svg";
 import Info from "./icons/Info.svg";
 import Moon from "./icons/Moon.svg";
