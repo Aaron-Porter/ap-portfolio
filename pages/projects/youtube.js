@@ -126,7 +126,7 @@ export default function Carefull() {
             caption="We spent 2 weeks in Tokyo, Japan. Visiting YouTube users in their home — learning about their lifestyle, desires, & video consumption behaviors."
           >
             <Image
-              src="/projects/youtube/YouTube_UI_1@2x.png"
+              src="/projects/youtube/Youtube_UI_1@2x.png"
               alt=""
               width={1104}
               height={1520}
@@ -137,7 +137,7 @@ export default function Carefull() {
             caption="We spent 2 weeks in Tokyo, Japan. Visiting YouTube users in their home — learning about their lifestyle, desires, & video consumption behaviors."
           >
             <Image
-              src="/projects/youtube/YouTube_UI_2@2x.png"
+              src="/projects/youtube/Youtube_UI_2@2x.png"
               alt=""
               width={1104}
               height={1520}
@@ -145,7 +145,7 @@ export default function Carefull() {
           </AssetCard>
           <AssetCard caption="We spent 2 weeks in Tokyo, Japan. Visiting YouTube users in their home — learning about their lifestyle, desires, & video consumption behaviors.">
             <Image
-              src="/projects/youtube/YouTube_UI_3@2x.png"
+              src="/projects/youtube/Youtube_UI_3@2x.png"
               alt=""
               width={2256}
               height={1256}
