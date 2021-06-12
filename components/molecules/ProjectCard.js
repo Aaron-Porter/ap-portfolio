@@ -44,8 +44,10 @@ const ProjectCard = ({
         <Flex direction="column" justify="between">
           <Arrow />
           <Box>{image}</Box>
-          <Flex direction="column" css={{ flexGrow: 0 }}>
-            <Text preset="largeHeading">{title}</Text>
+          <Box css={{ flexGrow: 0 }}>
+            <Box>
+              <Text preset="largeHeading">{title}</Text>
+            </Box>
             {description && (
               <Text
                 preset="subHeading"
@@ -58,10 +60,12 @@ const ProjectCard = ({
                 {description}
               </Text>
             )}
-            <Text preset="overline" css={{ color: "$gray400" }}>
-              {dates} · {role}
-            </Text>
-          </Flex>
+            <Box>
+              <Text preset="overline" css={{ color: "$gray400" }}>
+                {dates} · {role}
+              </Text>
+            </Box>
+          </Box>
         </Flex>
       </Card.Content>
     </LinkTo>

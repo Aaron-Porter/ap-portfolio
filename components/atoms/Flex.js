@@ -8,6 +8,11 @@ const Flex = styled(Box, {
   flex: 1,
   position: "relative",
 
+  $$gap: "$space$space300",
+  "@large": {
+    $$gap: "$space$space400",
+  },
+
   variants: {
     direction: {
       row: {
@@ -68,14 +73,28 @@ const Flex = styled(Box, {
       },
     },
     gap: {
-      true: {
-        gap: "$space300",
-        "@large": {
-          gap: "$space400",
+      true: {},
+    },
+  },
+  compoundVariants: [
+    {
+      gap: true,
+      direction: "row",
+      css: {
+        gapVertical: "$$gap",
+        "@medium": {
+          gapHorizontal: "$$gap",
         },
       },
     },
-  },
+    {
+      gap: true,
+      direction: "column",
+      css: {
+        gapVertical: "$$gap",
+      },
+    },
+  ],
   defaultVariants: {
     direction: "row",
     align: "stretch",

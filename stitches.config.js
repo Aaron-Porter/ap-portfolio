@@ -47,6 +47,18 @@ export const { styled, getCssString, global, theme } = createCss({
     xLarge: "(min-width: 1200px)",
     xXLarge: "(min-width: 1536px)",
   },
+  utils: {
+    gapVertical: (config) => (value) => ({
+      "& > * + *": {
+        margin: `${value} 0 0 0`,
+      },
+    }),
+    gapHorizontal: (config) => (value) => ({
+      "& > * + *": {
+        margin: `0 0 0 ${value}`,
+      },
+    }),
+  },
 });
 
 export const lightTheme = theme("light-theme", {

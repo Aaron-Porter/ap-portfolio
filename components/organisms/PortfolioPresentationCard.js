@@ -5,11 +5,11 @@ import Section from "components/atoms/Section";
 import Text from "components/atoms/Text";
 import Browser from "public/images/Browser.svg";
 import Box from "components/atoms/Box";
-import { CopyToClipboardButton } from "../molecules/CopyToClipboardButton";
+import CopyToClipboardButton from "components/molecules/CopyToClipboardButton";
 
 const PortfolioPresentationCard = () => (
   <Section id="PortfolioPresentation">
-    <Content>
+    {/* <Content>
       <Card pressable={false}>
         <Card.Content>
           <Flex direction="column" align="start" justify="between">
@@ -38,7 +38,7 @@ const PortfolioPresentationCard = () => (
           <Browser></Browser>
         </Box>
       </Card>
-    </Content>
+    </Content> */}
   </Section>
 );
 

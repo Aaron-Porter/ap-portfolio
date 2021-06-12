@@ -55,6 +55,7 @@ const Caption = ({ open, text }) => {
       <Box
         layout
         variants={parentVariants}
+        initial="closed"
         animate={open ? "open" : "closed"}
         css={{
           backgroundColor: "$gray500",

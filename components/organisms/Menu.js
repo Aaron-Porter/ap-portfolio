@@ -18,7 +18,7 @@ const _Menu = styled(Flex, {
   flexDirection: "row",
   overflow: "hidden",
   display: "inline-flex",
-  gap: "$space200",
+  gapHorizontal: "$space200",
   flex: "initial",
   pointerEvents: "all",
   align: "center",
@@ -75,34 +75,36 @@ const MenuItem = ({ href = "", path, label, children }) => {
   const active = path === href;
 
   return (
-    <LinkTo href={href} displayContents>
-      <Item
-        active={active}
-        key={label}
-        layout
-        layoutId={label}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-      >
-        <Flex css={{ flexDirection: "row" }} align="center">
-          {children}
-          <Text preset="body" css={{ color: "inherit", zIndex: 10 }}>
-            {label}
-          </Text>
-        </Flex>
-        {active && (
-          <Highlight
-            layout
-            layoutId="highlight"
-            key="highlight"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          />
-        )}
-      </Item>
-    </LinkTo>
+    <Box>
+      <LinkTo href={href} displayContents>
+        <Item
+          active={active}
+          key={label}
+          layout
+          layoutId={label}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <Flex css={{ flexDirection: "row" }} align="center">
+            {children}
+            <Text preset="body" css={{ color: "inherit", zIndex: 10 }}>
+              {label}
+            </Text>
+          </Flex>
+          {active && (
+            <Highlight
+              layout
+              layoutId="highlight"
+              key="highlight"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            />
+          )}
+        </Item>
+      </LinkTo>
+    </Box>
   );
 };
 
