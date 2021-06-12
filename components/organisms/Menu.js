@@ -71,40 +71,43 @@ const Highlight = styled(Box, {
   display: "block",
 });
 
-const MenuItem = ({ href = "", path, label, children }) => {
+const MenuItem = ({
+  href = "",
+  path,
+  label,
+  children,
+  key,
+  icon,
+  layoutId,
+}) => {
   const active = path === href;
 
   return (
-    <Box>
-      <LinkTo href={href} displayContents>
-        <Item
-          active={active}
-          key={label}
-          layout
-          layoutId={label}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-        >
-          <Flex css={{ flexDirection: "row" }} align="center">
-            {children}
-            <Text preset="body" css={{ color: "inherit", zIndex: 10 }}>
-              {label}
-            </Text>
-          </Flex>
-          {active && (
-            <Highlight
-              layout
-              layoutId="highlight"
-              key="highlight"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            />
-          )}
-        </Item>
-      </LinkTo>
-    </Box>
+    <LinkTo href={href}>
+      <Item
+        active={active}
+        key={label}
+        layout
+        layoutId={layoutId}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
+        <Text preset="body" css={{ color: "inherit", zIndex: 10 }} key="text">
+          {label}
+        </Text>
+        {active && (
+          <Highlight
+            layout
+            layoutId="highlight"
+            key="highlight"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          />
+        )}
+      </Item>
+    </LinkTo>
   );
 };
 
@@ -151,29 +154,25 @@ const Menu = () => {
   const isProject = path.includes("project");
 
   return (
-    <AnimateSharedLayout>
-      <AnimatePresence>
-        <_Menu key="menu" layout>
-          {isProject && (
-            <MenuItem href="/" path={path} label="All Work" key="all-work">
-              <Icon
-                name="ArrowsClockwise"
-                css={{
-                  width: "24px",
-                  height: "24px",
-                  marginRight: "$space200",
-                }}
-              />
-            </MenuItem>
-          )}
-          {!isProject && (
-            <MenuItem href="/" path={path} label="Work" key="work" />
-          )}
-          <MenuItem href="/about" path={path} label="About Me" key="about" />
-          <ThemeToggle />
-        </_Menu>
-      </AnimatePresence>
-    </AnimateSharedLayout>
+    <_Menu key="menu" layout>
+      <AnimateSharedLayout>
+        <MenuItem
+          href="/"
+          path={path}
+          label="Work"
+          layoutId="work"
+          icon={isProject}
+        />
+        <MenuItem
+          href="/about"
+          path={path}
+          label="About Me"
+          key="about"
+          layout
+        />
+        <ThemeToggle />
+      </AnimateSharedLayout>
+    </_Menu>
   );
 };
 

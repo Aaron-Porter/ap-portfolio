@@ -17,20 +17,6 @@ const Header = () => (
   >
     <Content>
       <Flex justify="center" align="center">
-        {/* <Box
-          css={{
-            borderRadius: "50%",
-            marginRight: "$space300",
-            overflow: "hidden",
-            width: "56px",
-            height: "56px",
-            cursor: "grab",
-            boxShadow:
-              "0px 4px 4px 0px rgba(0, 0, 0, 0.7), 0px 0px 24px 0px rgba(0, 0, 0, 0.5)",
-          }}
-        >
-          <Image src="/images/avatar.png" width={64} height={64} />
-        </Box> */}
         <Menu key="menu" />
       </Flex>
     </Content>

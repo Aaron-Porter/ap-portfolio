@@ -15,6 +15,7 @@ import TreeStructure from "./icons/TreeStructure.svg";
 import Info from "./icons/Info.svg";
 import Moon from "./icons/Moon.svg";
 import Sun from "./icons/Sun.svg";
+import ArrowLeft from "./icons/ArrowLeft.svg";
 
 const iconTypes = {
   ArrowRightUp: ArrowRightUp,
@@ -30,6 +31,7 @@ const iconTypes = {
   Info: Info,
   Moon: Moon,
   Sun: Sun,
+  ArrowLeft: ArrowLeft,
 };
 
 const Icon = ({ name, css, ...props }) => {
