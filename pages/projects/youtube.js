@@ -34,7 +34,7 @@ export default function Carefull() {
         <Card pressable={false} align="center" justify="center">
           <Image
             src="/projects/youtube/Youtube_Premium@2x.png"
-            alt="Picture of a mother and son embracing eachother. A purple ring surrounds them showing protection."
+            alt="YouTube Premium logo"
             width={2256}
             height={1188}
           />
@@ -43,26 +43,25 @@ export default function Carefull() {
       <ProjectHighlight label="About The Project">
         <List>
           <List.Item
-            title="The Opportunity"
+            title="The Problem"
             text={
               <>
                 YouTube is the center of the universe for video on the internet.
-                But it’s optimized for one-off, medium length content. So when
-                we began investing heavily in original episodic & long-form
-                programming, the need to design for this experience became
-                apparent.
+                But from the beginning, its been optimized for one-off medium
+                length content. So when we began investing heavily in original
+                episodic & long-form programming, we needed to intentionally
+                design for the experience of consuming that type of content.
               </>
             }
           />
           <List.Item
-            title="Their Problems"
+            title="The Opportunity"
             text={
               <>
-                Our hypothesis was that premium content deserved a catered,
-                premium experience. So we dove into understanding exactly what
-                where the journeys around this type of content and we
-                researched, designed, and prototyped our way to some new
-                solutions.
+                Our hypothesis was that premium content deserved to be
+                encompanied by a premium experience. And by creating a distinct
+                experience for our subscribers, we could make our offering more
+                desirable & useful.
               </>
             }
           />
@@ -73,7 +72,7 @@ export default function Carefull() {
                 Working inside of a large institution with a rich legacy of UX
                 patterns is challenging enough, but when you purposelly seek to
                 break those patterns to solve for a new use-case, you must move
-                slowly & works in sync with every stakeholder.
+                slowly & ensure you works in-sync with every stakeholder.
               </>
             }
           />
@@ -104,49 +103,49 @@ export default function Carefull() {
             text={
               <>
                 Worked with our research team to define critical user journeys
-                for our product area. Product decisions were measured by their
-                impact against these journeys — giving design & research metrics
-                by which to inact change.
+                for our product area. Product decisions were then measured by
+                their impact against these journeys — giving design & research
+                metrics by which to enact change.
               </>
             }
-            iconName="Chat"
+            iconName="TreeStructure"
           />
           <TextCard
             text={
               <>
                 Lead a cross-functional sprint with stakeholders from across the
                 product area. Utilizing the existing knowledge and
-                organizational learnings of my peers to inform our new projects.
+                organizational learnings of my peers to inform our projects.
               </>
             }
-            iconName="Chat"
+            iconName="StickyNote"
           />
           <AssetCard
             columns={1}
-            caption="We spent 2 weeks in Tokyo, Japan. Visiting YouTube users in their home — learning about their lifestyle, desires, & video consumption behaviors."
+            caption="Contributed to the evolution of our Premium Content surfaces. Creating visual patterns that were distinct from traditional YouTube content."
           >
             <Image
               src="/projects/youtube/Youtube_UI_1@2x.png"
-              alt=""
+              alt="A phone with the YouTube app open browsing movies & shows"
               width={1104}
               height={1520}
             />
           </AssetCard>
           <AssetCard
             columns={1}
-            caption="We spent 2 weeks in Tokyo, Japan. Visiting YouTube users in their home — learning about their lifestyle, desires, & video consumption behaviors."
+            caption="Lead interaction design on a new detail page for Premium show & movies. Creating patterns that allowed a user to resume from where they left off, track their progress on episodic content, and view related content like trailers & extras."
           >
             <Image
               src="/projects/youtube/Youtube_UI_2@2x.png"
-              alt=""
+              alt="A detail page inside the YouTube app for the show 'Furze World Wonders'"
               width={1104}
               height={1520}
             />
           </AssetCard>
-          <AssetCard caption="We spent 2 weeks in Tokyo, Japan. Visiting YouTube users in their home — learning about their lifestyle, desires, & video consumption behaviors.">
+          <AssetCard caption="Design by the YouTube Gaming Team. The patterns we helped to establish for our detail pages were adopted & evolved by other team across the organization">
             <Image
               src="/projects/youtube/Youtube_UI_3@2x.png"
-              alt=""
+              alt="The YouTube website on a page dedicated to the game Fortnite"
               width={2256}
               height={1256}
             />
@@ -155,8 +154,8 @@ export default function Carefull() {
             text={
               <>
                 Built prototypes of conceptual features & quality of life
-                improvements to improve our offering and our customers
-                experience as a YouTube fan.
+                improvements for our Premium Subscribers. Aiming to improve the
+                experience as a die-hard YouTube fan.
               </>
             }
             iconName="Chat"
@@ -174,7 +173,7 @@ export default function Carefull() {
           <AssetCard caption="We spent 2 weeks in Tokyo, Japan. Visiting YouTube users in their home — learning about their lifestyle, desires, & video consumption behaviors.">
             <Image
               src="/projects/youtube/Youtube_Japan_1.jpg"
-              alt=""
+              alt="A crosswalk in Shibuya Japan"
               width={2000}
               height={1333}
             />
@@ -188,21 +187,23 @@ export default function Carefull() {
           <TextCard
             text={
               <>
-                I identified a gap in our asset creation workflow that created
+                Identified a gap in our asset creation workflow that created
                 friction & excessive manual labor. So I built an internal tool
                 to automate portions of the process. Giving autonomy to our
                 counterparts.
               </>
             }
+            iconName="Code"
           />
           <TextCard
             text={
               <>
-                I worked with our growth team to reduce churn by implementing a
-                post-cancelation recovery flow. The insights gathered went on to
-                motivate retargeting and re-engagement initiatives{" "}
+                Worked with our growth team to reduce churn by implementing a
+                post-cancellation recovery flow. The insights gathered went on
+                to motivate retargeting and re-engagement initiatives
               </>
             }
+            iconName="PieChart"
           />
           <TextCard
             text={
@@ -211,6 +212,7 @@ export default function Carefull() {
                 individuals from across Google products, offices, & countries.
               </>
             }
+            iconName="Chat"
           />
         </Carousel>
       </ProjectHighlight>

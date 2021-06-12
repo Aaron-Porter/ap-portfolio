@@ -32,9 +32,7 @@ function MyApp({ Component, pageProps, router }) {
   });
 
   const spring = {
-    type: "spring",
-    damping: 20,
-    stiffness: 100,
+    duration: 0.2,
   };
 
   return (
@@ -49,9 +47,6 @@ function MyApp({ Component, pageProps, router }) {
       <Header />
       <Box
         css={{
-          height: "100vh",
-          width: "100vw",
-          overflow: "auto",
           perspective: "1000px",
           "perspective-origin": "center center",
         }}
@@ -60,9 +55,9 @@ function MyApp({ Component, pageProps, router }) {
           <Box
             key={router.pathname}
             transition={spring}
-            initial={{ z: 100, opacity: 0 }}
-            animate={{ z: 0, opacity: 1 }}
-            exit={{ z: -100, opacity: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             originZ={0}
           >
             <Component {...pageProps} />

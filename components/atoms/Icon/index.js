@@ -16,6 +16,10 @@ import Info from "./icons/Info.svg";
 import Moon from "./icons/Moon.svg";
 import Sun from "./icons/Sun.svg";
 import ArrowLeft from "./icons/ArrowLeft.svg";
+import Smiley from "./icons/Smiley.svg";
+import CircleWavyCheck from "./icons/CircleWavyCheck.svg";
+import FolderNotchOpen from "./icons/FolderNotchOpen.svg";
+import Code from "./icons/Code.svg";
 
 const iconTypes = {
   ArrowRightUp: ArrowRightUp,
@@ -32,6 +36,10 @@ const iconTypes = {
   Moon: Moon,
   Sun: Sun,
   ArrowLeft: ArrowLeft,
+  Smiley: Smiley,
+  CircleWavyCheck: CircleWavyCheck,
+  FolderNotchOpen: FolderNotchOpen,
+  Code: Code,
 };
 
 const Icon = ({ name, css, ...props }) => {

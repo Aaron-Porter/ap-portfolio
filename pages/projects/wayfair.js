@@ -50,7 +50,7 @@ export default function Carefull() {
                 with embedding our team inside Wayfair to help revitalize &
                 redesign aspects of Partner Home, the system they provide to
                 fulfillment partners. Over the years, this system had drifted
-                further and further away from the real needs of partners, and as
+                further and further away from the real needs of users, and as
                 the company scaled, the friction became measurable.
               </>
             }
@@ -59,12 +59,12 @@ export default function Carefull() {
             title="The Opportunity"
             text={
               <>
-                The disconnect between user needs and the tools materialized in
-                direct impact to the efficency, and bottom line, of the
-                business. Our task was to help develop a deep understanding of
-                their partner's day-to-day processes, environments, and needs.
-                Then use those learnings to help inform a system designed to
-                help partners be successful.
+                The disconnect between user needs and the provided tools
+                materialized in direct impact on the efficiency, and bottom
+                line, of the business. Our task was to help develop a deep
+                understanding of their partner's day-to-day processes,
+                environments, and bottlenecks. We would then use those learnings
+                to help inform a system designed to help partners be successful.
               </>
             }
           />
@@ -72,12 +72,13 @@ export default function Carefull() {
             title="Constraints"
             text={
               <>
-                Working on a complicated enterpise tool as an outside consultant
-                isn’t for the faint of heart. No interface can solve experience
-                problems that extend far outside the realm of digital
-                interaction. A system with dependencies intertwined across the
-                organization — this was an excerise of untangling business
-                processes, socializing design decisions, and finding compromise.
+                Working on a complicated enterprise tool as an outside
+                consultant isn’t for the faint of heart. No interface alone can
+                solve experience problems that extend far outside the realm of
+                digital interaction. A system with dependencies intertwined
+                across the organization — this was an exercise of untangling
+                business processes, socializing design decisions, and creating a
+                shared language of understanding.
               </>
             }
           />
@@ -88,7 +89,7 @@ export default function Carefull() {
                 As UX Design Lead, my responsibilities were critical to the
                 success of the project. I conducted on-site & remote research
                 sessions, created alignment across many product teams via
-                research reports, untangled & evolved convoluted corporate
+                research reports, documented & evolved complex corporate
                 processes, and designed and lead development of interface
                 prototypes.
               </>
@@ -100,7 +101,7 @@ export default function Carefull() {
         heading={
           <>
             Built a deep understanding of our users through research &
-            disseminate learnings across the organization.
+            democratized access to learnings across the organization.
           </>
         }
       >
@@ -108,10 +109,11 @@ export default function Carefull() {
           <TextCard
             text={
               <>
-                Visit dozens of partners across the US & the UK to conduct
-                on-site contextual research sessions. Allowing for a deep
-                understanding of their working environment & daily
-                responsibilities.
+                Visited dozens of partners across the US & the UK to conduct
+                on-site contextual research sessions. This allowed us to create
+                a comprehensive picture of their working environment, internal
+                processes, and more personally understand the humans that
+                interact with the system on a daily basis.
               </>
             }
             iconName="Chat"
@@ -119,21 +121,22 @@ export default function Carefull() {
           <TextCard
             text={
               <>
-                Documented, cataloged, & organzied our research into a robust
-                research library. This allowed any stakeholder to browse the
-                complete archive and find examples of user feedback relevant to
-                their product area.
+                Documented, cataloged, & organized our research into a robust
+                library. This allowed any stakeholder to browse the complete
+                archive of our research. With full transcipts & video
+                recordings, any team member could easily uncover examples of
+                user feedback relevant to their product area.
               </>
             }
-            iconName="Chat"
+            iconName="FolderNotchOpen"
           />
           <AssetCard
             columns={2}
-            caption="We spent 2 weeks in Tokyo, Japan. Visiting wayfair users in their home — learning about their lifestyle, desires, & video consumption behaviors."
+            caption="Behind the scenes of one our warehouse visits. This is my team members, Phil & Matthew, discussing a partner's process for handling fulfillment."
           >
             <Image
               src="/projects/wayfair/Wayfair_Image_2@2x.png"
-              alt=""
+              alt="Two individuals standing with safety vests on in a warehouse."
               width={2256}
               height={1188}
             />
@@ -142,19 +145,19 @@ export default function Carefull() {
             text={
               <>
                 Synthesized research data into reports & presentations to make
-                user insights actionable and digestable for all stakeholders.
+                user insights actionable and digestible for all stakeholders.
               </>
             }
-            iconName="Chat"
+            iconName="Notebook"
           />
           <TextCard
             text={
               <>
                 Helped to facilitate workshops with internal teams to encourage
-                UX research practices.
+                & identify opportunities for UX research practices.
               </>
             }
-            iconName="Chat"
+            iconName="StickyNote"
           />
         </Carousel>
       </ProjectHighlight>
@@ -170,20 +173,22 @@ export default function Carefull() {
           <TextCard
             text={
               <>
-                Audited the toolset & worked with stakeholders across the
-                organization to create an accurate map of the various business
-                processes and logistical dependencies.
+                Audited the current toolset & worked with stakeholders across
+                the organization to create an accurate map of the many
+                intertwined business processes and logistical dependencies.
               </>
             }
+            iconName="TreeStructure"
           />
           <TextCard
             text={
               <>
-                Utilized our research finding to redesign functionality by
-                functionality, addressing problems from users & reorganzing
-                against how they truly approach tehir tasks.
+                Utilized our research finding to redesign the toolset
+                functionality by functionality, addressing problems from users &
+                reorganizing to align with how they truly approach their tasks.
               </>
             }
+            iconName="ArrowsClockwise"
           />
           <TextCard
             text={
@@ -193,6 +198,7 @@ export default function Carefull() {
                 front-end to test the more complicated stateful flows.
               </>
             }
+            iconName="Code"
           />
           <TextCard
             text={
@@ -202,6 +208,7 @@ export default function Carefull() {
                 into their job.
               </>
             }
+            iconName="Smiley"
           />
         </Carousel>
       </ProjectHighlight>

@@ -9,7 +9,7 @@ import CopyToClipboardButton from "components/molecules/CopyToClipboardButton";
 
 const PortfolioPresentationCard = () => (
   <Section id="PortfolioPresentation">
-    {/* <Content>
+    <Content>
       <Card pressable={false}>
         <Card.Content>
           <Flex direction="column" align="start" justify="between">
@@ -38,7 +38,7 @@ const PortfolioPresentationCard = () => (
           <Browser></Browser>
         </Box>
       </Card>
-    </Content> */}
+    </Content>
   </Section>
 );
 

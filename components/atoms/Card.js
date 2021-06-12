@@ -7,6 +7,7 @@ const _Card = styled(Flex, {
   borderRadius: "$space$space100",
   position: "relative",
   overflow: "hidden",
+  clipPath: "border-box",
 
   variants: {
     pressable: {
