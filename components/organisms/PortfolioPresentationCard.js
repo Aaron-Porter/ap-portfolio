@@ -5,18 +5,7 @@ import Section from "components/atoms/Section";
 import Text from "components/atoms/Text";
 import Browser from "public/images/Browser.svg";
 import Box from "components/atoms/Box";
-import Button from "components/atoms/Button";
-
-const CopyToClipboardButton = ({ value, children }) => {
-  const copy = () => {
-    navigator.clipboard.writeText(value);
-  };
-  return (
-    <Button onClick={copy} iconName="Copy">
-      {children}
-    </Button>
-  );
-};
+import { CopyToClipboardButton } from "../molecules/CopyToClipboardButton";
 
 const PortfolioPresentationCard = () => (
   <Section id="PortfolioPresentation">
