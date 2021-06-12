@@ -103,8 +103,7 @@ export const globalStyles = global({
     "scroll-behavior": "smooth",
   },
   body: {
-    margin: 0,
-    padding: 0,
+    overflow: "auto",
     backgroundColor: "$gray1000",
     fontFamily: "Suisse",
     "-webkit-font-smoothing": "antialiased",

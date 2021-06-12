@@ -2,7 +2,7 @@ import { globalStyles, lightTheme } from "stitches.config";
 import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import Menu from "components/organisms/Menu";
 import Box from "components/atoms/Box";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Router from "next/router";
 import { ThemeProvider } from "next-themes";
 import Content from "components/atoms/Content";
@@ -10,31 +10,26 @@ import Flex from "components/atoms/Flex";
 import Image from "next/image";
 import Header from "components/molecules/Header";
 
-const handleExitComplete = () => {
-  console.log("exited");
-};
-
 function MyApp({ Component, pageProps, router }) {
   globalStyles();
+  const [transitionState, setTransitionState] = useState();
 
-  // useEffect(() => {
-  //   window.history.scrollRestoration = "manual";
+  useEffect(() => {
+    window.history.scrollRestoration = "manual";
+  }, []);
 
-  //   const cachedScroll = [];
+  const handleExitComplete = () => {
+    console.log("exit");
+    window.scrollTo(0, 0);
+  };
 
-  //   Router.events.on("routeChangeStart", () => {
-  //     cachedScroll.push([window.scrollX, window.scrollY]);
-  //   });
+  Router.events.on("routeChangeStart", () => {
+    setTransitionState("begin");
+  });
 
-  //   Router.beforePopState(() => {
-  //     const [x, y] = cachedScroll.pop();
-  //     setTimeout(() => {
-  //       window.scrollTo(x, y);
-  //     }, 100);
-
-  //     return true;
-  //   });
-  // }, []);
+  Router.events.on("routeChangeComplete", () => {
+    setTransitionState("done");
+  });
 
   const spring = {
     type: "spring",
@@ -52,16 +47,17 @@ function MyApp({ Component, pageProps, router }) {
       }}
     >
       <Header />
-
       <Box
-        layout
         css={{
+          height: "100vh",
+          width: "100vw",
+          overflow: "auto",
           perspective: "1000px",
-          "perspective-origin": "top center",
+          "perspective-origin": "center center",
         }}
       >
         <AnimatePresence exitBeforeEnter onExitComplete={handleExitComplete}>
-          <motion.div
+          <Box
             key={router.pathname}
             transition={spring}
             initial={{ z: 100, opacity: 0 }}
@@ -70,7 +66,7 @@ function MyApp({ Component, pageProps, router }) {
             originZ={0}
           >
             <Component {...pageProps} />
-          </motion.div>
+          </Box>
         </AnimatePresence>
       </Box>
     </ThemeProvider>
