@@ -112,7 +112,7 @@ export default function Home() {
               title="Personal Website"
               description="Featured on Awwwards, Siteinspire, Mindsparkle, & many more."
               dates="2016"
-              link="2016.aaronporter.co"
+              link="http://2016.aaronporter.co"
               fullWidthImage
               openLinkInNewTab
               image={
