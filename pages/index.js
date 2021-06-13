@@ -25,6 +25,12 @@ export default function Home() {
       </Landing>
       <Section css={{ paddingTop: "$space400" }}>
         <Content>
+          <Text
+            preset="overline"
+            css={{ color: "$gray500", marginBottom: "$space300" }}
+          >
+            Featured Projects
+          </Text>
           <Grid columns={2}>
             <ProjectCard
               title="Carefull"
@@ -32,7 +38,6 @@ export default function Home() {
               dates="2020-Present"
               role="Design Lead"
               link="/projects/carefull"
-              fullWidthImage
               image={
                 <Image
                   src="/projects/carefull/carefull_image_1@2x.png"
@@ -43,7 +48,7 @@ export default function Home() {
                 />
               }
             />
-            <Flex direction="column" gap>
+            <Flex direction="column" jus gap>
               <ProjectCard
                 title="Wayfair"
                 dates="2018-2019"
@@ -75,6 +80,82 @@ export default function Home() {
                 }
               />
             </Flex>
+          </Grid>
+        </Content>
+      </Section>
+      <Section>
+        <Content>
+          <Text
+            preset="overline"
+            css={{ color: "$gray500", marginBottom: "$space300" }}
+          >
+            Old, small, or exploratory projects
+          </Text>
+          <Grid columns={2}>
+            <ProjectCard
+              title="Stories"
+              description="Art direction & mini-site to tell the stories of financial caregivers."
+              dates="2020"
+              link="https://www.getcarefull.com/stories"
+              fullWidthImage
+              openLinkInNewTab
+              image={
+                <Image
+                  src="/projects/stories/stories_thumbnail@2x.png"
+                  alt="A collage of images. The focal point is a face aligned with the face on a dollar bill."
+                  layout="fill"
+                  objectFit="cover"
+                />
+              }
+            />
+            <ProjectCard
+              title="Personal Website"
+              description="Featured on Awwwards, Siteinspire, Mindsparkle, & many more."
+              dates="2016"
+              link="2016.aaronporter.co"
+              fullWidthImage
+              openLinkInNewTab
+              image={
+                <Image
+                  src="/projects/2016-portfolio/portfolio_thumbnail.jpg"
+                  alt="Man sitting on a stool with the text 'Aaron.' on top of the image"
+                  layout="fill"
+                  objectFit="cover"
+                />
+              }
+            />
+            <ProjectCard
+              title="2001: A VR Space Odyssey"
+              description="Built a recreation of an iconic scene using Unity & C4D."
+              dates="2016"
+              link="https://vimeo.com/209768060?ref=tw-share"
+              fullWidthImage
+              openLinkInNewTab
+              image={
+                <Image
+                  src="/projects/2001-space/2001_thumbnail.png"
+                  alt="A virtual reality scene of the inside of a futuristic centrifuge."
+                  layout="fill"
+                  objectFit="cover"
+                />
+              }
+            />
+            <ProjectCard
+              title="Beach"
+              description="Art Direction & Video Production for an album campaign."
+              dates="2015"
+              link="https://www.behance.net/gallery/30857527/Beach"
+              fullWidthImage
+              openLinkInNewTab
+              image={
+                <Image
+                  src="/projects/beach/beach_thumbnail.jpg"
+                  alt="A person's head sticking out of a body of water looking at the sunset."
+                  layout="fill"
+                  objectFit="cover"
+                />
+              }
+            />
           </Grid>
         </Content>
       </Section>

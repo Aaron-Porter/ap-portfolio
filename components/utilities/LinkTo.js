@@ -14,6 +14,7 @@ const LinkTo = ({
   prefetch,
   locale,
   displayContents = false,
+  newTab = false,
   ...anchorProps
 }) => {
   return (
@@ -30,6 +31,7 @@ const LinkTo = ({
           display: displayContents ? "contents" : "block",
           cursor: "pointer",
         }}
+        target={newTab ? "_blank" : ""}
         {...anchorProps}
       >
         {children}

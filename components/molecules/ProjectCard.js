@@ -6,22 +6,6 @@ import Text from "components/atoms/Text";
 import LinkTo from "components/utilities/LinkTo";
 import Flex from "components/atoms/Flex";
 
-const Arrow = () => (
-  <Box
-    css={{
-      padding: "$space200",
-      backgroundColor: "$gray800",
-      position: "absolute",
-      top: 0,
-      right: 0,
-      borderRadius: "100%",
-      color: "$gray000",
-    }}
-  >
-    <Icon name="ArrowRightUp" css={{ width: "24px", height: "24px" }}></Icon>
-  </Box>
-);
-
 const ProjectCard = ({
   image,
   title,
@@ -32,6 +16,7 @@ const ProjectCard = ({
   layoutId,
   fullWidthImage = false,
   css,
+  openLinkInNewTab = false,
 }) => (
   <Card
     direction="column"
@@ -39,11 +24,38 @@ const ProjectCard = ({
     css={{ minHeight: "240px", ...css }}
     pressable
   >
-    <LinkTo href={link} displayContents>
+    <LinkTo href={link} displayContents newTab={openLinkInNewTab}>
+      <Card.Content
+        css={{ position: "absolute", top: 0, right: 0, zIndex: 100 }}
+      >
+        <Box>
+          <Box
+            css={{
+              padding: "$space200",
+              backgroundColor: "$gray800",
+              borderRadius: "100%",
+              color: "$gray000",
+            }}
+            variants={{
+              default: { opacity: 0, scale: 0.2 },
+              hover: { opacity: 1, scale: 1 },
+            }}
+          >
+            <Icon
+              name="ArrowRightUp"
+              css={{ width: "24px", height: "24px" }}
+            ></Icon>
+          </Box>
+        </Box>
+      </Card.Content>
+      {fullWidthImage && (
+        <Box css={{ height: "200px", width: "100%", position: "relative" }}>
+          {image}
+        </Box>
+      )}
       <Card.Content>
         <Flex direction="column" justify="between">
-          <Arrow />
-          <Box>{image}</Box>
+          {!fullWidthImage && <Box>{image}</Box>}
           <Box css={{ flexGrow: 0 }}>
             <Box>
               <Text preset="largeHeading">{title}</Text>
@@ -62,7 +74,7 @@ const ProjectCard = ({
             )}
             <Box>
               <Text preset="overline" css={{ color: "$gray400" }}>
-                {dates} · {role}
+                {dates} {role && `· ${role}`}
               </Text>
             </Box>
           </Box>
