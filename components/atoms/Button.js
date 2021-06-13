@@ -39,6 +39,18 @@ const _Button = styled("button", {
   "&:hover": {
     $$primaryColor: "$colors$gray700",
   },
+
+  variants: {
+    variant: {
+      ghost: {
+        backgroundColor: "transparent",
+        "&:hover": {
+          $$primaryColor: "$colors$gray700",
+          backgroundColor: "$$primaryColor",
+        },
+      },
+    },
+  },
 });
 
 const Button = (props) => {

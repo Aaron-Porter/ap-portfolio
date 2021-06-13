@@ -2,26 +2,36 @@ import Box from "components/atoms/Box";
 import Flex from "components/atoms/Flex";
 import Text from "components/atoms/Text";
 import Content from "components/atoms/Content";
+import CopyToClipboardButton from "components/molecules/CopyToClipboardButton";
+import Button from "components/atoms/Button";
 
 export const Footer = () => (
-  <Box css={{ padding: "$space700 0 $space800" }}>
+  <Box css={{ padding: "$space700 0 $space900" }}>
     <Content>
-      <Flex gap>
+      <Flex align="stretch" justify="start" gap>
         <Box>
-          <Text preset="overline" css={{ color: "$gray500" }}>
+          <CopyToClipboardButton value="hello@aaronporter.co" variant="ghost">
             hello@aaronporter.co
-          </Text>
+          </CopyToClipboardButton>
         </Box>
         <Box>
-          <Text preset="overline" css={{ color: "$gray500" }}>
+          <Button variant="ghost" link="https://twitter.com/Aaron_porter">
             Twitter
-          </Text>
+          </Button>
         </Box>
+
         <Box>
-          <Text preset="overline" css={{ color: "$gray500" }}>
-            LinkedIn
-          </Text>
+          <Button variant="ghost">LinkedIn</Button>
         </Box>
+        <Flex align="center" justify="end">
+          <Button
+            variant="ghost"
+            iconName="Github"
+            href="https://github.com/Aaron-Porter/ap-portfolio"
+          >
+            This website is open source
+          </Button>
+        </Flex>
       </Flex>
     </Content>
   </Box>

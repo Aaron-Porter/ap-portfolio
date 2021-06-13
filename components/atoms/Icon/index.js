@@ -20,6 +20,7 @@ import Smiley from "./icons/Smiley.svg";
 import CircleWavyCheck from "./icons/CircleWavyCheck.svg";
 import FolderNotchOpen from "./icons/FolderNotchOpen.svg";
 import Code from "./icons/Code.svg";
+import Github from "./icons/Github.svg";
 
 const iconTypes = {
   ArrowRightUp: ArrowRightUp,
@@ -40,6 +41,7 @@ const iconTypes = {
   CircleWavyCheck: CircleWavyCheck,
   FolderNotchOpen: FolderNotchOpen,
   Code: Code,
+  Github: Github,
 };
 
 const Icon = ({ name, css, ...props }) => {
