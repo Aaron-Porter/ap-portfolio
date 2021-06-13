@@ -170,7 +170,7 @@ const Menu = () => {
           key="about"
           layout
         />
-        <ThemeToggle />
+        {/* <ThemeToggle /> */}
       </AnimateSharedLayout>
     </_Menu>
   );

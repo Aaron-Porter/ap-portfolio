@@ -38,10 +38,10 @@ function MyApp({ Component, pageProps, router }) {
   return (
     <ThemeProvider
       attribute="class"
-      defaultTheme="system"
+      defaultTheme="dark"
       value={{
         dark: "dark",
-        light: lightTheme.className,
+        // light: lightTheme.className,
       }}
     >
       <Header />
