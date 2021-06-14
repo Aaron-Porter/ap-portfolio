@@ -9,6 +9,7 @@ import Content from "components/atoms/Content";
 import Flex from "components/atoms/Flex";
 import Image from "next/image";
 import Header from "components/molecules/Header";
+import * as gtag from "../lib/gtag";
 
 function MyApp({ Component, pageProps, router }) {
   globalStyles();
@@ -19,17 +20,18 @@ function MyApp({ Component, pageProps, router }) {
   }, []);
 
   const handleExitComplete = () => {
-    console.log("exit");
     window.scrollTo(0, 0);
   };
 
-  Router.events.on("routeChangeStart", () => {
-    setTransitionState("begin");
-  });
-
-  Router.events.on("routeChangeComplete", () => {
-    setTransitionState("done");
-  });
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      gtag.pageview(url);
+    };
+    router.events.on("routeChangeComplete", handleRouteChange);
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
 
   const spring = {
     duration: 0.2,
