@@ -102,11 +102,17 @@ const Caption = ({ open, text }) => {
 
 const AssetCard = ({ columns = 2, children, caption }) => {
   const [hover, setHover] = useState(false);
+
+  const toggleCaption = () => {
+    setHover(!hover);
+  };
+  
   return (
     <Flex
       css={{ gridColumn: `span ${columns}`, position: "relative" }}
       onHoverStart={() => setHover(true)}
       onHoverEnd={() => setHover(false)}
+      onClick={() => toggleCaption()}
     >
       <Card pressable={false}>
         <Flex align="center" justify="center">
