@@ -87,8 +87,6 @@ const MenuItem = ({
       <Item
         active={active}
         key={label}
-        layout
-        layoutId={layoutId}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -168,7 +166,7 @@ const Menu = () => {
           path={path}
           label="About Me"
           key="about"
-          layout
+          layoutId="about"
         />
         {/* <ThemeToggle /> */}
       </AnimateSharedLayout>
