@@ -81,32 +81,14 @@ export const lightTheme = theme("light-theme", {
 });
 
 export const globalStyles = global({
-  "@font-face": [
-    {
-      fontFamily: "Suisse",
-      src: `url("/fonts/Suisse/SuisseIntl-Regular-WebS.woff2") format("woff2"),
-            url("/fonts/Suisse/SuisseIntl-Regular-WebS.woff") format("woff"),
-            url("/fonts/Suisse/SuisseIntl-Regular-WebS.ttf")  format("truetype")`,
-      fontStyle: "normal",
-      fontWeight: 400,
-    },
-    {
-      fontFamily: "Suisse Mono",
-      src: `url("/fonts/SuisseMono/SuisseIntlMono-Regular-WebS.woff2") format("woff2"),
-            url("/fonts/SuisseMono/SuisseIntlMono-Regular-WebS.woff") format("woff"),
-            url("/fonts/SuisseMono/SuisseIntlMono-Regular-WebS.ttf")  format("truetype")`,
-      fontStyle: "normal",
-      fontWeight: 400,
-    },
-  ],
   html: {
     "scroll-behavior": "smooth",
+    fontFamily: "'Suisse', -apple-system",
+    "-webkit-font-smoothing": "antialiased",
+    "-moz-osx-font-smoothing": "grayscale",
   },
   body: {
     overflow: "auto",
     backgroundColor: "$gray1000",
-    fontFamily: "Suisse",
-    "-webkit-font-smoothing": "antialiased",
-    "-moz-osx-font-smoothing": "grayscale",
   },
 });

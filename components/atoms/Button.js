@@ -56,7 +56,7 @@ const _Button = styled("button", {
 const Button = (props) => {
   const { children, iconName, href = false } = props;
   const ButtonElement = () => (
-    <_Button {...props}>
+    <_Button>
       {iconName && (
         <Icon
           name={iconName}

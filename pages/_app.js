@@ -13,7 +13,6 @@ import * as gtag from "../lib/gtag";
 
 function MyApp({ Component, pageProps, router }) {
   globalStyles();
-  const [transitionState, setTransitionState] = useState();
 
   useEffect(() => {
     window.history.scrollRestoration = "manual";

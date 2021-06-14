@@ -45,6 +45,21 @@ export default class Document extends NextDocument {
           `,
             }}
           />
+          <link rel="stylesheet" href="/fonts/style.css" />
+          <link
+            rel="preload"
+            href="/fonts/Suisse/SuisseIntl-Regular-WebS.woff2"
+            as="font"
+            type="font/woff2"
+            crossOrigin="anonymous"
+          />
+          <link
+            rel="preload"
+            href="/fonts/SuisseMono/SuisseIntlMono-Regular-WebS.woff2"
+            as="font"
+            type="font/woff2"
+            crossOrigin="anonymous"
+          />
         </Head>
         <body>
           <Main />

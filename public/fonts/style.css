@@ -1,0 +1,17 @@
+@font-face {
+  font-family: "Suisse";
+  font-display: "optional";
+  font-style: "normal";
+  font-weight: 400;
+  src: url("/fonts/Suisse/SuisseIntl-Regular-WebS.woff") format("woff"),
+      url("/fonts/Suisse/SuisseIntl-Regular-WebS.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Suisse Mono";
+  font-display: "optional";
+  font-style: "normal";
+  font-weight: 400;
+  src: url("/fonts/SuisseMono/SuisseIntlMono-Regular-WebS.woff") format("woff"),
+        url("/fonts/SuisseMono/SuisseIntlMono-Regular-WebS.woff2") format("woff2");
+}

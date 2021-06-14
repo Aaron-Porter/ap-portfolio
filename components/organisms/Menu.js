@@ -71,15 +71,7 @@ const Highlight = styled(Box, {
   display: "block",
 });
 
-const MenuItem = ({
-  href = "",
-  path,
-  label,
-  children,
-  key,
-  icon,
-  layoutId,
-}) => {
+const MenuItem = ({ href = "", path, label, children, icon, layoutId }) => {
   const active = path === href;
 
   return (
@@ -152,7 +144,7 @@ const Menu = () => {
   const isProject = path.includes("project");
 
   return (
-    <_Menu key="menu" layout>
+    <_Menu layout>
       <AnimateSharedLayout>
         <MenuItem
           href="/"
@@ -161,13 +153,7 @@ const Menu = () => {
           layoutId="work"
           icon={isProject}
         />
-        <MenuItem
-          href="/about"
-          path={path}
-          label="About Me"
-          key="about"
-          layoutId="about"
-        />
+        <MenuItem href="/about" path={path} label="About Me" layoutId="about" />
         {/* <ThemeToggle /> */}
       </AnimateSharedLayout>
     </_Menu>
