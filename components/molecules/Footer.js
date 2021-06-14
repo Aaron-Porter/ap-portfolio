@@ -15,13 +15,15 @@ export const Footer = () => (
           </CopyToClipboardButton>
         </Box>
         <Box>
-          <Button variant="ghost" link="https://twitter.com/Aaron_porter">
+          <Button variant="ghost" href="https://twitter.com/Aaron_porter">
             Twitter
           </Button>
         </Box>
 
         <Box>
-          <Button variant="ghost">LinkedIn</Button>
+          <Button variant="ghost" href="https://www.linkedin.com/in/aaporter/">
+            LinkedIn
+          </Button>
         </Box>
         <Flex align="center" justify="end">
           <Button
