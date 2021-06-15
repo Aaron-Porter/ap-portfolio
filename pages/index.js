@@ -27,7 +27,7 @@ export default function Home() {
         <Content>
           <Text
             preset="overline"
-            css={{ color: "$gray500", marginBottom: "$space300" }}
+            css={{ color: "$gray300", marginBottom: "$space300" }}
           >
             Featured Projects
           </Text>
@@ -87,7 +87,7 @@ export default function Home() {
         <Content>
           <Text
             preset="overline"
-            css={{ color: "$gray500", marginBottom: "$space300" }}
+            css={{ color: "$gray300", marginBottom: "$space300" }}
           >
             Old, small, or exploratory projects
           </Text>

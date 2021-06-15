@@ -10,7 +10,7 @@ const ProjectIntro = ({ client, role, year, description, title, children }) => (
   <Landing>
     <Content>
       <Flex direction="column" css={{ marginBottom: "$space300" }}>
-        <Text as="h2" preset="overline" css={{ color: "$gray500" }}>
+        <Text as="h2" preset="overline" css={{ color: "$gray300" }}>
           {`${client} · ${role} · ${year}`}
         </Text>
         <Text as="h1" preset="xLargeHeading" css={{ maxWidth: "28ch" }}>

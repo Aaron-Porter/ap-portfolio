@@ -73,7 +73,7 @@ const ProjectCard = ({
               </Text>
             )}
             <Box>
-              <Text preset="overline" css={{ color: "$gray400" }}>
+              <Text preset="overline" css={{ color: "$gray300" }}>
                 {dates} {role && `· ${role}`}
               </Text>
             </Box>
