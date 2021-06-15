@@ -90,5 +90,6 @@ export const globalStyles = global({
   body: {
     overflow: "auto",
     backgroundColor: "$gray1000",
+    margin: 0,
   },
 });

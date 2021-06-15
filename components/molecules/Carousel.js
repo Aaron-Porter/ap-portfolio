@@ -9,10 +9,12 @@ import Flex from "components/atoms/Flex";
 import Grid from "components/atoms/Grid";
 
 const Container = styled(Box, {
-  overflowX: "scroll",
-  overflowY: "visible",
-  scrollSnapType: "both mandatory",
   margin: "0 auto",
+
+  "@lessThanMedium": {
+    overflowX: "scroll",
+    paddingBottom: "$space300",
+  },
 
   // Hide scrollbar
   "::-webkit-scrollbar": {
@@ -51,7 +53,7 @@ const Track = styled(Grid, {
     display: "flex",
     width: "max-content",
     padding: `0 ${contentGutter}`,
-    gap: "8px",
+    gapHorizontal: "8px",
     "& > *": {
       width: "calc(100vw - 80px)",
       maxWidth: "500px",
