@@ -6,6 +6,7 @@ import Text from "components/atoms/Text";
 import Image from "next/image";
 import Card from "components/atoms/Card";
 import Icon from "components/atoms/Icon";
+import FeaturedProjectCard from "components/molecules/FeaturedProjectCard";
 import ProjectCard from "components/molecules/ProjectCard";
 import Page from "components/templates/Page";
 import Grid from "components/atoms/Grid";
@@ -32,7 +33,7 @@ export default function Home() {
             Featured Projects
           </Text>
           <Grid columns={2}>
-            <ProjectCard
+            <FeaturedProjectCard
               title="Carefull"
               description="A service to enable the 45 million Americans that are financial caregivers."
               dates="2020-Present"
@@ -45,11 +46,12 @@ export default function Home() {
                   width={552}
                   height={552}
                   layout="responsive"
+                  priority
                 />
               }
             />
             <Flex direction="column" jus gap>
-              <ProjectCard
+              <FeaturedProjectCard
                 title="Wayfair"
                 dates="2018-2019"
                 role="UX Consultant"
@@ -61,10 +63,11 @@ export default function Home() {
                     width={48}
                     height={48}
                     layout="intrinsic"
+                    priority
                   />
                 }
               />
-              <ProjectCard
+              <FeaturedProjectCard
                 title="YouTube"
                 dates="2016-2018"
                 role="UX Designer"
@@ -76,6 +79,7 @@ export default function Home() {
                     width={69}
                     height={48}
                     layout="intrinsic"
+                    priority
                   />
                 }
               />

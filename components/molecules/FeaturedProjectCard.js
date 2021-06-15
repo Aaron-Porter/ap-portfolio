@@ -9,12 +9,14 @@ import Flex from "components/atoms/Flex";
 const ContentIcon = () => (
   <Card.Content css={{ position: "absolute", top: 0, right: 0, zIndex: 100 }}>
     <Box>
-      <Box
+      <Flex
+        align="center"
         css={{
           padding: "$space200",
           backgroundColor: "$gray800",
-          borderRadius: "100%",
+          borderRadius: "9999px",
           color: "$gray000",
+          flexDirection: "row",
         }}
         variants={{
           default: { opacity: 0, scale: 0.2 },
@@ -22,10 +24,13 @@ const ContentIcon = () => (
         }}
       >
         <Icon
-          name="ArrowRightUp"
+          name="NewspaperClipping"
           css={{ width: "24px", height: "24px" }}
         ></Icon>
-      </Box>
+        <Text preset="body" css={{ padding: 0, marginLeft: "$space100" }}>
+          Case Study
+        </Text>
+      </Flex>
     </Box>
   </Card.Content>
 );
@@ -60,11 +65,11 @@ const ProjectCard = ({
           {!fullWidthImage && <Box>{image}</Box>}
           <Box css={{ flexGrow: 0 }}>
             <Box>
-              <Text preset="heading">{title}</Text>
+              <Text preset="largeHeading">{title}</Text>
             </Box>
             {description && (
               <Text
-                preset="body"
+                preset="subHeading"
                 css={{
                   maxWidth: "28ch",
                   color: "$gray300",
@@ -75,10 +80,7 @@ const ProjectCard = ({
               </Text>
             )}
             <Box>
-              <Text
-                preset="overline"
-                css={{ color: "$gray300", paddingBottom: 0 }}
-              >
+              <Text preset="overline" css={{ color: "$gray300" }}>
                 {dates} {role && `· ${role}`}
               </Text>
             </Box>

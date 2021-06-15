@@ -10,6 +10,7 @@ import Flex from "components/atoms/Flex";
 import Image from "next/image";
 import Header from "components/molecules/Header";
 import * as gtag from "../lib/gtag";
+import { Footer } from "components/molecules/Footer";
 
 function MyApp({ Component, pageProps, router }) {
   globalStyles();
@@ -45,7 +46,6 @@ function MyApp({ Component, pageProps, router }) {
         // light: lightTheme.className,
       }}
     >
-      <Header />
       <Box
         css={{
           perspective: "1000px",
@@ -65,6 +65,8 @@ function MyApp({ Component, pageProps, router }) {
           </Box>
         </AnimatePresence>
       </Box>
+      <Header />
+      <Footer />
     </ThemeProvider>
   );
 }

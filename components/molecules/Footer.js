@@ -6,7 +6,7 @@ import CopyToClipboardButton from "components/molecules/CopyToClipboardButton";
 import Button from "components/atoms/Button";
 
 export const Footer = () => (
-  <Box css={{ padding: "$space700 0 $space900" }}>
+  <Box css={{ padding: "$space800 0 $space700" }}>
     <Content>
       <Flex align="stretch" justify="start" gap>
         <Box>

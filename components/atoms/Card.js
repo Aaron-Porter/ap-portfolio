@@ -8,6 +8,12 @@ const _Card = styled(Flex, {
   position: "relative",
   overflow: "hidden",
   clipPath: "border-box",
+  backfaceVisibility: "hidden",
+  transformStyle: "preserve-3d",
+  "& *": {
+    backfaceVisibility: "hidden",
+    transformStyle: "preserve-3d",
+  },
 
   variants: {
     pressable: {
