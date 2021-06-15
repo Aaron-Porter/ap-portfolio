@@ -80,8 +80,8 @@ export default function Carefull() {
             title="My Role"
             text={
               <>
-                As a User Experience Designer at Google, I was an Interaction
-                Designer for all of the Premium Original Content surfaces across
+                As a User Experience Designer at Google, I led interaction
+                design for all of the Premium Original Content surfaces across
                 YouTube. I was responsible for identifying opportunities,
                 designing solutions, and working with the broader team to bring
                 them to fruition.
@@ -109,6 +109,34 @@ export default function Carefull() {
               </>
             }
             iconName="TreeStructure"
+          />
+          <TextCard
+            text={
+              <>
+                Worked with our research team to conduct an ethnographic
+                research trip in Japan to uncover patterns specific to the
+                market and test prototypes with users.
+              </>
+            }
+            iconName="Chat"
+          />
+          <AssetCard caption="We spent 2 weeks in Tokyo, Japan. Visiting YouTube users in their home — learning about their lifestyle, desires, & video consumption behaviors.">
+            <Image
+              src="/projects/youtube/Youtube_Japan_1.jpg"
+              alt="A crosswalk in Shibuya Japan"
+              width={2000}
+              height={1333}
+            />
+          </AssetCard>
+          <TextCard
+            text={
+              <>
+                Built prototypes of conceptual features & quality of life
+                improvements for our Premium Subscribers. Aiming to improve the
+                experience as a die-hard YouTube fan.
+              </>
+            }
+            iconName="Chat"
           />
           <TextCard
             text={
@@ -150,39 +178,9 @@ export default function Carefull() {
               height={1256}
             />
           </AssetCard>
-          <TextCard
-            text={
-              <>
-                Built prototypes of conceptual features & quality of life
-                improvements for our Premium Subscribers. Aiming to improve the
-                experience as a die-hard YouTube fan.
-              </>
-            }
-            iconName="Chat"
-          />
-          <TextCard
-            text={
-              <>
-                Worked with our research team to conduct an ethnographic
-                research trip in Japan to uncover patterns specific to the
-                market and test our prototypes with users.
-              </>
-            }
-            iconName="Chat"
-          />
-          <AssetCard caption="We spent 2 weeks in Tokyo, Japan. Visiting YouTube users in their home — learning about their lifestyle, desires, & video consumption behaviors.">
-            <Image
-              src="/projects/youtube/Youtube_Japan_1.jpg"
-              alt="A crosswalk in Shibuya Japan"
-              width={2000}
-              height={1333}
-            />
-          </AssetCard>
         </Carousel>
       </ProjectHighlight>
-      <ProjectHighlight
-        heading={<>Helped to encourage success across the company.</>}
-      >
+      <ProjectHighlight heading={<>Made an impact across the company.</>}>
         <Carousel>
           <TextCard
             text={

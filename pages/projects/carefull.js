@@ -70,9 +70,9 @@ export default function Carefull() {
               <>
                 I joined Carefull at the very beginning of its life (employee
                 2). Velocity was the life-blood of the business, we needed
-                high-conviction design answers every single day. Our mantra was
-                to understand quickly, ship needed functionality, and iterate
-                relentlessly.
+                high-conviction design artifacts produced every single day. Our
+                mantra was to understand quickly, ship needed functionality, and
+                iterate relentlessly.
               </>
             }
           />
@@ -99,8 +99,7 @@ export default function Carefull() {
       >
         <Carousel>
           <TextCard
-            text="I used research to build a deep understanding of our customers & inform product decisions.
-            Conducted 1:1 qualitative research sessions with financial caregivers to create a ground truth by which to guide product decisions."
+            text="Conducted 1:1 qualitative research sessions with financial caregivers to create a ground truth by which to guide product decisions."
             iconName="Chat"
           />
           <TextCard
@@ -112,16 +111,16 @@ export default function Carefull() {
             iconName="Notebook"
           />
           <TextCard
-            text="Ran workshops with our founding team to shape our company & product thinking."
-            iconName="StickyNote"
-          />
-          <TextCard
             text="Conducted synchronous & asynchronous usability tests on our interface touchpoints."
             iconName="CircleWavyCheck"
           />
           <TextCard
             text="Met with users to understand how our product fit into their life & guide iterations of our offering."
             iconName="Smiley"
+          />
+          <TextCard
+            text="Ran workshops with our founding team to shape our company & product thinking."
+            iconName="StickyNote"
           />
         </Carousel>
       </ProjectHighlight>
@@ -180,7 +179,7 @@ export default function Carefull() {
           </AssetCard>
           <AssetCard
             columns={1}
-            caption="Built supporting material to extend our barnd off the screen."
+            caption="Built supporting material to extend our brand off the screen."
           >
             <Image
               src="/projects/carefull/Carefull_Print_1@2x.png"
@@ -200,7 +199,7 @@ export default function Carefull() {
               height={1104}
             />
           </AssetCard>
-          <AssetCard caption="I designed & built a website to highlight our product & convey our brand values to potential customers.">
+          <AssetCard caption="Designed & built all aspects of our website. I assembled templates & styles in Webflow to enable our marketing team to independently test & evolve our communication efforts over time.">
             <video
               autoPlay="autoplay"
               loop="loop"
@@ -237,7 +236,7 @@ export default function Carefull() {
           />
           <AssetCard
             columns={2}
-            caption="Designed & contributed to the development of an app experience that gives children increased insight into the financial life of their parent."
+            caption="Designed every screen & state of the Carefull App. An experience that gives children increased insight into the financial life of their parent."
           >
             <Image
               src="/projects/carefull/Carefull_UX_1@2x.png"
@@ -281,7 +280,7 @@ export default function Carefull() {
           </AssetCard>
           <AssetCard
             columns={2}
-            caption="Built and managed our design component system to insure consistency and easy iteration."
+            caption="Built and managed our design component system to insure consistency and easy iteration. Worked closely with engineers & contributed directly to our React Native codebase."
           >
             <Image
               src="/projects/carefull/Carefull_UX_5@2x.png"

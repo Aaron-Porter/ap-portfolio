@@ -61,10 +61,12 @@ export default function Carefull() {
               <>
                 The disconnect between user needs and the provided tools
                 materialized in direct impact on the efficiency, and bottom
-                line, of the business. Our task was to help develop a deep
-                understanding of their partner's day-to-day processes,
-                environments, and bottlenecks. We would then use those learnings
-                to help inform a system designed to help partners be successful.
+                line, of the business. We were tasked with a ground-up redesign
+                of their order management system. But to deliver on this goal,
+                we needed to develop a deep understanding of their partner's
+                day-to-day processes, environments, and bottlenecks. We would
+                then use those learnings to help inform a system designed to
+                help partners be successful.
               </>
             }
           />
@@ -89,9 +91,9 @@ export default function Carefull() {
                 As UX Design Lead, my responsibilities were critical to the
                 success of the project. I conducted on-site & remote research
                 sessions, created alignment across many product teams via
-                research reports, documented & evolved complex corporate
-                processes, and designed and lead development of interface
-                prototypes.
+                research reports, documented & helped evolve the internal
+                processes behind the interface, and designed and led development
+                of interface prototypes.
               </>
             }
           />
@@ -183,9 +185,9 @@ export default function Carefull() {
           <TextCard
             text={
               <>
-                Utilized our research finding to redesign the toolset
-                functionality by functionality, addressing problems from users &
-                reorganizing to align with how they truly approach their tasks.
+                Utilized our research finding to redesign the toolset from first
+                principles, addressing sources of friction & reorganizing the
+                system to align with how they truly approach their tasks.
               </>
             }
             iconName="ArrowsClockwise"
