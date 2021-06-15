@@ -7,8 +7,8 @@ import Menu from "components/organisms/Menu";
 const Header = () => (
   <Box
     css={{
-      position: "sticky",
-      bottom: 0,
+      position: "fixed",
+      right: 0,
       left: 0,
       bottom: "$space600",
       margin: "auto",
