@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps, router }) {
   }, []);
 
   const handleExitComplete = () => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   };
 
   useEffect(() => {
@@ -33,7 +33,7 @@ function MyApp({ Component, pageProps, router }) {
   }, [router.events]);
 
   const spring = {
-    duration: 0.2,
+    duration: 0.3,
   };
 
   return (

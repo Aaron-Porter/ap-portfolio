@@ -82,7 +82,7 @@ export const lightTheme = theme("light-theme", {
 
 export const globalStyles = global({
   html: {
-    "scroll-behavior": "smooth",
+    // "scroll-behavior": "smooth",
     fontFamily: "'Suisse', -apple-system",
     "-webkit-font-smoothing": "antialiased",
     "-moz-osx-font-smoothing": "grayscale",
