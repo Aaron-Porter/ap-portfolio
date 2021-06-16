@@ -3,7 +3,7 @@ import Content from "components/atoms/Content";
 import Flex from "components/atoms/Flex";
 import Section from "components/atoms/Section";
 import Text from "components/atoms/Text";
-import Browser from "public/images/Browser.svg";
+import Browser from "../../public/images/Browser.svg";
 import Box from "components/atoms/Box";
 import CopyToClipboardButton from "components/molecules/CopyToClipboardButton";
 

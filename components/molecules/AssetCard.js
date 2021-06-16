@@ -5,6 +5,7 @@ import Card from "components/atoms/Card";
 import Icon from "components/atoms/Icon";
 import { useState } from "react";
 import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
+import Image from "next/image";
 
 const Caption = ({ open, text }) => {
   const parentVariants = {
@@ -100,13 +101,13 @@ const Caption = ({ open, text }) => {
   );
 };
 
-const AssetCard = ({ columns = 2, children, caption }) => {
+const AssetCard = ({ columns = 2, children, caption, image, imageAlt }) => {
   const [hover, setHover] = useState(false);
 
   const toggleCaption = () => {
     setHover(!hover);
   };
-  
+
   return (
     <Flex
       css={{ gridColumn: `span ${columns}`, position: "relative" }}
@@ -116,6 +117,7 @@ const AssetCard = ({ columns = 2, children, caption }) => {
     >
       <Card pressable={false}>
         <Flex align="center" justify="center">
+          {image && <Image src={image} alt={imageAlt} placeholder="blur" />}
           {children}
         </Flex>
       </Card>

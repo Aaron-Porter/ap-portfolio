@@ -26,7 +26,7 @@ module.exports = {
     "react/react-in-jsx-scope": "off",
     "prettier/prettier": "error",
     "anchor-is-valid": "off",
-    camelcase: "always",
+    camelcase: "warn",
   },
   settings: {
     "import/resolver": {
@@ -35,4 +35,4 @@ module.exports = {
       },
     },
   },
-}
+};

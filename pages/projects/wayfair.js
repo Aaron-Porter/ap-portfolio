@@ -21,6 +21,9 @@ import Flex from "components/atoms/Flex";
 import PortfolioPresentationCard from "components/organisms/PortfolioPresentationCard";
 import List from "components/organisms/List";
 
+import image1 from "../../public/projects/wayfair/Wayfair_Image_1@2x.png";
+import image2 from "../../public/projects/wayfair/Wayfair_Image_2@2x.png";
+
 export default function Carefull() {
   return (
     <Project>
@@ -33,10 +36,9 @@ export default function Carefull() {
         <ConfidentialBanner css={{ marginBottom: "$space400" }} />
         <Card pressable={false} align="center" justify="center">
           <Image
-            src="/projects/wayfair/Wayfair_Image_1@2x.png"
+            src={image1}
             alt="Picture of a mother and son embracing eachother. A purple ring surrounds them showing protection."
-            width={2256}
-            height={1188}
+            placeholder="blur"
           />
         </Card>
       </ProjectIntro>
@@ -135,14 +137,9 @@ export default function Carefull() {
           <AssetCard
             columns={2}
             caption="Behind the scenes of one our warehouse visits. This is my team members, Phil & Matthew, discussing a partner's process for handling fulfillment."
-          >
-            <Image
-              src="/projects/wayfair/Wayfair_Image_2@2x.png"
-              alt="Two individuals standing with safety vests on in a warehouse."
-              width={2256}
-              height={1188}
-            />
-          </AssetCard>
+            image={image2}
+            imageAlt="Two individuals standing with safety vests on in a warehouse."
+          />
           <TextCard
             text={
               <>

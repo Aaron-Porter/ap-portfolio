@@ -12,6 +12,12 @@ import Page from "components/templates/Page";
 import Grid from "components/atoms/Grid";
 import Landing from "components/molecules/Landing";
 
+import image1 from "../public/projects/carefull/carefull_image_1@2x.png";
+import image2 from "../public/projects/stories/stories_thumbnail@2x.png";
+import image3 from "../public/projects/2016-portfolio/portfolio_thumbnail.jpg";
+import image4 from "../public/projects/2001-space/2001_thumbnail.png";
+import image5 from "../public/projects/beach/beach_thumbnail.jpg";
+
 export default function Home() {
   return (
     <Page>
@@ -41,12 +47,11 @@ export default function Home() {
               link="/projects/carefull"
               image={
                 <Image
-                  src="/projects/carefull/carefull_image_1@2x.png"
+                  src={image1}
                   alt="Picture of a mother and son embracing eachother. A purple ring surrounds them showing protection."
-                  width={552}
-                  height={552}
                   layout="responsive"
                   priority
+                  placeholder="blur"
                 />
               }
             />
@@ -103,62 +108,32 @@ export default function Home() {
               link="https://www.getcarefull.com/stories"
               fullWidthImage
               openLinkInNewTab
-              image={
-                <Image
-                  src="/projects/stories/stories_thumbnail@2x.png"
-                  alt="A collage of images. The focal point is a face aligned with the face on a dollar bill."
-                  layout="fill"
-                  objectFit="cover"
-                />
-              }
+              image={image2}
+              imageAlt="A collage of images. The focal point is a face aligned with the face on a dollar bill."
             />
             <ProjectCard
               title="Personal Website"
               description="Featured on Awwwards, Siteinspire, Mindsparkle, & many more."
               dates="2016"
               link="http://2016.aaronporter.co"
-              fullWidthImage
-              openLinkInNewTab
-              image={
-                <Image
-                  src="/projects/2016-portfolio/portfolio_thumbnail.jpg"
-                  alt="Man sitting on a stool with the text 'Aaron.' on top of the image"
-                  layout="fill"
-                  objectFit="cover"
-                />
-              }
+              imageAlt="Man sitting on a stool with the text 'Aaron.' on top of the image"
+              image={image3}
             />
             <ProjectCard
               title="2001: A VR Space Odyssey"
               description="Built a recreation of an iconic scene using Unity & C4D."
               dates="2016"
               link="https://vimeo.com/209768060?ref=tw-share"
-              fullWidthImage
-              openLinkInNewTab
-              image={
-                <Image
-                  src="/projects/2001-space/2001_thumbnail.png"
-                  alt="A virtual reality scene of the inside of a futuristic centrifuge."
-                  layout="fill"
-                  objectFit="cover"
-                />
-              }
+              imageAlt="A virtual reality scene of the inside of a futuristic centrifuge."
+              image={image4}
             />
             <ProjectCard
               title="Beach"
               description="Art Direction & Video Production for an album campaign."
               dates="2015"
               link="https://www.behance.net/gallery/30857527/Beach"
-              fullWidthImage
-              openLinkInNewTab
-              image={
-                <Image
-                  src="/projects/beach/beach_thumbnail.jpg"
-                  alt="A person's head sticking out of a body of water looking at the sunset."
-                  layout="fill"
-                  objectFit="cover"
-                />
-              }
+              imageAlt="A person's head sticking out of a body of water looking at the sunset."
+              image={image5}
             />
           </Grid>
         </Content>

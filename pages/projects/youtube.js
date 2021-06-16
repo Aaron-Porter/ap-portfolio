@@ -21,6 +21,12 @@ import Flex from "components/atoms/Flex";
 import PortfolioPresentationCard from "components/organisms/PortfolioPresentationCard";
 import List from "components/organisms/List";
 
+import image1 from "../../public/projects/youtube/Youtube_Premium@2x.png";
+import image2 from "../../public/projects/youtube/Youtube_Japan_1.jpg";
+import image3 from "../../public/projects/youtube/Youtube_UI_1@2x.png";
+import image4 from "../../public/projects/youtube/Youtube_UI_2@2x.png";
+import image5 from "../../public/projects/youtube/Youtube_UI_3@2x.png";
+
 export default function Carefull() {
   return (
     <Project>
@@ -32,12 +38,7 @@ export default function Carefull() {
       >
         <ConfidentialBanner css={{ marginBottom: "$space400" }} />
         <Card pressable={false} align="center" justify="center">
-          <Image
-            src="/projects/youtube/Youtube_Premium@2x.png"
-            alt="YouTube Premium logo"
-            width={2256}
-            height={1188}
-          />
+          <Image src={image1} alt="YouTube Premium logo" placeholder="blur" />
         </Card>
       </ProjectIntro>
       <ProjectHighlight label="About The Project">
@@ -120,14 +121,11 @@ export default function Carefull() {
             }
             iconName="Chat"
           />
-          <AssetCard caption="We spent 2 weeks in Tokyo, Japan. Visiting YouTube users in their home — learning about their lifestyle, desires, & video consumption behaviors.">
-            <Image
-              src="/projects/youtube/Youtube_Japan_1.jpg"
-              alt="A crosswalk in Shibuya Japan"
-              width={2000}
-              height={1333}
-            />
-          </AssetCard>
+          <AssetCard
+            caption="We spent 2 weeks in Tokyo, Japan. Visiting YouTube users in their home — learning about their lifestyle, desires, & video consumption behaviors."
+            imageAlt="A crosswalk in Shibuya Japan"
+            image={image2}
+          />
           <TextCard
             text={
               <>
@@ -151,33 +149,20 @@ export default function Carefull() {
           <AssetCard
             columns={1}
             caption="Contributed to the evolution of our Premium Content surfaces. Creating visual patterns that were distinct from traditional YouTube content."
-          >
-            <Image
-              src="/projects/youtube/Youtube_UI_1@2x.png"
-              alt="A phone with the YouTube app open browsing movies & shows"
-              width={1104}
-              height={1520}
-            />
-          </AssetCard>
+            imageAlt="A phone with the YouTube app open browsing movies & shows"
+            image={image3}
+          />
           <AssetCard
             columns={1}
             caption="Lead interaction design on a new detail page for Premium show & movies. Creating patterns that allowed a user to resume from where they left off, track their progress on episodic content, and view related content like trailers & extras."
-          >
-            <Image
-              src="/projects/youtube/Youtube_UI_2@2x.png"
-              alt="A detail page inside the YouTube app for the show 'Furze World Wonders'"
-              width={1104}
-              height={1520}
-            />
-          </AssetCard>
-          <AssetCard caption="Design by the YouTube Gaming Team. The patterns we helped to establish for our detail pages were adopted & evolved by other team across the organization">
-            <Image
-              src="/projects/youtube/Youtube_UI_3@2x.png"
-              alt="The YouTube website on a page dedicated to the game Fortnite"
-              width={2256}
-              height={1256}
-            />
-          </AssetCard>
+            imageAlt="A detail page inside the YouTube app for the show 'Furze World Wonders'"
+            image={image4}
+          />
+          <AssetCard
+            caption="Design by the YouTube Gaming Team. The patterns we helped to establish for our detail pages were adopted & evolved by other team across the organization"
+            imageAlt="The YouTube website on a page dedicated to the game Fortnite"
+            image={image5}
+          />
         </Carousel>
       </ProjectHighlight>
       <ProjectHighlight heading={<>Made an impact across the company.</>}>

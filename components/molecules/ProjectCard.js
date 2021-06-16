@@ -32,15 +32,16 @@ const ContentIcon = () => (
 
 const ProjectCard = ({
   image,
+  imageAlt,
   title,
   description,
   dates,
   role,
   link,
   layoutId,
-  fullWidthImage = false,
+  fullWidthImage = true,
   css,
-  openLinkInNewTab = false,
+  openLinkInNewTab = true,
 }) => (
   <Card
     direction="column"
@@ -52,7 +53,13 @@ const ProjectCard = ({
       <ContentIcon />
       {fullWidthImage && (
         <Box css={{ height: "200px", width: "100%", position: "relative" }}>
-          {image}
+          <Image
+            src={image}
+            alt={imageAlt}
+            layout="fill"
+            objectFit="cover"
+            placeholder="blur"
+          />
         </Box>
       )}
       <Card.Content>

@@ -19,6 +19,18 @@ import Flex from "components/atoms/Flex";
 import PortfolioPresentationCard from "components/organisms/PortfolioPresentationCard";
 import List from "../../components/organisms/List";
 
+import image1 from "../../public/projects/carefull/carefull_image_1@2x.png";
+import image2 from "../../public/projects/carefull/Carefull_Logo@2x.png";
+import image3 from "../../public/projects/carefull/Carefull_Icon@2x.png";
+import image4 from "../../public/projects/carefull/Carefull_Collage@2x.png";
+import image5 from "../../public/projects/carefull/Carefull_Print_1@2x.png";
+import image6 from "../../public/projects/carefull/Carefull_Print_2@2x.png";
+import image7 from "../../public/projects/carefull/Carefull_UX_1@2x.png";
+import image8 from "../../public/projects/carefull/Carefull_UX_2@2x.png";
+import image9 from "../../public/projects/carefull/Carefull_UX_3@2x.png";
+import image10 from "../../public/projects/carefull/Carefull_UX_4@2x.png";
+import image11 from "../../public/projects/carefull/Carefull_UX_5@2x.png";
+
 export default function Carefull() {
   return (
     <Project>
@@ -31,9 +43,9 @@ export default function Carefull() {
         <ConfidentialBanner css={{ marginBottom: "$space400" }} />
         <Card pressable={false} align="center" justify="center">
           <Image
-            placeholder="blur"
-            src="/projects/carefull/carefull_image_1@2x.png"
+            src={image1}
             alt="Picture of a mother and son embracing eachother. A purple ring surrounds them showing protection."
+            placeholder="blur"
             width={552}
             height={552}
           />
@@ -136,28 +148,16 @@ export default function Carefull() {
           <AssetCard
             columns={1}
             caption="Our wordmark needed to feel mature & institutional, like a bank, while retaining a sense of approachability and warmth."
-          >
-            <Image
-              src="/projects/carefull/Carefull_Logo@2x.png"
-              alt="Carefull"
-              width={1104}
-              height={1104}
-              placeholder="blur"
-            />
-          </AssetCard>
+            image={image2}
+            imageAlt="Carefull"
+          />
 
           <AssetCard
             columns={1}
             caption="Our symbol conveys the idea of independent parts of a family coming together to create a larger whole."
-          >
-            <Image
-              src="/projects/carefull/Carefull_Icon@2x.png"
-              alt="An icon that contains 8 dots arranged in a circle on a purple background."
-              width={1104}
-              height={1104}
-              placeholder="blur"
-            />
-          </AssetCard>
+            image={image3}
+            imageAlt="An icon that contains 8 dots arranged in a circle on a purple background."
+          />
           <AssetCard
             columns={2}
             caption={
@@ -168,37 +168,21 @@ export default function Carefull() {
                 and the things that connect them.
               </>
             }
-          >
-            <Image
-              src="/projects/carefull/Carefull_Collage@2x.png"
-              alt="An image of a modern mother with a baby and a retro family portrait. Connected with a line to show a family bond.  "
-              width={2256}
-              height={1306}
-              placeholder="blur"
-            />
-          </AssetCard>
+            image={image4}
+            imageAlt="An image of a modern mother with a baby and a retro family portrait. Connected with a line to show a family bond.  "
+          />
           <AssetCard
             columns={1}
             caption="Built supporting material to extend our brand off the screen."
-          >
-            <Image
-              src="/projects/carefull/Carefull_Print_1@2x.png"
-              alt="A stack of print material"
-              width={1104}
-              height={1104}
-            />
-          </AssetCard>
+            image={image5}
+            imageAlt="A stack of print material"
+          />
           <AssetCard
             columns={1}
             caption="Helped guide the creation of educational content."
-          >
-            <Image
-              src="/projects/carefull/Carefull_Print_2@2x.png"
-              alt="A book with the title 'The Financial Caregiving Roadmap'"
-              width={1104}
-              height={1104}
-            />
-          </AssetCard>
+            image={image6}
+            imageAlt="A book with the title 'The Financial Caregiving Roadmap'"
+          />
           <AssetCard caption="Designed & built all aspects of our website. I assembled templates & styles in Webflow to enable our marketing team to independently test & evolve our communication efforts over time.">
             <video
               autoPlay="autoplay"
@@ -237,58 +221,33 @@ export default function Carefull() {
           <AssetCard
             columns={2}
             caption="Designed every screen & state of the Carefull App. An experience that gives children increased insight into the financial life of their parent."
-          >
-            <Image
-              src="/projects/carefull/Carefull_UX_1@2x.png"
-              alt="Multiple images of an app experience"
-              width={2256}
-              height={1422}
-            />
-          </AssetCard>
+            imageAlt="Multiple images of an app experience"
+            image={image7}
+          />
           <AssetCard
             columns={1}
             caption="Users receive timely alerts so that they can worry less and insure things are going smoothly."
-          >
-            <Image
-              src="/projects/carefull/Carefull_UX_2@2x.png"
-              alt="An iphone lockscreen with an alert that says 'Mom's bill State Famr for $89.87 is due tomorrow. You pay via autopay.'"
-              width={1104}
-              height={1374}
-            />
-          </AssetCard>
+            imageAlt="An iphone lockscreen with an alert that says 'Mom's bill State Famr for $89.87 is due tomorrow. You pay via autopay.'"
+            image={image8}
+          />
           <AssetCard
             columns={1}
             caption="The app provides a set of intelligent alerts that look for patterns in their financial behavior and calls out when there may be an issue."
-          >
-            <Image
-              src="/projects/carefull/Carefull_UX_3@2x.png"
-              alt="An alert that says 'Duplicate Transactions' with two similar transactions from Walgreens"
-              width={1104}
-              height={1374}
-            />
-          </AssetCard>
+            imageAlt="An alert that says 'Duplicate Transactions' with two similar transactions from Walgreens"
+            image={image9}
+          />
           <AssetCard
             columns={2}
             caption="Designed email template to keep our messaging with users on brand and effective."
-          >
-            <Image
-              src="/projects/carefull/Carefull_UX_4@2x.png"
-              alt="Three emails that display various pieces of information relevant to signing up for an app."
-              width={2256}
-              height={1422}
-            />
-          </AssetCard>
+            imageAlt="Three emails that display various pieces of information relevant to signing up for an app."
+            image={image10}
+          />
           <AssetCard
             columns={2}
             caption="Built and managed our design component system to insure consistency and easy iteration. Worked closely with engineers & contributed directly to our React Native codebase."
-          >
-            <Image
-              src="/projects/carefull/Carefull_UX_5@2x.png"
-              alt="A bunch of interface elements that would appear in an app"
-              width={2256}
-              height={1778}
-            />
-          </AssetCard>
+            imageAlt="A bunch of interface elements that would appear in an app"
+            image={image11}
+          />
         </Carousel>
       </ProjectHighlight>
       <PortfolioPresentationCard />
