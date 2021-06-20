@@ -26,7 +26,7 @@ import image2 from "../../public/projects/wayfair/Wayfair_Image_2@2x.png";
 
 export default function Carefull() {
   return (
-    <Project>
+    <Page>
       <ProjectIntro
         client="Wayfair"
         role="UX Design Lead"
@@ -213,6 +213,6 @@ export default function Carefull() {
       </ProjectHighlight>
 
       <PortfolioPresentationCard />
-    </Project>
+    </Page>
   );
 }

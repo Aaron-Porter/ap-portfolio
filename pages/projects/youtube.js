@@ -29,7 +29,7 @@ import image5 from "../../public/projects/youtube/Youtube_UI_3@2x.png";
 
 export default function Carefull() {
   return (
-    <Project>
+    <Page>
       <ProjectIntro
         client="YouTube"
         role="UX Designer"
@@ -201,6 +201,6 @@ export default function Carefull() {
       </ProjectHighlight>
 
       <PortfolioPresentationCard />
-    </Project>
+    </Page>
   );
 }

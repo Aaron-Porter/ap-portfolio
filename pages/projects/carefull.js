@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Carousel from "components/molecules/Carousel";
-import Project from "components/templates/Project";
+import Page from "components/templates/Page";
 import AssetCard from "components/molecules/AssetCard";
 import ProjectHighlight from "components/organisms/ProjectHighlight";
 import ProjectIntro from "components/organisms/ProjectIntro";
@@ -25,7 +25,7 @@ import image11 from "../../public/projects/carefull/Carefull_UX_5@2x.png";
 
 export default function Carefull() {
   return (
-    <Project>
+    <Page>
       <ProjectIntro
         client="Carefull"
         role="Design Lead"
@@ -243,6 +243,6 @@ export default function Carefull() {
         </Carousel>
       </ProjectHighlight>
       <PortfolioPresentationCard />
-    </Project>
+    </Page>
   );
 }
