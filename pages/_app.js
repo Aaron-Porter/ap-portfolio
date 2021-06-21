@@ -9,8 +9,10 @@ import Content from "components/atoms/Content";
 import Flex from "components/atoms/Flex";
 import Image from "next/image";
 import Header from "components/molecules/Header";
-import * as gtag from "../lib/gtag";
 import { Footer } from "components/molecules/Footer";
+import { DefaultSeo } from "next-seo";
+import * as gtag from "../lib/gtag";
+import SEO from "../next-seo.config";
 
 function MyApp({ Component, pageProps, router }) {
   globalStyles();
@@ -61,6 +63,8 @@ function MyApp({ Component, pageProps, router }) {
             exit={{ opacity: 0 }}
             originZ={0}
           >
+            <DefaultSeo {...SEO} />
+
             <Component {...pageProps} />
           </Box>
         </AnimatePresence>

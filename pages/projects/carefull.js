@@ -25,7 +25,10 @@ import image11 from "../../public/projects/carefull/Carefull_UX_5@2x.png";
 
 export default function Carefull() {
   return (
-    <Page>
+    <Page
+      title="Carefull"
+      description="Empowering financial caregivers with simplicity, safety, and transparency."
+    >
       <ProjectIntro
         client="Carefull"
         role="Design Lead"

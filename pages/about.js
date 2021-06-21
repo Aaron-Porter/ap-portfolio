@@ -25,7 +25,11 @@ const Link = ({ href, children }) => (
 
 export default function About() {
   return (
-    <Page>
+    <Page
+      title="About Me"
+      description="Aaron Porter is a designer & technologist. He currently leads
+    design at Carefull and previously worked at TTF & Google."
+    >
       <Landing>
         <Content>
           <Box css={{ marginBottom: "$space500" }}>
@@ -34,10 +38,15 @@ export default function About() {
               css={{ maxWidth: "30ch", width: "100%" }}
             >
               Aaron Porter is a designer & technologist. He currently leads
-              design at <Link href="https://getcarefull.com">Carefull</Link>,
-              and previously worked at{" "}
-              <Link href="https://truetoform.design">TTF</Link> &{" "}
-              <Link href="https://google.com">Google</Link>. <br />
+              design at <Link href="https://getcarefull.com">Carefull</Link>
+,
+              and previously worked at
+{" "}
+              <Link href="https://truetoform.design">TTF</Link> &
+{" "}
+              <Link href="https://google.com">Google</Link>
+              .
+              <br />
             </Text>
           </Box>
           <Box>

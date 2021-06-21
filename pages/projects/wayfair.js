@@ -1,23 +1,13 @@
 import Image from "next/image";
-import ProjectCard from "components/molecules/ProjectCard";
 import Page from "components/templates/Page";
-import { styled } from "stitches.config";
 import Carousel from "components/molecules/Carousel";
-import Grid from "components/atoms/Grid.js";
-import Project from "components/templates/Project";
 import AssetCard from "components/molecules/AssetCard";
 import ProjectHighlight from "components/organisms/ProjectHighlight";
 import ProjectIntro from "components/organisms/ProjectIntro";
 import Card from "components/atoms/Card";
 import ConfidentialBanner from "components/molecules/ConfidentialBanner";
-import LinkTo from "components/utilities/LinkTo";
 import React from "react";
-import TextCard from "components/molecules/TextCard.js";
-import Text from "components/atoms/Text";
-import Section from "components/atoms/Section";
-import Content from "components/atoms/Content";
-import Box from "components/atoms/Box";
-import Flex from "components/atoms/Flex";
+import TextCard from "components/molecules/TextCard";
 import PortfolioPresentationCard from "components/organisms/PortfolioPresentationCard";
 import List from "components/organisms/List";
 
@@ -26,7 +16,10 @@ import image2 from "../../public/projects/wayfair/Wayfair_Image_2@2x.png";
 
 export default function Carefull() {
   return (
-    <Page>
+    <Page
+      title="Wayfair"
+      description="Building the future of how Wayfair Partners process millions of orders per week."
+    >
       <ProjectIntro
         client="Wayfair"
         role="UX Design Lead"
