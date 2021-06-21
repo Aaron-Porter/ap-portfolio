@@ -20,7 +20,7 @@ import image5 from "../public/projects/beach/beach_thumbnail.jpg";
 
 export default function Home() {
   return (
-    <Page description="Aaron Porter designs products & systems to empower human agency.">
+    <Page description="Aaron Porter designs products & systems to empower human agency. Via qualitative research, UX methods, visual design, & engineering — he builds software interfaces for human interaction.">
       <Landing>
         <Content>
           <Box>
