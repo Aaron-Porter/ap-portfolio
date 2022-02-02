@@ -113,16 +113,6 @@ export default function Home() {
               imageAlt="A collection of brand logos arranged in a grid."
             />
             <ProjectCard
-              title="Stories"
-              description="Art direction & mini-site to tell the stories of financial caregivers."
-              dates="2020"
-              link="https://www.getcarefull.com/stories"
-              fullWidthImage
-              openLinkInNewTab
-              image={image2}
-              imageAlt="A collage of images. The focal point is a face aligned with the face on a dollar bill."
-            />
-            <ProjectCard
               title="Personal Website"
               description="Featured on Awwwards, Siteinspire, Mindsparkle, & many more."
               dates="2016"
