@@ -21,6 +21,11 @@ module.exports = {
         destination: "/",
         permanent: true,
       },
+      {
+        source: "/work",
+        destination: "/",
+        permanent: true,
+      },
     ];
   },
 };
