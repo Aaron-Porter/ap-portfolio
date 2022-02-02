@@ -37,15 +37,12 @@ export default function About() {
               preset="xLargeHeading"
               css={{ maxWidth: "30ch", width: "100%" }}
             >
-              Aaron Porter is a designer & technologist. He currently leads
-              design at <Link href="https://getcarefull.com">Carefull</Link>
-,
-              and previously worked at
-{" "}
-              <Link href="https://truetoform.design">TTF</Link> &
-{" "}
-              <Link href="https://google.com">Google</Link>
-              .
+              Aaron Porter is a designer & technologist. Previously at{" "}
+              <Link href="https://getcarefull.com">Carefull</Link>,{" "}
+              <Link href="https://truetoform.design">TTF</Link> &{" "}
+              <Link href="https://google.com">Google</Link>.
+              <br />
+              Now independent.
               <br />
             </Text>
           </Box>
