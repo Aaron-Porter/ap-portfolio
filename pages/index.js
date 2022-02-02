@@ -17,6 +17,7 @@ import image2 from "../public/projects/stories/stories_thumbnail@2x.png";
 import image3 from "../public/projects/2016-portfolio/portfolio_thumbnail.jpg";
 import image4 from "../public/projects/2001-space/2001_thumbnail.png";
 import image5 from "../public/projects/beach/beach_thumbnail.jpg";
+import image6 from "../public/projects/brandsupplies/BrandSupplies@2x.png";
 
 export default function Home() {
   return (
@@ -98,9 +99,19 @@ export default function Home() {
             preset="overline"
             css={{ color: "$gray300", marginBottom: "$space300" }}
           >
-            Old, small, or exploratory projects
+            Other projects
           </Text>
           <Grid columns={2}>
+            <ProjectCard
+              title="Brand Supplies"
+              description="Stop rummaging the web for accurate brand assets. Brand Supplies curates accurate vector assets for every brand."
+              dates="2022"
+              link="https://www.brand.supplies"
+              fullWidthImage
+              openLinkInNewTab
+              image={image6}
+              imageAlt="A collection of brand logos arranged in a grid."
+            />
             <ProjectCard
               title="Stories"
               description="Art direction & mini-site to tell the stories of financial caregivers."
