@@ -27,8 +27,7 @@ export default function About() {
   return (
     <Page
       title="About Me"
-      description="Aaron Porter is a designer & technologist. He currently leads
-    design at Carefull and previously worked at TTF & Google."
+      description="Aaron Porter is an independent designer & technologist. Previously at Carefull, TTF, & Google."
     >
       <Landing>
         <Content>
