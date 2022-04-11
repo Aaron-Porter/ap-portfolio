@@ -81,7 +81,7 @@ export default function About() {
               preset="overline"
               css={{ color: "$gray300", paddingBottom: "$space400" }}
             >
-              A bunch of photos of me, your welcome
+              A bunch of photos of me, you’re welcome
             </Text>
             <Flex gap align="start">
               <Flex direction="column" gap>

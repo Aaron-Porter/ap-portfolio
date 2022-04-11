@@ -103,16 +103,6 @@ export default function Home() {
           </Text>
           <Grid columns={2}>
             <ProjectCard
-              title="Brand Supplies"
-              description="Stop rummaging the web for accurate brand assets. Brand Supplies curates accurate vector assets for every brand."
-              dates="2022"
-              link="https://www.brand.supplies"
-              fullWidthImage
-              openLinkInNewTab
-              image={image6}
-              imageAlt="A collection of brand logos arranged in a grid."
-            />
-            <ProjectCard
               title="Personal Website"
               description="Featured on Awwwards, Siteinspire, Mindsparkle, & many more."
               dates="2016"
