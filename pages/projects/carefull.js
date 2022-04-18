@@ -32,7 +32,7 @@ export default function Carefull() {
       <ProjectIntro
         client="Carefull"
         role="Design Lead"
-        year="2020-Present"
+        year="2020-2021"
         title="Empowering financial caregivers with simplicity, safety, and transparency."
       >
         <ConfidentialBanner css={{ marginBottom: "$space400" }} />

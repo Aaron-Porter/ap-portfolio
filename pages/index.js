@@ -43,7 +43,7 @@ export default function Home() {
             <FeaturedProjectCard
               title="Carefull"
               description="A service to enable the 45 million Americans that are financial caregivers."
-              dates="2020-Present"
+              dates="2020-2021"
               role="Design Lead"
               link="/projects/carefull"
               image={
