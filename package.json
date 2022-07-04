@@ -5,18 +5,20 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "export": "next build && next export && next-export-optimize-images",
     "start": "next start"
   },
   "dependencies": {
     "@stitches/react": "^0.2.2",
     "framer-motion": "^4.1.17",
-    "next": "11.0.0",
+    "next": "12.2.0",
     "next-seo": "^4.26.0",
     "next-themes": "^0.0.14",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
+    "next-export-optimize-images":"^1.5.2",
     "@svgr/webpack": "^5.5.0",
     "babel-plugin-inline-react-svg": "^1.0.1",
     "eslint": "^7.16.0",
