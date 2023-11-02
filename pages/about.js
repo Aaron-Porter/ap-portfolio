@@ -27,7 +27,7 @@ export default function About() {
   return (
     <Page
       title="About Me"
-      description="Aaron Porter is an independent designer & technologist. Previously at Carefull, TTF, & Google."
+      description="Tamara is a PhD student and UC Berkeley graduate."
     >
       <Landing>
         <Content>
@@ -36,12 +36,12 @@ export default function About() {
               preset="xLargeHeading"
               css={{ maxWidth: "30ch", width: "100%" }}
             >
-              Aaron Porter is a designer & technologist. Previously at{" "}
-              <Link href="https://getcarefull.com">Carefull</Link>,{" "}
-              <Link href="https://truetoform.design">TTF</Link>, &{" "}
-              <Link href="https://google.com">Google</Link>.
+              Tamara is a researcher & bioinformatics scienist. Previously at{" "}
+              <Link href="https://www.atlasxomics.com/?gclid=CjwKCAjwkY2qBhBDEiwAoQXK5WmaAoGsQWqzpOwtbGJYfyJ6lrmzX3ChxHal3ajbA-LQ0_DKSTpM5BoCKmQQAvD_BwE">AtlasXomics</Link>,{" "}
+              <Link href="https://medicine.yale.edu/lab/ynn/">Yale</Link>, &{" "}
+              <Link href="https://google.com">Berkeley</Link>.
               <br />
-              Now independent.
+              Now computational neuroscience PhD student at USC.
               <br />
             </Text>
           </Box>
@@ -49,30 +49,24 @@ export default function About() {
             <Text preset="subHeading">A bit about me</Text>
             <Grid columns={2} gapSize="large">
               <Text css={{ color: "$gray300" }}>
-                I started designing at 13. Living in a rural area with a limited
-                internet connection, I lugged our family’s iMac to a friend’s
-                house to download a (totally legal) copy of adobe illustrator.{" "}
+                Building biotech community at Nucleate.{" "}
                 <br />
                 <br />
-                I’ve approached my career since then with a similar amount of
-                vigour. Always seeking to learn, understand, and evolve. I find
-                joy in the process of piecing together small parts of the built
-                world. Guided by the hope that my work can help to create
-                products that are subservient to the individual, systems that
-                empower human agency, and experiences that foster understanding.
+                Tamara is a first-year PhD student in the University of Southern 
+                California’s Neuroscience Graduate program. She graduated from Cal 
+                in 2021 with degrees in Public Health and Integrative Biology. 
+                After graduating she pursued translational and computational research 
+                as a Postgraduate Fellow at Yale’s Clinical Neuroscience Neuroanalytics 
+                Laboratory. Afterwards she worked as a bioinformatics scientist at a 
+                spatial genomics startup. Join the conversation where Tamara hopes to
+                answer questions and share insights about public health major at 
+                Berkeley and exploring your interdisciplinary interests.
               </Text>
               <Text css={{ color: "$gray300" }}>
-                When I’m not designing, you can find me obsessively reading,
-                spreadsheeting, or annoying my wife about my obsession of the
-                month. Past episodes have included: optimization of
-                tax-advantage investment accounts, the perfect t-shirt,
-                correcting my broken body due to 10+ years of sitting at a
-                computer, & much more. Feel free to ask and I’ll fill you into
-                the featured selection. <br />
+                When I’m not in the lab, you can find me obsessively reading,
+                teaching, or designing. <br />
                 <br />
-                I’m currently based in Grand Rapids, Michigan. The city I went
-                to college, met my wife, and a place that seems to consistently
-                pull me back.
+                I’m based in Los Angeles, California. 
               </Text>
             </Grid>
           </Box>
