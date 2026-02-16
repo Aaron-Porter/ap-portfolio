@@ -4,7 +4,6 @@ import Text from "components/atoms/Text";
 import Card from "components/atoms/Card";
 import Icon from "components/atoms/Icon";
 import { useState } from "react";
-import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import Image from "next/image";
 
 const Caption = ({ open, text }) => {
@@ -52,7 +51,7 @@ const Caption = ({ open, text }) => {
   };
 
   return (
-    <AnimateSharedLayout>
+    <>
       <Box
         layout
         variants={parentVariants}
@@ -97,7 +96,7 @@ const Caption = ({ open, text }) => {
           </Box>
         )}
       </Box>
-    </AnimateSharedLayout>
+    </>
   );
 };
 
@@ -117,7 +116,15 @@ const AssetCard = ({ columns = 2, children, caption, image, imageAlt }) => {
     >
       <Card pressable={false}>
         <Flex align="center" justify="center">
-          {image && <Image src={image} alt={imageAlt} placeholder="blur" />}
+          {image && (
+            <Image
+              src={image}
+              alt={imageAlt || "Project asset"}
+              width={1440}
+              height={960}
+              style={{ width: "100%", height: "auto", display: "block" }}
+            />
+          )}
           {children}
         </Flex>
       </Card>

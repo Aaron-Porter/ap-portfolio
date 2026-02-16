@@ -11,11 +11,11 @@ import TextCard from "components/molecules/TextCard";
 import PortfolioPresentationCard from "components/organisms/PortfolioPresentationCard";
 import List from "components/organisms/List";
 
-import image1 from "../../public/projects/youtube/Youtube_Premium@2x.png";
-import image2 from "../../public/projects/youtube/Youtube_Japan_1.jpg";
-import image3 from "../../public/projects/youtube/Youtube_UI_1@2x.png";
-import image4 from "../../public/projects/youtube/Youtube_UI_2@2x.png";
-import image5 from "../../public/projects/youtube/Youtube_UI_3@2x.png";
+const image1 = "/projects/youtube/Youtube_Premium@2x.png";
+const image2 = "/projects/youtube/Youtube_Japan_1.jpg";
+const image3 = "/projects/youtube/Youtube_UI_1@2x.png";
+const image4 = "/projects/youtube/Youtube_UI_2@2x.png";
+const image5 = "/projects/youtube/Youtube_UI_3@2x.png";
 
 export default function Carefull() {
   return (
@@ -31,7 +31,13 @@ export default function Carefull() {
       >
         <ConfidentialBanner css={{ marginBottom: "$space400" }} />
         <Card pressable={false} align="center" justify="center">
-          <Image src={image1} alt="YouTube Premium logo" placeholder="blur" />
+          <Image
+            src={image1}
+            alt="YouTube Premium logo"
+            width={1200}
+            height={800}
+            style={{ width: "100%", height: "auto", display: "block" }}
+          />
         </Card>
       </ProjectIntro>
       <ProjectHighlight label="About The Project">

@@ -58,7 +58,7 @@ const ProjectCard = ({
             alt={imageAlt}
             layout="fill"
             objectFit="cover"
-            placeholder="blur"
+           
           />
         </Box>
       )}

@@ -11,8 +11,8 @@ import TextCard from "components/molecules/TextCard";
 import PortfolioPresentationCard from "components/organisms/PortfolioPresentationCard";
 import List from "components/organisms/List";
 
-import image1 from "../../public/projects/wayfair/Wayfair_Image_1@2x.png";
-import image2 from "../../public/projects/wayfair/Wayfair_Image_2@2x.png";
+const image1 = "/projects/wayfair/Wayfair_Image_1@2x.png";
+const image2 = "/projects/wayfair/Wayfair_Image_2@2x.png";
 
 export default function Carefull() {
   return (
@@ -31,7 +31,9 @@ export default function Carefull() {
           <Image
             src={image1}
             alt="Picture of a mother and son embracing eachother. A purple ring surrounds them showing protection."
-            placeholder="blur"
+            width={1200}
+            height={800}
+            style={{ width: "100%", height: "auto", display: "block" }}
           />
         </Card>
       </ProjectIntro>

@@ -12,12 +12,12 @@ import Page from "components/templates/Page";
 import Grid from "components/atoms/Grid";
 import Landing from "components/molecules/Landing";
 
-import image1 from "../public/projects/carefull/carefull_image_1@2x.png";
-import image2 from "../public/projects/stories/stories_thumbnail@2x.png";
-import image3 from "../public/projects/2016-portfolio/portfolio_thumbnail.jpg";
-import image4 from "../public/projects/2001-space/2001_thumbnail.png";
-import image5 from "../public/projects/beach/beach_thumbnail.jpg";
-import image6 from "../public/projects/brandsupplies/BrandSupplies@2x.png";
+const image1 = "/projects/carefull/carefull_image_1@2x.png";
+const image2 = "/projects/stories/stories_thumbnail@2x.png";
+const image3 = "/projects/2016-portfolio/portfolio_thumbnail.jpg";
+const image4 = "/projects/2001-space/2001_thumbnail.png";
+const image5 = "/projects/beach/beach_thumbnail.jpg";
+const image6 = "/projects/brandsupplies/BrandSupplies@2x.png";
 
 export default function Home() {
   return (
@@ -50,9 +50,9 @@ export default function Home() {
                 <Image
                   src={image1}
                   alt="Picture of a mother and son embracing eachother. A purple ring surrounds them showing protection."
-                  layout="responsive"
+                  width={552}
+                  height={552}
                   priority
-                  placeholder="blur"
                 />
               }
             />

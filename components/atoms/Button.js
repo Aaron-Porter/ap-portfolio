@@ -1,85 +1,33 @@
-import { styled } from "stitches.config";
 import Text from "components/atoms/Text";
 import Icon from "components/atoms/Icon";
 import LinkTo from "components/utilities/LinkTo";
-const _Button = styled("button", {
-  // Reset
-  appearance: "none",
-  boxSizing: "border-box",
-  display: "inline-flex",
-  justifyContent: "center",
-  lineHeight: "1",
-  margin: "0",
-  outline: "none",
-  textDecoration: "none",
-  userSelect: "none",
-  WebkitTapHighlightColor: "rgba(0,0,0,0)",
-  "&::before": {
-    boxSizing: "border-box",
-  },
-  "&::after": {
-    boxSizing: "border-box",
-  },
-  border: "none",
-  verticalAlign: "middle",
 
-  // Local Tokens
-  $$primaryColor: "$colors$gray800",
-  $$contrastColor: "$colors$gray000",
+const Button = ({ children, iconName, href = false, variant, className = "", ...rest }) => {
+  const isGhost = variant === "ghost";
+  const buttonClasses = `appearance-none box-border inline-flex justify-center leading-none m-0 outline-none no-underline select-none border-0 align-middle rounded-full px-4 py-3 text-base transition-all duration-300 ease-out cursor-pointer ${
+    isGhost
+      ? "bg-transparent text-gray-100 hover:bg-gray-700"
+      : "bg-gray-800 text-gray-0 hover:bg-gray-700"
+  } ${className}`;
 
-  // Base Styles
-  borderRadius: "99999px",
-  backgroundColor: "$$primaryColor",
-  color: "$$contrastColor",
-  padding: "12px 16px",
-  fontSize: "16px",
-  transition: "$default",
-  cursor: "pointer",
-
-  "&:hover": {
-    $$primaryColor: "$colors$gray700",
-  },
-
-  variants: {
-    variant: {
-      ghost: {
-        backgroundColor: "transparent",
-        "&:hover": {
-          $$primaryColor: "$colors$gray700",
-          backgroundColor: "$$primaryColor",
-        },
-      },
-    },
-  },
-});
-
-const Button = (props) => {
-  const { children, iconName, href = false, ...rest } = props;
   const ButtonElement = () => (
-    <_Button {...rest}>
-      {iconName && (
-        <Icon
-          name={iconName}
-          css={{
-            width: "24px",
-            marginRight: "$space100",
-          }}
-        />
-      )}
-      <Text preset="body" css={{ paddingRight: iconName && "$space100" }}>
+    <button className={buttonClasses} {...rest}>
+      {iconName && <Icon name={iconName} className="w-6 mr-2" />}
+      <Text preset="body" className={iconName ? "pr-2" : ""}>
         {children}
       </Text>
-    </_Button>
+    </button>
   );
+
   if (href) {
     return (
       <LinkTo href={href}>
         <ButtonElement />
       </LinkTo>
     );
-  } else {
-    return <ButtonElement />;
   }
+
+  return <ButtonElement />;
 };
 
 export default Button;

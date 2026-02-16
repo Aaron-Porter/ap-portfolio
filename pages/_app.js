@@ -1,12 +1,8 @@
-import { globalStyles, lightTheme } from "stitches.config";
-import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
-import Menu from "components/organisms/Menu";
+import "styles/globals.css";
+import { AnimatePresence } from "framer-motion";
 import Box from "components/atoms/Box";
-import { useEffect, useRef, useState } from "react";
+import { useEffect } from "react";
 import { ThemeProvider } from "next-themes";
-import Content from "components/atoms/Content";
-import Flex from "components/atoms/Flex";
-import Image from "next/image";
 import Header from "components/molecules/Header";
 import { Footer } from "components/molecules/Footer";
 import { DefaultSeo } from "next-seo";
@@ -16,8 +12,6 @@ import * as gtag from "../lib/gtag";
 import SEO from "../next-seo.config";
 
 function MyApp({ Component, pageProps }) {
-  globalStyles();
-
   useEffect(() => {
     window.history.scrollRestoration = "manual";
   }, []);
@@ -50,31 +44,17 @@ function MyApp({ Component, pageProps }) {
   };
 
   return (
-    <ThemeProvider
-      attribute="class"
-      defaultTheme="dark"
-      value={{
-        dark: "dark",
-        // light: lightTheme.className,
-      }}
-    >
-      <Box
-        css={{
-          perspective: "1000px",
-          "perspective-origin": "center center",
-        }}
-      >
-        <AnimatePresence exitBeforeEnter onExitComplete={handleExitComplete}>
+    <ThemeProvider attribute="class" defaultTheme="dark" value={{ dark: "dark" }}>
+      <Box className="[perspective:1000px] [perspective-origin:center_center]">
+        <AnimatePresence mode="wait" onExitComplete={handleExitComplete}>
           <Box
             key={router.pathname}
             transition={spring}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            originZ={0}
           >
             <DefaultSeo {...SEO} />
-            {/* Global Site Tag (gtag.js) - Google Analytics */}
             <Script
               strategy="afterInteractive"
               src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}

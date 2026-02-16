@@ -1,7 +1,6 @@
 import React from "react";
 import Box from "components/atoms/Box";
 
-// Icons
 import ArrowRightUp from "./icons/ArrowRightUp.svg";
 import EyeSlash from "./icons/EyeSlash.svg";
 import ArrowDown from "./icons/ArrowDown.svg";
@@ -24,33 +23,38 @@ import Github from "./icons/Github.svg";
 import NewspaperClipping from "./icons/NewspaperClipping.svg";
 
 const iconTypes = {
-  ArrowRightUp: ArrowRightUp,
-  EyeSlash: EyeSlash,
-  ArrowDown: ArrowDown,
-  Chat: Chat,
-  Notebook: Notebook,
-  PieChart: PieChart,
-  StickyNote: StickyNote,
-  Copy: Copy,
-  ArrowsClockwise: ArrowsClockwise,
-  TreeStructure: TreeStructure,
-  Info: Info,
-  Moon: Moon,
-  Sun: Sun,
-  ArrowLeft: ArrowLeft,
-  Smiley: Smiley,
-  CircleWavyCheck: CircleWavyCheck,
-  FolderNotchOpen: FolderNotchOpen,
-  Code: Code,
-  Github: Github,
-  NewspaperClipping: NewspaperClipping,
+  ArrowRightUp,
+  EyeSlash,
+  ArrowDown,
+  Chat,
+  Notebook,
+  PieChart,
+  StickyNote,
+  Copy,
+  ArrowsClockwise,
+  TreeStructure,
+  Info,
+  Moon,
+  Sun,
+  ArrowLeft,
+  Smiley,
+  CircleWavyCheck,
+  FolderNotchOpen,
+  Code,
+  Github,
+  NewspaperClipping,
 };
 
-const Icon = ({ name, css, ...props }) => {
-  let _Icon = iconTypes[name];
+const Icon = ({ name, css, className = "", ...props }) => {
+  const SvgIcon = iconTypes[name];
+
+  if (!SvgIcon) {
+    return null;
+  }
+
   return (
-    <Box css={css}>
-      <_Icon {...props} style={{ height: "100%", width: "100%" }} />
+    <Box css={css} className={className}>
+      <SvgIcon {...props} style={{ height: "100%", width: "100%" }} />
     </Box>
   );
 };
