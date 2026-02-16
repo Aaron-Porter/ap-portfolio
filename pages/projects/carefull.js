@@ -11,17 +11,17 @@ import TextCard from "components/molecules/TextCard";
 import PortfolioPresentationCard from "components/organisms/PortfolioPresentationCard";
 import List from "../../components/organisms/List";
 
-import image1 from "../../public/projects/carefull/carefull_image_1@2x.png";
-import image2 from "../../public/projects/carefull/Carefull_Logo@2x.png";
-import image3 from "../../public/projects/carefull/Carefull_Icon@2x.png";
-import image4 from "../../public/projects/carefull/Carefull_Collage@2x.png";
-import image5 from "../../public/projects/carefull/Carefull_Print_1@2x.png";
-import image6 from "../../public/projects/carefull/Carefull_Print_2@2x.png";
-import image7 from "../../public/projects/carefull/Carefull_UX_1@2x.png";
-import image8 from "../../public/projects/carefull/Carefull_UX_2@2x.png";
-import image9 from "../../public/projects/carefull/Carefull_UX_3@2x.png";
-import image10 from "../../public/projects/carefull/Carefull_UX_4@2x.png";
-import image11 from "../../public/projects/carefull/Carefull_UX_5@2x.png";
+const image1 = "/projects/carefull/carefull_image_1@2x.png";
+const image2 = "/projects/carefull/Carefull_Logo@2x.png";
+const image3 = "/projects/carefull/Carefull_Icon@2x.png";
+const image4 = "/projects/carefull/Carefull_Collage@2x.png";
+const image5 = "/projects/carefull/Carefull_Print_1@2x.png";
+const image6 = "/projects/carefull/Carefull_Print_2@2x.png";
+const image7 = "/projects/carefull/Carefull_UX_1@2x.png";
+const image8 = "/projects/carefull/Carefull_UX_2@2x.png";
+const image9 = "/projects/carefull/Carefull_UX_3@2x.png";
+const image10 = "/projects/carefull/Carefull_UX_4@2x.png";
+const image11 = "/projects/carefull/Carefull_UX_5@2x.png";
 
 export default function Carefull() {
   return (
@@ -40,7 +40,7 @@ export default function Carefull() {
           <Image
             src={image1}
             alt="Picture of a mother and son embracing eachother. A purple ring surrounds them showing protection."
-            placeholder="blur"
+           
             width={552}
             height={552}
           />

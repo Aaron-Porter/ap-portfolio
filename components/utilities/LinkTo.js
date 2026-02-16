@@ -1,9 +1,6 @@
 import Link from "next/link";
 import React from "react";
 
-/// A unified component for the next/link <Link> and a standard <a> anchor.
-/// Will lift href and all other props from NextLinkProps up to the Link.
-/// Will automatically make an <a> tag containing the children and pass it remaining props.
 const LinkTo = ({
   children,
   href,
@@ -15,29 +12,30 @@ const LinkTo = ({
   locale,
   displayContents = false,
   newTab = false,
+  style,
   ...anchorProps
-}) => {
-  return (
-    // These props are lifted up to the `Link` element. All others are passed to the `<a>`
-    <Link
-      {...{ href, as, replace, scroll, shallow, prefetch, locale }}
-      scroll={false}
-    >
-      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-      <a
-        style={{
-          color: "inherit",
-          textDecoration: "none",
-          display: displayContents ? "contents" : "block",
-          cursor: "pointer",
-        }}
-        target={newTab ? "_blank" : ""}
-        {...anchorProps}
-      >
-        {children}
-      </a>
-    </Link>
-  );
-};
+}) => (
+  <Link
+    href={href}
+    as={as}
+    replace={replace}
+    scroll={scroll ?? false}
+    shallow={shallow}
+    prefetch={prefetch}
+    locale={locale}
+    target={newTab ? "_blank" : undefined}
+    rel={newTab ? "noreferrer" : undefined}
+    style={{
+      color: "inherit",
+      textDecoration: "none",
+      display: displayContents ? "contents" : "block",
+      cursor: "pointer",
+      ...style,
+    }}
+    {...anchorProps}
+  >
+    {children}
+  </Link>
+);
 
 export default LinkTo;

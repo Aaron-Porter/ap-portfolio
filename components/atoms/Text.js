@@ -1,123 +1,27 @@
-import { styled } from "stitches.config";
+import { stitchesToStyle } from "lib/style";
 
-const Text = styled("span", {
-  // Reset
-  display: "inline-block",
-  margin: 0,
-  color: "$gray000",
-  lineHeight: "calc(1em + 4px)",
-  position: "relative",
+const presetClasses = {
+  xLargeHeading:
+    "font-normal text-[28px] leading-8 pt-3 pb-4 md:text-[40px] md:leading-[48px] lg:text-[52px] lg:leading-[60px] lg:pt-4 lg:pb-8",
+  largeHeading:
+    "font-normal text-2xl leading-7 pt-1 pb-1 lg:text-4xl lg:leading-[44px] lg:pt-2",
+  heading: "font-normal text-xl leading-6 py-2 lg:text-[22px] lg:leading-7",
+  subHeading:
+    "font-normal text-lg leading-6 tracking-[0.01em] pt-1 pb-2 lg:text-xl lg:leading-7",
+  body: "font-normal text-base leading-6 tracking-[0.015em] lg:text-lg",
+  bodySmall: "font-normal text-sm leading-5",
+  overline:
+    "font-normal text-xs uppercase font-suisse-mono tracking-[0.075em] pb-1 lg:text-sm lg:pb-2",
+};
 
-  // Font Sizes
-  $$0: "14px",
-  $$1: "18px",
-  $$2: "20px",
-  $$3: "20px",
-  $$4: "32px",
-
-  "@large": {
-    $$0: "14px",
-    $$1: "18px",
-    $$2: "20px",
-    $$3: "28px",
-    $$4: "36px",
-  },
-
-  variants: {
-    preset: {
-      xLargeHeading: {
-        fontWeight: 400,
-        fontSize: "28px",
-        lineHeight: "32px",
-        paddingBottom: "$space300",
-        paddingTop: "$space200",
-
-        "@medium": {
-          fontSize: "40px",
-          lineHeight: "48px",
-        },
-
-        "@large": {
-          fontSize: "52px",
-          lineHeight: "60px",
-          paddingBottom: "$space500",
-          paddingTop: "$space300",
-        },
-      },
-      largeHeading: {
-        fontWeight: 400,
-        fontSize: "24px",
-        lineHeight: "28px",
-        paddingBottom: "$space000",
-        paddingTop: "$space000",
-
-        "@large": {
-          fontSize: "36px",
-          lineHeight: "44px",
-          paddingTop: "$space100",
-        },
-      },
-      heading: {
-        fontWeight: 400,
-        fontSize: "20px",
-        lineHeight: "24px",
-        paddingTop: "$space100",
-        paddingBottom: "$space100",
-
-        "@large": {
-          fontSize: "22px",
-          lineHeight: "28px",
-        },
-      },
-      subHeading: {
-        fontWeight: 400,
-        fontSize: "18px",
-        lineHeight: "24px",
-        letterSpacing: "0.01em",
-        paddingBottom: "$space100",
-        paddingTop: "$space000",
-
-        "@large": {
-          fontSize: "20px",
-          lineHeight: "28px",
-          paddingBottom: "$space100",
-        },
-      },
-      body: {
-        fontWeight: 400,
-        fontSize: "16px",
-        lineHeight: "24px",
-        letterSpacing: "0.015em",
-        "@large": {
-          fontSize: "18px",
-          lineHeight: "24px",
-          letterSpacing: "0.015em",
-        },
-      },
-      bodySmall: {
-        fontWeight: 400,
-        fontSize: "$$0",
-        lineHeight: "20px",
-      },
-      overline: {
-        fontWeight: 400,
-        fontSize: "12px",
-        textTransform: "uppercase",
-        fontFamily: "$suisseMono",
-        letterSpacing: "0.075em",
-        paddingBottom: "$space000",
-
-        "@large": {
-          fontSize: "14px",
-          paddingBottom: "$space100",
-        },
-      },
-    },
-  },
-
-  defaultVariants: {
-    preset: "body",
-  },
-});
+const Text = ({ as: Component = "span", preset = "body", css, style, className = "", children, ...props }) => (
+  <Component
+    className={`inline-block m-0 text-gray-0 leading-[calc(1em+4px)] relative ${presetClasses[preset] ?? presetClasses.body} ${className}`.trim()}
+    style={{ ...stitchesToStyle(css), ...style }}
+    {...props}
+  >
+    {children}
+  </Component>
+);
 
 export default Text;

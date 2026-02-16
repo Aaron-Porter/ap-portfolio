@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gray000: #ffffff;
+  --gray100: #e9e9e9;
+  --gray200: #d9d9d9;
+  --gray300: #c4c4c4;
+  --gray400: #9d9d9d;
+  --gray500: #7b7b7b;
+  --gray600: #555555;
+  --gray700: #434343;
+  --gray800: #262626;
+  --gray900: #101010;
+  --gray1000: #000000;
+  --accent: #f66141;
+  --space000: 4px;
+  --space100: 8px;
+  --space200: 12px;
+  --space300: 16px;
+  --space400: 24px;
+  --space500: 32px;
+  --space600: 40px;
+  --space700: 64px;
+  --space800: 128px;
+  --space900: 192px;
+}
+
+.light {
+  --gray000: #000000;
+  --gray100: #101010;
+  --gray200: #262626;
+  --gray300: #434343;
+  --gray400: #555555;
+  --gray500: #7b7b7b;
+  --gray600: #9d9d9d;
+  --gray700: #c4c4c4;
+  --gray800: #d9d9d9;
+  --gray900: #e9e9e9;
+  --gray1000: #ffffff;
+}
+
+html {
+  font-family: "Suisse", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow: auto;
+  margin: 0;
+  background: var(--gray1000);
+}
