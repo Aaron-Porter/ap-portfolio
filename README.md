@@ -1,6 +1,12 @@
-## Aaron Porter's Portfolio Website
-[aaronporter.co](https://aaronporter.co/)
+# Aaron Porter — Portfolio
 
-Built with:
-- [Next.js](https://nextjs.org/)
-- [Stitches](https://stitches.dev)
+The source for [aaronporter.io](https://aaronporter.io), built with Next.js, StyleX, and Motion and deployed on Vercel.
+
+## Development
+
+```bash
+npm install
+npm run dev
+```
+
+Run `npm run typecheck` and `npm run build` before publishing changes.
