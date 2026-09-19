@@ -45,6 +45,7 @@ const projects: Project[] = [
   { name: "Carefull", start: "2020", end: "2021", href: "/projects/carefull", icon: "/assets/home/carefull.png" },
   { name: "Wayfair", start: "2018", end: "2022", href: "/projects/wayfair", icon: "/assets/home/wayfair.png" },
   { name: "YouTube", start: "2017", end: "2018", href: "/projects/youtube", icon: "/assets/home/youtube.png" },
+  { name: "Archive", start: "2015", end: "2016", href: "/archive/2016", image: "/assets/archive/hero-poster.jpg" },
 ];
 
 function ProjectCard({ project, eager = false }: { project: Project; eager?: boolean }) {
