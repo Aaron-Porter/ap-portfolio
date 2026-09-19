@@ -5,7 +5,7 @@ import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { usePathname, useRouter } from "next/navigation";
 import * as stylex from "@stylexjs/stylex";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 
 const ROOT = "/archive/2016";
 const RED = "#ff1717";
@@ -31,6 +31,13 @@ type LegacyProject = {
 
 type LegacyImage = { src: string; alt: string; contain?: boolean };
 type LegacyStep = { id: string; title: string; copy: string; images: LegacyImage[] };
+type ProjectTransition = {
+  project: LegacyProject;
+  direction: "toProject" | "toWork";
+  clipPath: string;
+  titleOffsetY: number;
+  titleScale: number;
+};
 
 const beachPng = new Set([167, 169, 188, 500, 505, 506, 507, 508, 509, 510, 511, 512]);
 const strictlyPng = new Set([42, 84, 95, 97, 463, 464, 481, 482, 486, 487, 488, 489, 490, 495, 496, 498]);
@@ -268,6 +275,44 @@ const archiveItems = [
   { title: "We, People of the Reaching", tag: "Film", image: "/assets/archive/reaching.png", href: "https://vimeo.com/104971630" },
 ];
 
+function recommendedWorkScroll(slug: LegacyProject["slug"]) {
+  const index = caseStudies.findIndex((project) => project.slug === slug);
+  const height = window.innerHeight;
+  if (window.innerWidth < 800) return Math.max(0, height + index * height * 0.4 - height * 0.3);
+  const panelTop = index === 0 ? height * 0.7 : index === 1 ? height * 1.3 + 100 : height * 1.9 + 200;
+  return Math.max(0, panelTop - height * 0.2);
+}
+
+function projectPanelMetrics(slug: LegacyProject["slug"], scrollY: number) {
+  const index = caseStudies.findIndex((project) => project.slug === slug);
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+  const mobile = width < 800;
+  const panelWidth = mobile ? width : width * 0.7;
+  const panelHeight = mobile ? height * 0.4 : height * 0.6;
+  const panelLeft = mobile ? 0 : width * 0.15;
+  const documentTop = mobile
+    ? height + index * height * 0.4
+    : index === 0 ? height * 0.7 : index === 1 ? height * 1.3 + 100 : height * 1.9 + 200;
+  const panelTop = documentTop - scrollY;
+  const right = Math.max(0, width - panelLeft - panelWidth);
+  const bottom = Math.max(0, height - panelTop - panelHeight);
+  const workTitleSize = mobile ? 54 : width >= 1024 ? 126 : 90;
+  const heroTitleSize = Math.min(360, Math.max(88, width * 0.2));
+  return {
+    clipPath: `inset(${Math.max(0, panelTop)}px ${right}px ${bottom}px ${panelLeft}px)`,
+    titleOffsetY: panelTop + panelHeight / 2 - height / 2,
+    titleScale: workTitleSize / heroTitleSize,
+  };
+}
+
+function storedWorkScroll() {
+  const stored = window.sessionStorage.getItem("legacyWorkScroll");
+  if (stored === null) return null;
+  const value = Number(stored);
+  return Number.isFinite(value) && value >= 0 ? value : null;
+}
+
 function Wordmark({ large = false, collapsed = false, dark = false }: { large?: boolean; collapsed?: boolean; dark?: boolean }) {
   const [hovered, setHovered] = useState(false);
   const reduced = useReducedMotion();
@@ -356,10 +401,8 @@ function HomeView() {
   );
 }
 
-function WorkProject({ project, index, activeProject, onActivate }: { project: LegacyProject; index: number; activeProject: LegacyProject["slug"] | null; onActivate: (slug: LegacyProject["slug"]) => void }) {
+function WorkProject({ project, index, activeProject, onActivate }: { project: LegacyProject; index: number; activeProject: LegacyProject["slug"] | null; onActivate: (project: LegacyProject, clipPath: string, titleOffsetY: number, titleScale: number) => void }) {
   const inactive = activeProject !== null && activeProject !== project.slug;
-  const active = activeProject === project.slug;
-  const router = useRouter();
   const href = `${ROOT}/project/${project.slug}`;
 
   return (
@@ -370,23 +413,28 @@ function WorkProject({ project, index, activeProject, onActivate }: { project: L
         index === 1 && styles.workProjectSecond,
         index === 2 && styles.workProjectThird,
         inactive && styles.workProjectInactive,
-        active && styles.workProjectActive,
       )}
       href={href}
       onClick={(event) => {
         if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
         event.preventDefault();
-        onActivate(project.slug);
-        window.setTimeout(() => router.push(href), 500);
+        const bounds = event.currentTarget.getBoundingClientRect();
+        const clipPath = `inset(${Math.max(0, bounds.top)}px ${Math.max(0, window.innerWidth - bounds.right)}px ${Math.max(0, window.innerHeight - bounds.bottom)}px ${Math.max(0, bounds.left)}px)`;
+        const title = event.currentTarget.querySelector("h2");
+        const currentTitleSize = title ? Number.parseFloat(window.getComputedStyle(title).fontSize) : 126;
+        const destinationTitleSize = Math.min(360, Math.max(88, window.innerWidth * 0.2));
+        const titleOffsetY = bounds.top + bounds.height / 2 - window.innerHeight / 2;
+        window.sessionStorage.setItem("legacyWorkScroll", String(window.scrollY));
+        onActivate(project, clipPath, titleOffsetY, currentTitleSize / destinationTitleSize);
       }}
     >
-      <motion.div {...stylex.props(styles.workProjectPanel)} layoutId={`legacy-project-${project.slug}`} transition={{ layout: { duration: 0.6, ease } }}>
-        <div {...stylex.props(styles.workProjectImage, active && styles.workProjectImageActive)}><Image {...stylex.props(styles.coverImage)} src={project.hero} alt="" fill sizes="100vw" quality={90} /></div>
+      <div {...stylex.props(styles.workProjectPanel)}>
+        <div {...stylex.props(styles.workProjectImage)}><Image {...stylex.props(styles.coverImage)} src={project.hero} alt="" fill sizes="100vw" quality={90} /></div>
         <div {...stylex.props(styles.workShade)} />
         <div {...stylex.props(styles.workProjectInfo)}>
           <h2 {...stylex.props(styles.workProjectTitle)}>{project.title}</h2>
         </div>
-      </motion.div>
+      </div>
     </Link>
   );
 }
@@ -403,15 +451,15 @@ function ArchiveItem({ item }: { item: (typeof archiveItems)[number] }) {
   return item.href ? <a href={item.href} target="_blank" rel="noreferrer">{content}</a> : content;
 }
 
-function WorkView() {
-  const [activeProject, setActiveProject] = useState<LegacyProject["slug"] | null>(null);
+function WorkView({ transition, onActivate }: { transition: ProjectTransition | null; onActivate: (project: LegacyProject, clipPath: string, titleOffsetY: number, titleScale: number) => void }) {
+  const activeProject = transition?.direction === "toProject" ? transition.project.slug : null;
 
   return (
     <div {...stylex.props(styles.workPage)}>
       <Link {...stylex.props(styles.directional, styles.directionalLeft)} href={`${ROOT}/about`}><Arrow left /> About Me</Link>
       <section {...stylex.props(styles.workLanding)}><h1 {...stylex.props(styles.workLandingTitle)}>Work</h1></section>
       <section {...stylex.props(styles.projectList)}>
-        {caseStudies.map((project, index) => <WorkProject key={project.slug} project={project} index={index} activeProject={activeProject} onActivate={setActiveProject} />)}
+        {caseStudies.map((project, index) => <WorkProject key={project.slug} project={project} index={index} activeProject={activeProject} onActivate={onActivate} />)}
       </section>
       <div {...stylex.props(styles.projectSizer)} aria-hidden="true" />
       <section {...stylex.props(styles.archive)}>
@@ -453,7 +501,7 @@ function ImageBlock({ image, eager = false, dense = false, onOpen }: { image: Le
   );
 }
 
-function CaseStudyView({ project }: { project: LegacyProject }) {
+function CaseStudyView({ project, transitionActive, onBackToWork }: { project: LegacyProject; transitionActive: boolean; onBackToWork: (project: LegacyProject, clipPath: string, titleOffsetY: number, titleScale: number) => void }) {
   const [lightbox, setLightbox] = useState<LegacyImage | null>(null);
   const [scrolled, setScrolled] = useState(false);
 
@@ -473,18 +521,31 @@ function CaseStudyView({ project }: { project: LegacyProject }) {
 
   return (
     <div {...stylex.props(styles.casePage)}>
-      <Link {...stylex.props(styles.caseBack)} href={`${ROOT}/work`}><Arrow left /> Back to work</Link>
+      <Link
+        {...stylex.props(styles.caseBack, transitionActive && styles.caseBackHidden)}
+        href={`${ROOT}/work`}
+        onClick={(event) => {
+          if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+          event.preventDefault();
+          const destinationScroll = storedWorkScroll() ?? recommendedWorkScroll(project.slug);
+          window.sessionStorage.setItem("legacyWorkScroll", String(destinationScroll));
+          const metrics = projectPanelMetrics(project.slug, destinationScroll);
+          onBackToWork(project, metrics.clipPath, metrics.titleOffsetY, metrics.titleScale);
+        }}
+      >
+        <Arrow left /> Back to work
+      </Link>
       <nav {...stylex.props(styles.caseNav, scrolled && styles.caseNavScrolled)} aria-label={`${project.title} sections`}>
         <a {...stylex.props(styles.caseNavLink)} href="#discovery">Discovery</a>
         <a {...stylex.props(styles.caseNavLink)} href="#creation">Creation</a>
         <a {...stylex.props(styles.caseNavLink)} href="#implementation">Implementation</a>
         <a {...stylex.props(styles.caseNavLink)} href="#deliverables">Final Deliverables</a>
       </nav>
-      <motion.section {...stylex.props(styles.caseHero)} layoutId={`legacy-project-${project.slug}`} transition={{ layout: { duration: 0.6, ease } }}>
+      <section {...stylex.props(styles.caseHero)}>
         <Image {...stylex.props(styles.coverImage)} src={project.hero} alt={project.heroAlt} fill sizes="100vw" quality={90} priority />
         <div {...stylex.props(styles.caseHeroShade)} />
         <h1 {...stylex.props(styles.caseHeroTitle)} style={{ color: project.slug === "thrive" ? project.accent : "#fff" }}>{project.title}</h1>
-      </motion.section>
+      </section>
       <main {...stylex.props(styles.caseMain)}>
         <section {...stylex.props(styles.caseIntro)}>
           <div {...stylex.props(styles.caseContent)}>
@@ -556,13 +617,12 @@ function GrainOverlay() {
     const patternContext = patternCanvas.getContext("2d");
     if (!patternContext) return;
     const patternData = patternContext.createImageData(150, 150);
-    let animationFrame = 0;
-    let frame = 0;
+    let timer = 0;
 
     const resize = () => {
-      const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
-      canvas.width = Math.max(1, Math.round(canvas.clientWidth * pixelRatio));
-      canvas.height = Math.max(1, Math.round(canvas.clientHeight * pixelRatio));
+      canvas.width = Math.max(1, Math.round(canvas.clientWidth));
+      canvas.height = Math.max(1, Math.round(canvas.clientHeight));
+      update();
     };
 
     const update = () => {
@@ -579,19 +639,12 @@ function GrainOverlay() {
       context.fillRect(0, 0, canvas.width, canvas.height);
     };
 
-    const loop = () => {
-      frame += 1;
-      if (frame % 8 === 0) update();
-      animationFrame = requestAnimationFrame(loop);
-    };
-
     resize();
-    update();
     window.addEventListener("resize", resize);
-    animationFrame = requestAnimationFrame(loop);
+    timer = window.setInterval(update, 1000 / 7.5);
     return () => {
       window.removeEventListener("resize", resize);
-      cancelAnimationFrame(animationFrame);
+      window.clearInterval(timer);
     };
   }, []);
 
@@ -599,96 +652,90 @@ function GrainOverlay() {
 }
 
 function BackgroundSequence({ view }: { view: string }) {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const framesRef = useRef<HTMLImageElement[]>([]);
+  const forwardRef = useRef<HTMLVideoElement>(null);
+  const reverseRef = useRef<HTMLVideoElement>(null);
   const targetFrame = view === "home" ? 0 : view === "about" ? 170 : 80;
   const currentFrameRef = useRef(targetFrame);
-  const [framesReady, setFramesReady] = useState(false);
+  const [posterFrame, setPosterFrame] = useState(targetFrame);
+  const [activeDirection, setActiveDirection] = useState<"forward" | "reverse" | null>(null);
   const reduced = useReducedMotion();
-  const poster = view === "home" ? "/assets/archive/main-000.jpg" : view === "about" ? "/assets/archive/main-170.jpg" : "/assets/archive/hero-poster.jpg";
-
-  const drawFrame = useCallback((frameNumber: number) => {
-    const canvas = canvasRef.current;
-    const image = framesRef.current[frameNumber];
-    if (!canvas || !image?.naturalWidth) return;
-    const context = canvas.getContext("2d");
-    if (!context) return;
-    const bounds = canvas.getBoundingClientRect();
-    const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
-    const width = Math.max(1, Math.round(bounds.width * pixelRatio));
-    const height = Math.max(1, Math.round(bounds.height * pixelRatio));
-    if (canvas.width !== width || canvas.height !== height) {
-      canvas.width = width;
-      canvas.height = height;
-    }
-    const scale = Math.max(width / image.naturalWidth, height / image.naturalHeight);
-    const renderedWidth = image.naturalWidth * scale;
-    const renderedHeight = image.naturalHeight * scale;
-    context.clearRect(0, 0, width, height);
-    context.drawImage(image, (width - renderedWidth) / 2, (height - renderedHeight) / 2, renderedWidth, renderedHeight);
-  }, []);
 
   useEffect(() => {
-    let cancelled = false;
-    const frames = Array.from({ length: 171 }, (_, frameNumber) => {
-      const image = new window.Image();
-      image.decoding = "async";
-      image.src = `/assets/archive/frames/video_bg-${frameNumber + 1}.jpg`;
-      return image;
-    });
-
-    Promise.all(frames.map((image) => image.complete && image.naturalWidth > 0
-      ? Promise.resolve()
-      : new Promise<void>((resolve) => {
-        image.onload = () => resolve();
-        image.onerror = () => resolve();
-      }))).then(() => {
-      if (cancelled) return;
-      framesRef.current = frames;
-      setFramesReady(true);
-      drawFrame(currentFrameRef.current);
-    });
-
-    const redraw = () => drawFrame(currentFrameRef.current);
-    window.addEventListener("resize", redraw);
-    return () => {
-      cancelled = true;
-      window.removeEventListener("resize", redraw);
-    };
-  }, [drawFrame]);
-
-  useEffect(() => {
-    if (!framesReady) return;
     const startFrame = currentFrameRef.current;
     const distance = Math.abs(targetFrame - startFrame);
     if (reduced || distance === 0) {
       currentFrameRef.current = targetFrame;
-      drawFrame(targetFrame);
+      setPosterFrame(targetFrame);
+      setActiveDirection(null);
       return;
     }
 
-    const direction = targetFrame > startFrame ? 1 : -1;
-    const startTime = performance.now();
-    let lastFrame = startFrame;
+    const direction = targetFrame > startFrame ? "forward" : "reverse";
+    const video = direction === "forward" ? forwardRef.current : reverseRef.current;
+    const otherVideo = direction === "forward" ? reverseRef.current : forwardRef.current;
+    if (!video) return;
+    otherVideo?.pause();
+    const startTime = direction === "forward" ? startFrame / 24 : (170 - startFrame) / 24;
+    const endTime = direction === "forward" ? targetFrame / 24 : (170 - targetFrame) / 24;
     let animationFrame = 0;
-    const play = (now: number) => {
-      const elapsedFrames = Math.min(distance, Math.floor((now - startTime) / (1000 / 24)));
-      const nextFrame = startFrame + direction * elapsedFrames;
-      if (nextFrame !== lastFrame) {
-        lastFrame = nextFrame;
-        currentFrameRef.current = nextFrame;
-        drawFrame(nextFrame);
-      }
-      if (elapsedFrames < distance) animationFrame = requestAnimationFrame(play);
+    let cancelled = false;
+
+    const finish = () => {
+      video.pause();
+      currentFrameRef.current = targetFrame;
+      setPosterFrame(targetFrame);
+      requestAnimationFrame(() => {
+        if (!cancelled) setActiveDirection(null);
+      });
     };
-    animationFrame = requestAnimationFrame(play);
-    return () => cancelAnimationFrame(animationFrame);
-  }, [drawFrame, framesReady, reduced, targetFrame]);
+
+    const monitor = () => {
+      const rawFrame = direction === "forward" ? video.currentTime * 24 : 170 - video.currentTime * 24;
+      currentFrameRef.current = Math.max(0, Math.min(170, Math.round(rawFrame)));
+      if (video.currentTime >= endTime - 1 / 48 || video.ended) {
+        finish();
+        return;
+      }
+      animationFrame = requestAnimationFrame(monitor);
+    };
+
+    const play = () => {
+      if (cancelled) return;
+      setActiveDirection(direction);
+      video.play().then(() => {
+        if (!cancelled) animationFrame = requestAnimationFrame(monitor);
+      }).catch(finish);
+    };
+
+    const onSeeked = () => play();
+    video.pause();
+    video.currentTime = startTime;
+    if (!video.seeking && Math.abs(video.currentTime - startTime) < 1 / 48 && video.readyState >= 2) play();
+    else video.addEventListener("seeked", onSeeked, { once: true });
+
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(animationFrame);
+      video.removeEventListener("seeked", onSeeked);
+      video.pause();
+    };
+  }, [reduced, targetFrame]);
+
+  const posters = [
+    { frame: 0, src: "/assets/archive/main-000.jpg" },
+    { frame: 80, src: "/assets/archive/hero-poster.jpg" },
+    { frame: 170, src: "/assets/archive/main-170.jpg" },
+  ];
 
   return (
     <div {...stylex.props(styles.backgroundSequence, view === "about" && styles.backgroundAbout)}>
-      <Image {...stylex.props(styles.backgroundPoster)} src={poster} alt="" fill sizes="100vw" quality={90} priority />
-      <canvas ref={canvasRef} {...stylex.props(styles.backgroundFrames, framesReady && styles.backgroundFramesReady)} aria-hidden="true" />
+      {posters.map((poster) => <Image key={poster.frame} {...stylex.props(styles.backgroundPoster, posterFrame !== poster.frame && styles.backgroundPosterHidden)} src={poster.src} alt="" fill sizes="100vw" quality={90} priority />)}
+      <video ref={forwardRef} {...stylex.props(styles.backgroundVideo, activeDirection === "forward" && styles.backgroundVideoActive)} muted playsInline preload="auto" aria-hidden="true">
+        <source src="/assets/archive/hero-loop.mp4" type="video/mp4" />
+      </video>
+      <video ref={reverseRef} {...stylex.props(styles.backgroundVideo, activeDirection === "reverse" && styles.backgroundVideoActive)} muted playsInline preload="auto" aria-hidden="true">
+        <source src="/assets/archive/hero-loop-reverse.mp4" type="video/mp4" />
+      </video>
       <GrainOverlay />
     </div>
   );
@@ -696,6 +743,7 @@ function BackgroundSequence({ view }: { view: string }) {
 
 export function LegacyPortfolio() {
   const pathname = usePathname();
+  const router = useRouter();
   const view = useMemo(() => {
     const rest = pathname.slice(ROOT.length).split("/").filter(Boolean);
     if (!rest.length) return "home";
@@ -708,14 +756,43 @@ export function LegacyPortfolio() {
   const backgroundView = view === "about" ? "about" : view === "home" ? "home" : "work";
   const previousViewRef = useRef(view);
   const workScrollRef = useRef(0);
+  const reverseAnimationFinishedRef = useRef(false);
+  const [projectTransition, setProjectTransition] = useState<ProjectTransition | null>(null);
 
-  useEffect(() => {
+  const openProject = (activeProject: LegacyProject, clipPath: string, titleOffsetY: number, titleScale: number) => {
+    reverseAnimationFinishedRef.current = false;
+    setProjectTransition({ project: activeProject, direction: "toProject", clipPath, titleOffsetY, titleScale });
+  };
+
+  const returnToWork = (activeProject: LegacyProject, clipPath: string, titleOffsetY: number, titleScale: number) => {
+    reverseAnimationFinishedRef.current = false;
+    setProjectTransition({ project: activeProject, direction: "toWork", clipPath, titleOffsetY, titleScale });
+    window.requestAnimationFrame(() => router.push(`${ROOT}/work`, { scroll: false }));
+  };
+
+  useLayoutEffect(() => {
     const previousView = previousViewRef.current;
-    if (previousView === "work" && view.startsWith("project:")) workScrollRef.current = window.scrollY;
-    const top = view === "work" && previousView.startsWith("project:") ? workScrollRef.current : 0;
+    if (previousView === "work" && view.startsWith("project:")) {
+      workScrollRef.current = window.scrollY;
+      window.sessionStorage.setItem("legacyWorkScroll", String(window.scrollY));
+    }
+    const savedWorkScroll = storedWorkScroll();
+    const top = view === "work" && previousView.startsWith("project:")
+      ? savedWorkScroll ?? workScrollRef.current
+      : 0;
     window.scrollTo({ top, left: 0, behavior: "instant" });
     previousViewRef.current = view;
   }, [view]);
+
+  useEffect(() => {
+    if (projectTransition?.direction === "toProject" && view === `project:${projectTransition.project.slug}`) {
+      const frame = window.requestAnimationFrame(() => setProjectTransition(null));
+      return () => window.cancelAnimationFrame(frame);
+    }
+    if (projectTransition?.direction === "toWork" && view === "work" && reverseAnimationFinishedRef.current) {
+      setProjectTransition(null);
+    }
+  }, [projectTransition, view]);
 
   return (
     <div {...stylex.props(styles.legacyRoot)}>
@@ -723,13 +800,48 @@ export function LegacyPortfolio() {
       <BackgroundSequence view={backgroundView} />
       <LegacyMobileMenu dark={view === "about"} />
       {view !== "home" && <LegacyHeader view={view === "about" ? "about" : project ? "case" : "work"} />}
-      <AnimatePresence initial={false}>
-        <motion.div key={view} {...stylex.props(styles.legacyScene)} initial={false}>
-          {view === "home" && <HomeView />}
-          {view === "work" && <WorkView />}
-          {view === "about" && <AboutView />}
-          {project && <CaseStudyView project={project} />}
-        </motion.div>
+      <div key={view} {...stylex.props(styles.legacyScene)}>
+        {view === "home" && <HomeView />}
+        {view === "work" && <WorkView transition={projectTransition} onActivate={openProject} />}
+        {view === "about" && <AboutView />}
+        {project && <CaseStudyView project={project} transitionActive={projectTransition?.direction === "toWork"} onBackToWork={returnToWork} />}
+      </div>
+      <AnimatePresence>
+        {projectTransition && (
+          <motion.div
+            key={`${projectTransition.direction}-${projectTransition.project.slug}`}
+            {...stylex.props(styles.projectTransitionOverlay)}
+            initial={{ clipPath: projectTransition.direction === "toProject" ? projectTransition.clipPath : "inset(0px 0px 0px 0px)" }}
+            animate={{ clipPath: projectTransition.direction === "toProject" ? "inset(0px 0px 0px 0px)" : projectTransition.clipPath }}
+            transition={{ duration: 0.42, ease }}
+            onAnimationComplete={() => {
+              if (projectTransition.direction === "toProject") {
+                router.push(`${ROOT}/project/${projectTransition.project.slug}`, { scroll: false });
+                return;
+              }
+              reverseAnimationFinishedRef.current = true;
+              if (view === "work") setProjectTransition(null);
+            }}
+          >
+            <Image {...stylex.props(styles.coverImage)} src={projectTransition.project.hero} alt="" fill sizes="100vw" quality={90} priority />
+            <div {...stylex.props(styles.workShade)} />
+            <motion.h2
+              {...stylex.props(styles.caseHeroTitle)}
+              style={{ color: projectTransition.project.slug === "thrive" ? projectTransition.project.accent : "#fff" }}
+              initial={{
+                y: projectTransition.direction === "toProject" ? projectTransition.titleOffsetY : 0,
+                scale: projectTransition.direction === "toProject" ? projectTransition.titleScale : 1,
+              }}
+              animate={{
+                y: projectTransition.direction === "toProject" ? 0 : projectTransition.titleOffsetY,
+                scale: projectTransition.direction === "toProject" ? 1 : projectTransition.titleScale,
+              }}
+              transition={{ duration: 0.42, ease }}
+            >
+              {projectTransition.project.title}
+            </motion.h2>
+          </motion.div>
+        )}
       </AnimatePresence>
     </div>
   );
@@ -740,9 +852,10 @@ const styles = stylex.create({
   legacyScene: { position: "relative", zIndex: 5, minHeight: "100vh" },
   backgroundSequence: { position: "fixed", zIndex: 0, inset: 0, width: "100%", height: "100vh", overflow: "hidden", transition: "transform 1.5s ease" },
   backgroundAbout: { transform: "translate3d(25%,0,0)", "@media (max-width: 700px)": { transform: "none" } },
-  backgroundPoster: { position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" },
-  backgroundFrames: { position: "absolute", zIndex: 1, inset: 0, width: "100%", height: "100%", opacity: 0 },
-  backgroundFramesReady: { opacity: 1 },
+  backgroundPoster: { position: "absolute", zIndex: 0, inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 1 },
+  backgroundPosterHidden: { opacity: 0 },
+  backgroundVideo: { position: "absolute", zIndex: 1, inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0, pointerEvents: "none", transform: "translate3d(0,0,0)" },
+  backgroundVideoActive: { opacity: 1 },
   grainCanvas: { position: "absolute", zIndex: 10, inset: 0, width: "100%", height: "100%", pointerEvents: "none", transform: "translate3d(0,0,0) rotate(360deg)", backfaceVisibility: "hidden" },
   wordmark: { display: "inline-flex", alignItems: "baseline", overflow: "visible", color: "#fff", fontSize: 36, fontWeight: 700, lineHeight: .8, letterSpacing: 0, whiteSpace: "nowrap" },
   wordmarkLarge: { color: RED, fontSize: 270, marginTop: "-.15em", "@media (max-width: 1119px)": { fontSize: 144 }, "@media (max-width: 799px)": { fontSize: 90 } },
@@ -770,15 +883,14 @@ const styles = stylex.create({
   workLandingTitle: { margin: 0, fontSize: 90, fontWeight: 700, letterSpacing: "-.02em", lineHeight: 1, "@media (min-width: 800px)": { fontSize: 180 }, "@media (min-width: 1024px)": { fontSize: 270 } },
   projectList: { position: "absolute", zIndex: 10, top: 0, left: 0, width: "100%", height: "calc(250vh + 200px)", padding: 0, overflow: "hidden", pointerEvents: "none", backgroundColor: "transparent", "@media (max-width: 799px)": { position: "relative", height: "auto", overflow: "visible" } },
   projectSizer: { display: "block", height: "180vh", "@media (max-width: 799px)": { display: "none" } },
-  workProject: { position: "absolute", zIndex: 10, display: "block", left: "15vw", width: "70vw", height: "60vh", overflow: "visible", pointerEvents: "auto", backgroundColor: "#000", color: "#fff", transition: "top .5s cubic-bezier(0,1,.5,1), left .5s cubic-bezier(0,1,.5,1), width .5s cubic-bezier(0,1,.5,1), height .5s cubic-bezier(0,1,.5,1), opacity .3s ease, transform .75s cubic-bezier(0,1,.5,1)", ":hover": { transform: "scale(1.1)" }, "@media (max-width: 799px)": { position: "relative", top: "0", left: 0, width: "100vw", height: "40vh", overflow: "hidden" } },
+  workProject: { position: "absolute", zIndex: 10, display: "block", left: "15vw", width: "70vw", height: "60vh", overflow: "visible", pointerEvents: "auto", backgroundColor: "#000", color: "#fff", transition: "opacity .25s ease, transform .5s cubic-bezier(0,1,.5,1)", willChange: "transform", ":hover": { transform: "scale(1.06)" }, "@media (max-width: 799px)": { position: "relative", top: "0", left: 0, width: "100vw", height: "40vh", overflow: "hidden" } },
   workProjectFirst: { top: "70vh", "@media (max-width: 799px)": { top: 0 } },
   workProjectSecond: { top: "calc(130vh + 100px)", "@media (max-width: 799px)": { top: 0 } },
   workProjectThird: { top: "calc(190vh + 200px)", "@media (max-width: 799px)": { top: 0 } },
   workProjectInactive: { opacity: 0, pointerEvents: "none" },
-  workProjectActive: { position: "fixed", zIndex: 60, top: 0, left: 0, width: "100vw", height: "100vh", transform: "none", ":hover": { transform: "none" }, "@media (max-width: 799px)": { position: "fixed", top: 0, left: 0, width: "100vw", height: "100vh" } },
   workProjectPanel: { position: "relative", display: "flex", width: "100%", height: "100%", alignItems: "center", justifyContent: "center", overflow: "hidden", isolation: "isolate" },
-  workProjectImage: { position: "absolute", zIndex: -2, top: "-20vh", left: "-15vw", width: "100vw", height: "100vh", transition: "top .5s cubic-bezier(0,1,.5,1), left .5s cubic-bezier(0,1,.5,1)", "@media (max-width: 799px)": { inset: 0, width: "100%", height: "100%" } },
-  workProjectImageActive: { top: 0, left: 0 },
+  workProjectImage: { position: "absolute", zIndex: -2, top: "-20vh", left: "-15vw", width: "100vw", height: "100vh", "@media (max-width: 799px)": { inset: 0, width: "100%", height: "100%" } },
+  projectTransitionOverlay: { position: "fixed", zIndex: 75, inset: 0, display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", isolation: "isolate", pointerEvents: "none", backgroundColor: "#000", color: "#fff", willChange: "clip-path" },
   coverImage: { position: "absolute", zIndex: -2, inset: 0, width: "100%", height: "100%", objectFit: "cover" },
   workShade: { position: "absolute", zIndex: -1, inset: 0, backgroundColor: "rgba(0,0,0,.16)" },
   workProjectInfo: { textAlign: "center", transition: "transform 1s cubic-bezier(0,1,.5,1)", ":hover": { transform: "scale(1.2)" } },
@@ -807,7 +919,8 @@ const styles = stylex.create({
   resume: { display: "flex", alignItems: "center", justifyContent: "center", color: RED },
   aboutFooter: { padding: "70px 0", backgroundColor: "#fff", textAlign: "center" },
   casePage: { position: "relative", backgroundColor: "#fff" },
-  caseBack: { position: "fixed", zIndex: 85, top: 96, left: "3%", display: "flex", alignItems: "center", color: "#fff", fontSize: 16, "@media (max-width: 599px)": { display: "none" } },
+  caseBack: { position: "fixed", zIndex: 85, top: 96, left: "3%", display: "flex", alignItems: "center", color: "#fff", fontSize: 16, opacity: 1, transition: "opacity .15s ease", "@media (max-width: 599px)": { display: "none" } },
+  caseBackHidden: { opacity: 0, pointerEvents: "none" },
   caseNav: { position: "fixed", zIndex: 70, left: "3%", bottom: "3em", display: "flex", flexDirection: "column", gap: 5, color: "#fff", fontSize: 18, transform: "none", mixBlendMode: "difference", transition: "bottom 1s cubic-bezier(0,1,.5,1),transform 1s cubic-bezier(0,1,.5,1)", "@media (max-width: 599px)": { display: "none" } },
   caseNavScrolled: { bottom: "50%", transform: "translateY(50%)" },
   caseNavLink: { transition: "transform .3s cubic-bezier(0,1,.5,1)", ":hover": { transform: "translateX(20px)" } },
@@ -833,7 +946,7 @@ const styles = stylex.create({
   discoverySubtitle: { fontSize: 18, fontWeight: 400 },
   creationDark: { backgroundColor: "#2a2c29", color: "#fff" },
   implementation: { backgroundColor: "#000", color: "#fff" },
-  caseStepBlock: { paddingBottom: 120, "@media (max-width: 799px)": { paddingBottom: 70 } },
+  caseStepBlock: { paddingBottom: 120, contentVisibility: "auto", containIntrinsicSize: "900px", "@media (max-width: 799px)": { paddingBottom: 70 } },
   step: { maxWidth: 720, paddingBottom: 60 },
   stepNumber: { fontWeight: 700 },
   stepTitle: { margin: "4px 0 18px", fontSize: 36 },
@@ -843,7 +956,7 @@ const styles = stylex.create({
   caseImage: { width: "100%", height: "100%", objectFit: "cover", opacity: .55, transform: "scale(1.15)", transition: "transform .8s cubic-bezier(0,1,.5,1),opacity .3s cubic-bezier(0,1,.5,1)", ":hover": { opacity: 1, transform: "scale(1)" } },
   containImage: { objectFit: "contain", padding: 40 },
   caseImageButtonDense: { height: "15vh", minHeight: 120 },
-  deliverables: { padding: 0, backgroundColor: "#000", color: "#fff" },
+  deliverables: { padding: 0, backgroundColor: "#000", color: "#fff", contentVisibility: "auto", containIntrinsicSize: "1200px" },
   deliverablesTitle: { margin: 0, padding: "24px 0", textAlign: "center", fontSize: 18, fontWeight: 400 },
   videoGrid: { display: "grid", gridTemplateColumns: "1fr 1fr", width: "100%", backgroundColor: "#000", "@media (max-width: 699px)": { gridTemplateColumns: "1fr" } },
   videoFrame: { position: "relative", aspectRatio: "16 / 9", overflow: "hidden", backgroundColor: "#000" },
