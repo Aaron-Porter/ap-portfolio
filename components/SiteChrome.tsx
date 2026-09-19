@@ -8,7 +8,8 @@ import { useState } from "react";
 
 export function FloatingNav() {
   const pathname = usePathname();
-  const work = pathname === "/" || pathname.startsWith("/projects/") || pathname.startsWith("/archive/");
+  if (pathname.startsWith("/archive/2016")) return null;
+  const work = pathname === "/" || pathname.startsWith("/projects/");
   const about = pathname === "/about";
 
   return (
