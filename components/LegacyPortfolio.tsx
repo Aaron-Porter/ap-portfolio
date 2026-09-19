@@ -429,7 +429,7 @@ function WorkProject({ project, index, activeProject, onActivate }: { project: L
       }}
     >
       <div {...stylex.props(styles.workProjectPanel)}>
-        <div {...stylex.props(styles.workProjectImage)}><Image {...stylex.props(styles.coverImage)} src={project.hero} alt="" fill sizes="100vw" quality={90} /></div>
+        <div {...stylex.props(styles.workProjectImage)}><Image {...stylex.props(styles.coverImage)} src={project.hero} alt="" fill sizes="100vw" quality={90} loading="eager" /></div>
         <div {...stylex.props(styles.workShade)} />
         <div {...stylex.props(styles.workProjectInfo)}>
           <h2 {...stylex.props(styles.workProjectTitle)}>{project.title}</h2>
